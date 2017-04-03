@@ -22,6 +22,7 @@ define("BOTON_NO","No");
 define("BOTON_SELECCIONAR","Seleccionar");
 define("BOTON_VERSITIO","Ver sitio");
 define("BOTON_SELECCIONARIMAGENES","Seleccionar imagenes");
+define("TEXTO_ARCHIVO_SYSTEMA","Archivos de sistema");
 
 /* CAMPOS FORMULARIOS */
 define("CAMPO_FORM_OBLIGATORIO","Campo Obligatorio");
@@ -79,4 +80,9 @@ define("CAMPO_FORM_SUBMENU","Submenú");
 define("CAMPO_FORM_TITLE_SUBMENU","Id del submenú el link que habre va con '#'");
 define("CAMPO_FORM_PLACEHOLDER_SUBMENU","Id submenú");
 define("CAMPO_FORM_VISTAMENU","Vista del menú");
+
+//SISTEMA MODULOS
+define("TITULO_MODULOS","Modulos");
+define("TITULO_LISTADO_MODULOS","Listado modulos");
+
 ?>

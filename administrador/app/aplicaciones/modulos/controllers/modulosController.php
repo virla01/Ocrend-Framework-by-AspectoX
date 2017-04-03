@@ -21,10 +21,8 @@ class modulosController extends Controllers {
 				if($_POST){
 					$obj->crear();
 				}else{
-					$posicion = $obj->get_position_menues();
-					echo $this->template->render('html/menus/crear', array(
-						'posicion' => $posicion
-					));
+					//$posicion = $obj->get_position_menues();
+					echo $this->template->render('html/modulos/crear');
 				}
 				break;
 
@@ -34,12 +32,12 @@ class modulosController extends Controllers {
 					  $obj->editar();
 				  }else{
 					  $menus = $obj->get_menu();
-					  echo $this->template->render('html/menus/editar', array(
+					  echo $this->template->render('html/modulos/editar', array(
 						  'men' => array('me' => $menus)
 					  ));
 				  }
 				}else{
-				  Func::redir(URL . 'menus/');
+				  Func::redir(URL . 'modulos/');
 				}
 				break;
 
@@ -47,14 +45,14 @@ class modulosController extends Controllers {
 				if($this->isset_id){
 					echo 'Borrando el usuario';
 				}else{
-					Func::redir(URL . 'menus/');
+					Func::redir(URL . 'modulos/');
 				}
 				break;
 
 			default:
-				$menus = $obj->get_menues_lista();
-				echo $this->template->render('html/menus/menus', array(
-					'menus' => $menus
+				$modulos = $obj->get_modulos_lista();
+				echo $this->template->render('html/modulos/lista', array(
+					'modulos' => $modulos
 				));
 				break;
 		}

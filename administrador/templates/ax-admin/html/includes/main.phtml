@@ -8,26 +8,29 @@
 						</div>
 					</div>
 					<!-- Comienza contenido general del sitio -->
-
+						<?php
+						$mod = new Modulos;
+						$m = $mod->get_position_modulos();
+							//$this->insert('html/ax-noticias/ax-menu')
+							foreach($m as $item){
+						?>
 						<!-- Columna 01 -->
 						<div class="movil-12 pc-8">
 							<?php
-								//$this->insert('html/ax-noticias/ax-menu')
+							if($item['modulo'] == "vistas"){
+								echo $this->insert($item['ruta']);
+							}
 							?>
-
-							<?=	$this->insert('html/widgets/visitas/visitasCont');?>
 						</div>
 						<!-- Fin columna 01 -->
 
 						<!-- Columna 02 -->
 						<div class="movil-12 pc-4">
-							<?= $this->insert('html/widgets/masleidos/masleidos');?>
+							
 						</div>
 						<!-- Fin columna 02 -->
 
-
-
-
+						<?php } ?>
 
 					<!-- Finaliza contenido general del sitio -->
 				</div>
