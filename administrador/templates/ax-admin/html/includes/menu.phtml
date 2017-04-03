@@ -1,0 +1,30 @@
+
+	<!-- COMIENZA EL WRAPPER -->
+	<div id="wrapper">
+		<aside id="sidebar" class="sidebar">
+			<div class="sidebar-inner">
+				<div class="sidebar-contenedor">
+					<div class="sidebar-panel">
+						<h5 class="sidebar-panel-title"><?= TEX_PERFIL ?></h5>
+					</div>
+					<div class="user-info clearfix">
+						<img src="<?= URL . '/avatar/' . $_SESSION['AVATAR']?>" alt="<?= $_SESSION['USUARIO'] ?>">
+						<span class="name"><b><?= TEX_BIENVENIDO ?></b> <?= $_SESSION['USUARIO'] ?></span>
+						<ul>
+							<li><a href="users/perfil/<?= $_SESSION['app_id']?>" title="<?= TEX_PERFIL ?>"><i class="fa fa-user" title="<?= TEX_PERFIL ?>"></i></a></li>
+							<li><a href="login/logout/" title="<?= TEX_CERRAR ?>"><i class="fa fa-power-off" title="<?= TEX_CERRAR ?>"></i></a></li>
+						</ul>
+					</div>
+					<div class="sidebar-panel">
+						<h5 class="sidebar-panel-title"><?= TEX_NAVEGACION ?></h5>
+					</div>
+					<div class="side-nav">
+						<ul id="accordion" class="nav">
+							<?php
+							$this->insert('html/widgets/mainmenu/menu');
+							?>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</aside>

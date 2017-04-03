@@ -1,0 +1,174 @@
+.boton{
+	display: inline-block;
+	padding: 6px 12px;
+	font-size: $font-size-base;
+	font-weight: normal;
+	line-height: $line-height-base;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border: 1px solid transparent;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	width: auto;
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+input[type="button"].boton, input[type="submit"].boton{
+	display: inline-block;
+	padding: 6px 12px;
+	font-size: $font-size-base;
+	font-weight: normal;
+	line-height: $line-height-base;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	-webkit-appearance: button;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	width: auto;
+	height: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.boton.default,
+input[type="button"].boton.default, input[type="submit"].boton.default,
+button.boton.default{
+	color: $color-boton-texto-default;
+	background: $color-boton-default;
+	border-color: $color-boton-borde-default;
+}
+
+.boton.active.focus, .boton.active:focus, .boton.active:hover,
+.boton:active.focus, .boton:active:focus, .boton:active:hover,
+a:hover.boton, .boton:hover, a:active.boton, .boton:active,input[type="button"].boton:active.focus,
+input[type="submit"].boton:active.focus, button.boton:active.focus,input[type="button"].boton:hover,
+input[type="submit"].boton:hover, button.boton:hover{
+	color: $color-boton-texto-default;
+	background: $color-boton-default-hover;
+	border-color: $color-boton-borde-default-hover;
+}
+
+.boton.primary,a:link.boton.primary, .boton.primary:link,
+input[type="button"].boton.primary, input[type="submit"].boton.primary,
+button.boton.primary{
+	color: $color-boton-texto-primary;
+	background-color: $color-boton-primary;
+	border-color: $color-boton-borde-primary;
+}
+
+.boton.primary.active.focus, .boton.primary.active:focus, .boton.primary.active:hover,
+.boton.primary:active.focus, .boton.primary:active:focus, .boton.primary:active:hover,
+a:hover.boton.primary, .boton.primary:hover, a:active.boton.primary, .boton.primary:active,input[type="button"].boton.primary:active.focus,
+input[type="submit"].boton.primary:active.focus, button.boton.primary:active.focus,input[type="button"].boton.primary:hover,
+input[type="submit"].boton.primary:hover, button.boton.primary:hover{
+	color: $color-boton-texto-primary;
+	background: $color-boton-primary-hover;
+	border-color: $color-boton-borde-primary-hover;
+}
+
+.boton.success,a:link.boton.success, .boton.success:link,
+input[type="button"].boton.success, input[type="submit"].boton.success,
+button.boton.success{
+	color: $color-boton-texto-success;
+	background: $color-boton-success;
+	border-color: $color-boton-borde-success;
+}
+
+.boton.success.active.focus, .boton.success.active:focus, .boton.success.active:hover,
+.boton.success:active.focus, .boton.success:active:focus, .boton.success:active:hover,
+a:hover.boton.success, .boton.success:hover, a:active.boton.success, .boton.success:active,input[type="button"].boton.success:active.focus,
+input[type="submit"].boton.success:active.focus, button.boton.success:active.focus,input[type="button"].boton.success:hover,
+input[type="submit"].boton.success:hover, button.boton.success:hover{
+	color: $color-boton-texto-success;
+	background: $color-boton-success-hover;
+	border-color: $color-boton-borde-success-hover;
+}
+
+
+.boton.info,a:link.boton.info, .boton.info:link,
+input[type="button"].boton.info, input[type="submit"].boton.info,
+button.boton.info{
+	color: $color-boton-texto-info;
+	background: $color-boton-info;
+	border-color: $color-boton-borde-info;
+}
+
+.boton.info.active.focus, .boton.info.active:focus, .boton.info.active:hover,
+.boton.info:active.focus, .boton.info:active:focus, .boton.info:active:hover,
+a:hover.boton.info, .boton.info:hover, a:active.boton.info, .boton.info:active,input[type="button"].boton.info:active.focus,
+input[type="submit"].boton.info:active.focus, button.boton.info:active.focus,input[type="button"].boton.info:hover,
+input[type="submit"].boton.info:hover, button.boton.info:hover{
+	color: $color-boton-texto-info;
+	background: $color-boton-info-hover;
+	border-color: $color-boton-borde-info-hover;
+}
+
+
+.boton.warning,a:link.boton.warning, .boton.warning:link,
+input[type="button"].boton.warning, input[type="submit"].boton.warning,
+button.boton.warning{
+	color: $color-boton-texto-warning;
+	background: $color-boton-warning;
+	border-color: $color-boton-borde-warning;
+}
+
+.boton.warning.active.focus, .boton.warning.active:focus, .boton.warning.active:hover,
+.boton.warning:active.focus, .boton.warning:active:focus, .boton.warning:active:hover,
+a:hover.boton.warning, .boton.warning:hover, a:active.boton.warning, .boton.warning:active,input[type="button"].boton.warning:active.focus,
+input[type="submit"].boton.warning:active.focus, button.boton.warning:active.focus,input[type="button"].boton.warning:hover,
+input[type="submit"].boton.warning:hover, button.boton.warning:hover{
+	color: $color-boton-texto-warning;
+	background: $color-boton-warning-hover;
+	border-color: $color-boton-borde-warning-hover;
+}
+
+.boton.danger,a:link.boton.danger, .boton.danger:link,
+input[type="button"].boton.danger, input[type="submit"].boton.danger,
+button.boton.danger{
+	color: $color-boton-texto-danger;
+	background: $color-boton-danger;
+	border-color: $color-boton-borde-danger;
+}
+
+.boton.danger.active.focus, .boton.danger.active:focus, .boton.danger.active:hover,
+.boton.danger:active.focus, .boton.danger:active:focus, .boton.danger:active:hover,
+a:hover.boton.danger, .boton.danger:hover, a:active.boton.danger, .boton.danger:active,input[type="button"].boton.danger:active.focus,
+input[type="submit"].boton.danger:active.focus, button.boton.danger:active.focus,input[type="button"].boton.danger:hover,
+input[type="submit"].boton.danger:hover, button.boton.danger:hover{
+	color: $color-boton-texto-danger;
+	background: $color-boton-danger-hover;
+	border-color: $color-boton-borde-danger-hover;
+}
+
+.boton.disabled, .boton[disabled], .boton.disabled:hover, .boton[disabled]:hover,
+.boton.disabled:focus, .boton[disabled]:focus, .boton.disabled:active, .boton[disabled]:active
+{
+	opacity: .4;
+	cursor: not-allowed;
+}
+
+.boton i.fa{
+	margin-left: 10px;
+}

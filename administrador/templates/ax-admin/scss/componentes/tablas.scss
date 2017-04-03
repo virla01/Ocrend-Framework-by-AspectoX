@@ -1,0 +1,42 @@
+.table-basic {
+	width: 100%;
+	min-height: .01%;
+	overflow-x: auto;
+	margin-bottom: 20px;
+	background: $color-blanco;
+	border: 1px solid $color-lineas;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+.table-basic caption {
+	padding: 15px;
+	color: $color-blanco;
+	text-align: left;
+	background: $color-01;
+	border-radius: 4px 4px 0 0;
+	font-size: $font-size-base;
+	font-weight: bold;
+}
+.table-basic thead{
+	text-align: center;
+	border-bottom: 1px solid $color-lineas;
+}
+
+.table-basic th{
+	text-align: center;
+}
+
+.table-basic tr{
+
+}
+
+.table-basic th,.table-basic td{
+	padding: 10px 15px;
+	border-right: 1px solid $color-lineas;
+	border-bottom: 1px solid $color-lineas;
+}
+.table-basic tbody{
+	text-align: left;
+	border-bottom: 1px solid $color-lineas;
+}

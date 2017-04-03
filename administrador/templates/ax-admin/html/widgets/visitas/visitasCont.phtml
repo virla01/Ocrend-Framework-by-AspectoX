@@ -1,0 +1,32 @@
+							<div class="panel color-bg-primary">
+								<div class="panel-header">
+									<h4 class="panel-title">
+										<i class="fa fa-file-text-o"></i>
+										<?= TITULO_WIDGET_VISITAS ?>
+									</h4>
+									<div class="panel-controls panel-controls-right">
+										<span class="collapse-link">
+											<i class="fa fa-chevron-up"></i>
+										</span>
+										<span class="close-link">
+											<i class="fa fa-times"></i>
+										</span>
+									</div>
+								</div>
+								<div class="panel-body">
+										<?php
+											echo "<ul>";
+											$visita = new Visitas;
+											$sr = $visita->showResult();
+											foreach($sr as $vis){
+												echo "<li> id: " . $vis['id'] . "<br>
+												Ip: " . $vis['ip'] . "<br>
+												Siglas del país: " . $vis['countryCode'] . "<br>
+												País; " . $vis['countryName'] . "<br>
+												OS: " . $vis['plataforma'] .  "<br>
+												Navegador: " . $vis['navegador'] . " / " . $vis['version'] . "</li>";
+											}
+											echo "</ul>";
+										?>
+								</div>
+							</div>

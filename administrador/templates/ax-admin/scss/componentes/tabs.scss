@@ -1,0 +1,98 @@
+#ud_tab {
+	background: #fff;
+	width: 100%;
+	float: left;
+}
+#ud_tab>input[type=radio] {
+	display: none;
+}
+#ud_tab>label {
+	float: left;
+	width: auto;
+	color: #666;
+	padding: 15px;
+	text-align: center;
+	cursor: pointer;
+	background: #f2f2f2;
+	border: 1px solid #d9d9d9;
+	border-bottom: none;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+#ud_tab>.ud_content {
+	background: #fff;
+	display: none;
+	padding: 15px;
+	float: left;
+	width: 100%;
+	border: 1px solid #d9d9d9;
+}
+#ud_tab[id^="tab"]:checked + label {
+	background: #ff6600!important;
+	color: #fff;
+}
+#tab1:checked ~ #ud_tab-content1,
+#tab2:checked ~ #ud_tab-content2,
+#tab3:checked ~ #ud_tab-content3,
+#tab4:checked ~ #ud_tab-content4,
+#tab5:checked ~ #ud_tab-content5,
+#tab6:checked ~ #ud_tab-content6,{
+	display: block;
+
+}
+
+/* Tabs
+---------------------------------------*/
+.tabs{
+	display: block;
+	width: 100%;
+	position: relative;
+}
+.tabs-link{
+	width: 100%;
+	position: relative;
+	top: 1px;
+}
+.tabs-link a{
+	display: block;
+	float: left;
+	background: $color-01;
+	border: 1px solid $color-lineas;
+	padding: 10px 15px;
+	border-radius: 4px 4px 0 0;
+	margin-right: 2px;
+	border-bottom-color: transparent;
+	position: relative;
+	color: $color-blanco;
+	&.active{
+		z-index: 100;
+		background: $color-blanco;
+		color: $color-texto-gris;
+	}
+}
+.tabs_contenedor{
+	display: block;
+	width: 100%;
+	position: relative;
+}
+.tabs_contenedor .tabs-item{
+	width: 100%;
+	padding: 15px;
+	background: $color-blanco;
+	border: 1px solid $color-lineas;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.tabs-item{
+	display: none;
+	&.active{
+		display: block;
+	}
+}
+.tabs-secundario{
+	display: block;
+	width: 100%;
+	margin: 15px;
+}

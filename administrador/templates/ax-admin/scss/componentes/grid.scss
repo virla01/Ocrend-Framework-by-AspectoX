@@ -1,0 +1,720 @@
+.contenedor {
+	padding: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.contenedor-full {
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0 15px;
+}
+
+.row {
+	width: 100%;
+}
+
+.clearfix:before,.clearfix:after,
+.contenedor:after, .contenedor:before,
+.contenedor-full:after,.contenedor-full:before,
+.row:after, .row:before,
+.panel:after, .panel:before,
+.panel-body:after,.panel-body:before,.tabs:after,.tabs:before
+,.tabs-link:after,.tabs-link:before,.panel-header:after,.panel-header:before,
+section:after,section:before,article:after,article:before{
+	display: table;
+	content: " ";
+}
+
+
+.clearfix:after,.contenedor-full:after,.contenedor:after,.row:after,.panel-body:after,.tabs:after,
+.tabs-link:after,.panel:after,.panel-header:after,
+section:after,article:after{
+	clear: both;
+}
+
+
+
+@media only screen and (min-width: 600px){
+	.contenedor{
+		width: 570px;
+	}
+}
+
+@media only screen and (min-width: 800px){
+	.contenedor{
+		width: 770px;
+	}
+}
+
+@media only screen and (min-width: 1200px){
+	.contenedor{
+		width: 1070px;
+	}
+}
+
+@media only screen and (min-width: 1900px){
+	.contenedor{
+		width: 1700px;
+	}
+}
+
+@media only screen and (min-width: 2100px){
+	.contenedor{
+		width: 1900px;
+	}
+}
+
+
+
+@media only screen and (max-width: 480px){
+	.movil-0{
+		display: none;
+		visibility: hidden;
+	}
+}
+
+@media only screen and (max-width: 600px){
+	.stablet-0{
+		display: none;
+		visibility: hidden;
+	}
+}
+
+@media only screen and (max-width: 800px){
+	.tablet-0{
+		display: none;
+		visibility: hidden;
+	}
+}
+
+@media only screen and (max-width: 1200px){
+	.pc-0{
+		display: none;
+		visibility: hidden;
+	}
+}
+
+@media only screen and (max-width: 1900px){
+	.hd-0{
+		display: none;
+		visibility: hidden;
+	}
+}
+
+@media only screen and (max-width: 2100px){
+	.hdfull-0{
+		display: none;
+		visibility: hidden;
+	}
+}
+
+
+/*-------------------------------------
+movil - MediaQueries a los 480px
+------------------------------------*/
+@media only screen and (min-width: 480px){
+	.movil-1{
+		width: 8.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.movil-2{
+		width: 16.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.movil-3{
+		width: 25%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.movil-4{
+		width: 33.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.movil-5{
+		width: 41.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.movil-6{
+		width: 50%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.movil-7{
+		width: 58.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.movil-8{
+		width: 66.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.movil-9{
+		width: 75%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.movil-10{
+		width: 83.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.movil-11{
+		width: 91.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.movil-12{
+		width: 100%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+
+}
+
+
+
+/*-------------------------------------
+stablet - MediaQueries a los 600px
+------------------------------------*/
+@media only screen and (min-width: 600px){
+	.stablet-1{
+		width: 8.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.stablet-2{
+		width: 16.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.stablet-3{
+		width: 25%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.stablet-4{
+		width: 33.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.stablet-5{
+		width: 41.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.stablet-6{
+		width: 50%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.stablet-7{
+		width: 58.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.stablet-8{
+		width: 66.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.stablet-9{
+		width: 75%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.stablet-10{
+		width: 83.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.stablet-11{
+		width: 91.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.stablet-12{
+		width: 100%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+}
+
+
+
+/*-------------------------------------
+tablet - MediaQueries a los 800px
+------------------------------------*/
+@media only screen and (min-width: 800px){
+
+	.tablet-1{
+		width: 8.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.tablet-2{
+		width: 16.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.tablet-3{
+		width: 25%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.tablet-4{
+		width: 33.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.tablet-5{
+		width: 41.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.tablet-6{
+		width: 50%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.tablet-7{
+		width: 58.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.tablet-8{
+		width: 66.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.tablet-9{
+		width: 75%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.tablet-10{
+		width: 83.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.tablet-11{
+		width: 91.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.tablet-12{
+		width: 100%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+}
+
+
+
+/*-------------------------------------
+pc - MediaQueries a los 1200px
+------------------------------------*/
+@media only screen and (min-width: 1200px){
+	.pc-1{
+		width: 8.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.pc-2{
+		width: 16.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.pc-3{
+		width: 25%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.pc-4{
+		width: 33.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.pc-5{
+		width: 41.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.pc-6{
+		width: 50%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.pc-7{
+		width: 58.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.pc-8{
+		width: 66.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.pc-9{
+		width: 75%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.pc-10{
+		width: 83.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.pc-11{
+		width: 91.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.pc-12{
+		width: 100%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+}
+
+
+
+/*-------------------------------------
+hd - MediaQueries a los 1920px
+------------------------------------*/
+@media only screen and (min-width: 1900px){
+	.hd-0{
+		display: none;
+	}
+	.hd-1{
+		width: 8.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hd-2{
+		width: 16.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hd-3{
+		width: 25%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hd-4{
+		width: 33.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hd-5{
+		width: 41.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hd-6{
+		width: 50%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hd-7{
+		width: 58.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hd-8{
+		width: 66.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hd-9{
+		width: 75%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hd-10{
+		width: 83.33333%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hd-11{
+		width: 91.66667%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hd-12{
+		width: 100%;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+}
+
+
+/*-------------------------------------
+hdfull - MediaQueries a los 2100px
+------------------------------------*/
+@media only screen and (min-width: 2100px){
+	.hdfull-0{
+		display: none;
+	}
+	.hdfull-1{
+		width: 8.33333%;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hdfull-2{
+		width: 16.66667%;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hdfull-3{
+		width: 25%;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hdfull-4{
+		width: 33.33333%;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hdfull-5{
+		width: 41.66667%;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hdfull-6{
+		width: 50%;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hdfull-7{
+		width: 58.33333%;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hdfull-8{
+		width: 66.66667%;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hdfull-9{
+		width: 75%;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hdfull-10{
+		width: 83.33333%;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hdfull-11{
+		width: 91.66667%;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.hdfull-12{
+		width: 100%;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+}
+
+
+

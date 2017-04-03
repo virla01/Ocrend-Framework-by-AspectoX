@@ -1,0 +1,136 @@
+//BORRAR ESTO AL FINALIZAR ---------------------------
+.strong,.bold{
+	font-weight: bold;
+}
+
+
+.color-bg-default{
+	color: $color-boton-texto-default!important;
+	background: $color-boton-default!important;
+	border-color: $color-boton-borde-default!important;
+}
+.color-bg-primary{
+	color: $color-boton-texto-primary!important;
+	background-color: $color-boton-primary!important;
+	border-color: $color-boton-borde-primary!important;
+}
+.color-bg-success{
+	color: $color-boton-texto-success!important;
+	background-color: $color-boton-success!important;
+	border-color: $color-boton-borde-success!important;
+}
+.color-bg-info{
+	color: $color-boton-texto-info!important;
+	background-color: $color-boton-info!important;
+	border-color: $color-boton-borde-info!important;
+}
+.color-bg-warning{
+	color: $color-boton-texto-warning!important;
+	background-color: $color-boton-warning!important;
+	border-color: $color-boton-borde-warning!important;
+}
+.color-bg-danger{
+	color: $color-boton-texto-danger!important;
+	background-color: $color-boton-danger!important;
+	border-color: $color-boton-borde-danger!important;
+}
+
+
+
+//---------------------------------------------------
+.panel{
+	width: 100%;
+	background-color: $color-blanco;
+	border: 1px solid $color-lineas;
+	border-radius: 4px;
+	margin: 15px 0px;
+	float: left;
+}
+
+.panel-header{
+	width: 100%;
+	min-height: 3px;
+	padding: 0 15px;
+	border: 1px solid $color-lineas;
+	border-radius: 4px 4px 0 0;
+	position: relative;
+}
+
+.panel-header .panel-title {
+	font-size: 16px;
+	font-weight: normal;
+	margin-right: 0px;
+	padding: 12px 0;
+	min-height: 42px;
+}
+
+h4.panel-title{
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 16px;
+	color: inherit;
+	font-weight: 300;
+}
+
+.panel-header .panel-title > i {
+	font-size: 16px;
+	margin-right: 5px;
+}
+
+.panel .panel-controls-right {
+	width: auto;
+	float: right;
+	position: absolute;
+	right: 15px;
+	top: 10px;
+}
+
+span.collapse-link,span.close-link{
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.panel .panel-header .panel-controls a i {
+	color: $color-negro;
+}
+
+.panel .panel-controls-right a {
+	float: left;
+	width: auto;
+	padding: 1px 5px;
+	color: $color-negro;
+	font-size: 14px;
+}
+
+.panel-body{
+	width: 100%;
+	padding: 20px;
+	color: $color-negro;
+	background-color: $color-blanco;
+	border: 1px solid $color-lineas;
+	border-top: none;
+	border-radius: 0 0 4px 4px;
+}
+
+
+/* ASPECTOX */
+footer i.fa{
+	font-size: 14px;
+	font-weight: normal;
+	color: #CB4854;
+}
+span.textoFooterAspecto {
+	font-family: 'Lato', sans-serif;
+	font-weight: 600;
+	font-style: italic;
+	font-size: 16px;
+	display: inline-block;
+}
+span.textoFooterX {
+	font-family: 'Lato', sans-serif;
+	font-weight: 600;
+	font-style: italic;
+	color: #CB4854;
+	font-size: 16px;
+	display: inline-block;
+}

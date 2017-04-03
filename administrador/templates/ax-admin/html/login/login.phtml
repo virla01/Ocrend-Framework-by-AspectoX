@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<base href="<?= URL ?>" />
+
+		<meta charset="utf-8" />
+		<meta name="application-name" content="<?= APP ?>" />
+		<meta name="author" content="AspectoX" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+		<link rel="apple-touch-icon" sizes="57x57" href="<?= PATH_TEMPLATE ?>/favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="<?= PATH_TEMPLATE ?>/favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="<?= PATH_TEMPLATE ?>/favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="<?= PATH_TEMPLATE ?>/favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="<?= PATH_TEMPLATE ?>/favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="<?= PATH_TEMPLATE ?>/favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="<?= PATH_TEMPLATE ?>/favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="<?= PATH_TEMPLATE ?>/favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="<?= PATH_TEMPLATE ?>/favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="<?= PATH_TEMPLATE ?>/favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="<?= PATH_TEMPLATE ?>/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="<?= PATH_TEMPLATE ?>/favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="<?= PATH_TEMPLATE ?>/favicon/favicon-16x16.png">
+		<link type="image/x-icon" href="<?= PATH_TEMPLATE ?>/favicon/favicon.ico" rel="shortcut icon" />
+
+
+		<!-- Estilos Css -->
+		<link rel="stylesheet" href="<?= PATH_TEMPLATE ?>/css/portenio.css">
+		<link rel="stylesheet" href="<?= PATH_TEMPLATE ?>/css/fuentes.css">
+		<link rel="stylesheet" href="<?= PATH_TEMPLATE ?>/css/login.css" />
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<!--[endif]-->
+
+
+		<title><?= APP ?></title>
+	</head>
+	<body>
+
+		<div class="signin-contenedor" id="iniciar_sesion">
+			<!-- Right side -->
+			<div class="signin-form">
+				<a href="index.php" class="logo">
+					<img src="<?= PATH_TEMPLATE ?>/images/logo.png" alt="<?= APP ?>">
+				</a>
+				<div class="signin-text">
+					<span>Iniciar sesión en su cuenta</span>
+				</div>
+
+				<div class="fila">
+					<div class="hide" id="ajax_login"></div>
+				</div>
+
+				<form role="form" enctype="application/x-www-form-urlencoded" id="login_form">
+					<div class="form-groupo input-decorado">
+						<input type="text" name="user" placeholder="" required="" />
+						<span class="fa fa-user input-decorado"></span>
+					</div>
+					<div class="form-groupo input-decorado">
+						<input type="password" name="pass" placeholder="" required="" />
+						<span class="fa fa-key input-decorado"></span>
+					</div>
+				</form>
+
+
+				<div class="form-groupo">
+					<button type="button" id="login" class="boton success">Ingresar</button>
+					<button type="button" class="boton danger" data-target="#lost_pass">Recuperar contraseña</button>
+				</div>
+			</div>
+			<!-- Right side -->
+		</div>
+		<script src="<?= PATH_TEMPLATE ?>/js/jdev.js"></script>
+		<?php if (!isset($_SESSION[SESS_APP_ID])): ?>
+			<script src="<?= PATH_TEMPLATE ?>/js/login.js"></script>
+		<?php endif ?>
+	</body>
+</html>

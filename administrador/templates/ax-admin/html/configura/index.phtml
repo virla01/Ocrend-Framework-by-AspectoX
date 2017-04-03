@@ -1,0 +1,343 @@
+		<?= $this->insert('html/includes/header') ?>
+
+		<?= $this->insert('html/includes/barra') ?>
+
+		<?= $this->insert('html/includes/menu') ?>
+
+
+		<div class="contenido-pagina clearfix" id="contenido-pagina">
+			<div class="contenido-pagina-wrapper">
+				<div class="contenido-pagina-inner">
+					<div id="header-pagina" class="clearfix">
+						<div class="header-pagina">
+							<h2>Configuración</h2>
+						</div>
+					</div>
+					<!-- Comienza contenido general del sitio -->
+					<div class="row">
+						<!-- Columna 01 -->
+						<div class="movil-12 pc-12">
+							<div class="panel color-bg-info">
+								<div class="panel-header">
+									<h4 class="panel-title">
+										<i class="fa fa-newspaper-o"></i>
+										Configuración del sistema
+									</h4>
+									<div class="panel-controls panel-controls-right">
+										<span class="collapse-link">
+											<i class="fa fa-chevron-up"></i>
+										</span>
+										<span class="close-link">
+											<i class="fa fa-times"></i>
+										</span>
+									</div>
+								</div>
+								<div class="panel-body">
+									<form action="configura/editar" method="post" role="form" enctype="multipart/form-data">
+										<div class="botonera">
+											<div class="form-grupo">
+												<button type="submit" class="boton success">Enviar<i class="fa fa-caret-right"></i></button>
+												<a href="./" class="boton danger">Cancelar<i class="fa fa-ban"></i></a>
+											</div>
+										</div>
+										<div class="form-grupo">
+											<label for="nom"  class="movil-12 pc-3">Nombre del sitio<span class="marcador-rojo"> *</span></label>
+											<div class="movil-12 pc-9">
+												<input type="text" name="sitenom" id="sitenom" placeholder="Nombre del sitio" value="<?= $strConfig['siteName'] ?>">
+											</div>
+										</div>
+										<div class="form-grupo">
+											<label for="eslogan" class="movil-12 pc-3">Eslogan</label>
+											<div class="movil-12 pc-9">
+												<input type="text" name="eslogan" id="eslogan" placeholder="Eslogan" value="<?= $strConfig['siteslogan'] ?>">
+											</div>
+										</div>
+										<div class="form-grupo">
+											<label for="avatar" class="movil-12 pc-3">Logo</label>
+											<div class="movil-12 pc-3">
+												<input type="text" name="logo" value="<?= $strConfig['siteLogo'] ?>">
+											</div>
+										</div>
+										<div class="form-grupo">
+											<label for="zoneregion" class="movil-12 pc-3">Zona horaria<span class="marcador-rojo"> *</span></label>
+											<div class="movil-12 pc-9">
+												<select id="zoneregion" name="zoneregion" class="custom-select">
+													<option value="<?php if ($strConfig['timezone'] == '0'){ echo '0';}else{echo $strConfig['timezone'];}?>" selected="selected"><?php if ($strConfig['timezone'] == '0'){ echo '- Usar la predeterminada -';}else{echo $strConfig['timezone'];}?></option>
+
+													<?php
+													$regions = array(
+														'Africa' => DateTimeZone::AFRICA,
+														'America' => DateTimeZone::AMERICA,
+														'Antarctica' => DateTimeZone::ANTARCTICA,
+														'Aisa' => DateTimeZone::ASIA,
+														'Atlantic' => DateTimeZone::ATLANTIC,
+														'Europe' => DateTimeZone::EUROPE,
+														'Indian' => DateTimeZone::INDIAN,
+														'Pacific' => DateTimeZone::PACIFIC
+													);
+													$timezones = array();
+													foreach ($regions as $name => $mask)
+													{
+														$zones = DateTimeZone::listIdentifiers($mask);
+														foreach($zones as $timezone)
+														{
+															// Lets sample the time there right now
+															$time = new DateTime(NULL, new DateTimeZone($timezone));
+															// Us dumb Americans can't handle millitary time
+															$ampm = $time->format('H') > 12 ? ' ('. $time->format('g:i a'). ')' : '';
+															// Remove region name and add a sample time
+															$timezones[$name][$timezone] = substr($timezone, strlen($name) + 1);
+														}
+													}
+
+													foreach($timezones as $region => $list)
+													{
+														print '<optgroup label="' . $region . '">' . "\n";
+														foreach($list as $timezone => $name)
+														{
+															print '<option name="' . $timezone . '">' . $name . '</option>' . "\n";
+														}
+														print '<optgroup>' . "\n";
+													}
+													?>
+												</select>
+											</div>
+										</div>
+										<div class="form-grupo">
+											<label for="url" class="movil-12 pc-3">Url<span class="marcador-rojo"> *</span></label>
+											<div class="movil-12 pc-9">
+												<input type="text" name="url" id="url" placeholder="http://tupagina.com" value="<?= $strConfig['siteRoot'] ?>">
+											</div>
+										</div>
+										<div id="ud_tab">
+											<input type="radio" name="ud_tabs" id="tab1" checked>
+											<label for="tab1">Template</label>
+
+											<input type="radio" name="ud_tabs" id="tab2">
+											<label for="tab2">Base de datos</label>
+
+											<input type="radio" name="ud_tabs" id="tab3">
+											<label for="tab3">Mail</label>
+
+											<input type="radio" name="ud_tabs" id="tab4">
+											<label for="tab4">Paypal</label>
+
+											<input type="radio" name="ud_tabs" id="tab5">
+											<label for="tab5">Extras</label>
+
+											<div id="ud_tab-content1" class="ud_content">
+												<div class="form-grupo">
+													<label for="temadmin" class="movil-12 pc-3">Nombre Template admin<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<input type="text" name="temadmin" id="temadmin" placeholder="Nombre Template admin" value="<?= $strConfig['templateAdmin'] ?>">
+													</div>
+												</div>
+												<div class="form-grupo">
+													<label for="tempsitio" class="movil-12 pc-3">Nombre Template sitio<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<input type="text" name="tempsitio" id="tempsitio" placeholder="Nombre Template sitio" value="<?= $strConfig['templateSite'] ?>">
+													</div>
+												</div>
+											</div>
+
+											<div id="ud_tab-content2" class="ud_content">
+												<div class="form-grupo">
+													<label class="movil-12 pc-3">Host db<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<input type="text" name="dbhost" id="dbhost" value="<?= $strConfig['dbhost'] ?>">
+													</div>
+												</div>
+												<div class="form-grupo">
+													<label class="movil-12 pc-3">Usuario<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<input type="text" name="dbuser" id="dbuser" value="<?= $strConfig['dbuser'] ?>">
+													</div>
+												</div>
+												<div class="form-grupo">
+													<label class="movil-12 pc-3">Password<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<input type="password" name="dbpass" id="dbpass" value="<?= $strConfig['dbpass'] ?>">
+													</div>
+												</div>
+												<div class="form-grupo">
+													<label class="movil-12 pc-3">Nombre de la base de datos<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<input type="text" name="dbnom" id="dbnom" value="<?= $strConfig['dbname'] ?>">
+													</div>
+												</div>
+												<div class="form-grupo">
+													<label class="movil-12 pc-3">Puerto<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<input type="text" name="dbport" id="dbport" value="<?= $strConfig['dbport'] ?>">
+													</div>
+												</div>
+												<div class="form-grupo">
+													<label class="movil-12 pc-3">Protocolo<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<input type="text" name="dbproto" id="dbproto" value="<?= $strConfig['dbprotocol'] ?>">
+													</div>
+												</div>
+												<div class="form-grupo">
+													<label class="movil-12 pc-3">Motor base de datos<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<select id="dbmotor" name="dbmotor" class="custom-select">
+															<option value="mysql" <?php if ($strConfig['dbmotor'] == 'mysql'){ echo "selected";} ?>>mysql</option>
+															<option value="sqlite" <?php if ($strConfig['dbmotor'] == 'sqlite'){ echo "selected";} ?>>sqlite</option>
+															<option value="oracle" <?php if ($strConfig['dbmotor'] == 'oracle'){ echo "selected";} ?>>oracle</option>
+															<option value="postgresql" <?php if ($strConfig['dbmotor'] == 'postgresql'){ echo "selected";} ?>>postgresql</option>
+															<option value="cubrid" <?php if ($strConfig['dbmotor'] == 'cubrid'){ echo "selected";} ?>>cubrid</option>
+															<option value="firebird" <?php if ($strConfig['dbmotor'] == 'firebird'){ echo "selected";} ?>>firebird</option>
+															<option value="odbc" <?php if ($strConfig['dbmotor'] == 'odbc'){ echo "selected";} ?>>odbc</option>
+														</select>
+													</div>
+												</div>
+											</div>
+
+											<div id="ud_tab-content3" class="ud_content">
+												<div class="form-grupo">
+													<label class="movil-12 pc-3">Host Mail<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<input type="text" name="host" id="host" placeholder="smtp.tusitio.com" value="<?= $strConfig['phpmailHost'] ?>">
+													</div>
+												</div>
+												<div class="form-grupo">
+													<label class="movil-12 pc-3">Usuario Mail<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<input type="text" name="usermail" id="usermail" placeholder="user@tusitio.com" value="<?= $strConfig['phpmailUser'] ?>">
+													</div>
+												</div>
+												<div class="form-grupo">
+													<label class="movil-12 pc-3">Pasword Mail<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<input type="password" name="passmail" id="passmail" value="<?= $strConfig['phpmailPass'] ?>">
+													</div>
+												</div>
+												<div class="form-grupo">
+													<label class="movil-12 pc-3">Puerto Mail<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<input type="text" name="puertomail" id="puertomail" placeholder="465" value="<?= $strConfig['phpmailPort'] ?>">
+													</div>
+												</div>
+											</div>
+
+											<div id="ud_tab-content4" class="ud_content">
+												<div class="form-grupo">
+													<?php
+													$paypal = preg_replace('[\n|\r|\n\r|\t|\0|\x0B]','',$strConfig['paypalMode']);
+													?>
+													<label class="movil-12 pc-3">Modo<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<div class="botonSiNo">
+															<label class="on">
+																<input type="radio" name="modo" value="sandbox"
+																<?php if ($paypal == 'sandbox'){echo "checked";}?>>
+																<span>Sandbox</span>
+															</label>
+															<label class="off">
+																<input type="radio" name="modo" value="live"
+																<?php if ($paypal == 'live'){echo "checked";}?>>
+																<span>Live</span>
+															</label>
+														</div>
+													</div>
+												</div>
+												<div class="form-grupo">
+													<label class="movil-12 pc-3">Id Cliente<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<input type="text" name="clienteId" id="clienteId" placeholder="Id Cliente" value="<?= $strConfig['paypalId'] ?>">
+													</div>
+												</div>
+												<div class="form-grupo">
+													<label class="movil-12 pc-3">Clave secreta del Cliente<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<input type="text" name="clienteSecret" id="clienteSecret" placeholder="Clave secreta del Cliente" value="<?= $strConfig['paypalSecret'] ?>">
+													</div>
+												</div>
+											</div>
+
+											<div id="ud_tab-content5" class="ud_content">
+												<div class="form-grupo">
+													<?php
+													$firewall = preg_replace('[\n|\r|\n\r|\t|\0|\x0B]','',$strConfig['firewall']);
+													?>
+													<label class="movil-12 pc-3">Visualizar Firewall<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<div class="botonSiNo">
+															<label class="on">
+																<input type="radio" name="fire" value="true"
+																<?php if ($firewall == 'true'){echo "checked";}?>>
+																<span>Si</span>
+															</label>
+															<label class="off">
+																<input type="radio" name="fire" value="false"
+																<?php if ($firewall == 'false'){echo "checked";}?>>
+																<span>No</span>
+															</label>
+														</div>
+													</div>
+												</div>
+												<div class="form-grupo">
+													<?php
+													$debug = preg_replace('[\n|\r|\n\r|\t|\0|\x0B]','',$strConfig['debug']);
+													?>
+													<label class="movil-12 pc-3">Visualizar Debug<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<div class="botonSiNo">
+															<label class="on">
+																<input type="radio" name="debug" value="true"
+																<?php if ($debug == "true"){echo "checked";}?>>
+																<span>Si</span>
+															</label>
+															<label class="off">
+																<input type="radio" name="debug" value="false"
+																<?php if ($debug == "false"){echo "checked";}?>>
+																<span>No</span>
+															</label>
+														</div>
+													</div>
+												</div>
+												<div class="form-grupo">
+													<?php
+													$twig = preg_replace('[\n|\r|\n\r|\t|\0|\x0B]','',$strConfig['twig']);
+													?>
+													<label class="movil-12 pc-3">Template Twig<span class="marcador-rojo"> *</span></label>
+													<div class="movil-12 pc-9">
+														<div class="botonSiNo">
+															<label class="on">
+																<input type="radio" name="twig" value="true"
+																<?php if ($twig == "true"){echo "checked";}?>>
+																<span>Twig</span>
+															</label>
+															<label class="off">
+																<input type="radio" name="twig" value="false"
+																<?php if ($twig == "false"){echo "checked";}?>>
+																<span>Plate</span>
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Finaliza contenido general del sitio -->
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- FINALIZA EL WRAPPER -->
+
+
+	<?= $this->insert('html/includes/modules') ?>
+
+	<script>
+		$(function () {
+			$('#myTab a:last').tab('show')
+		})
+	</script>
+
+	<?= $this->insert('html/includes/footer') ?>

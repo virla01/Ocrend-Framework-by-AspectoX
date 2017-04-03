@@ -1,0 +1,65 @@
+			<?php
+				$art = new Users;
+				$a = $art->get_users_connect();
+				$visita = new Visitas;
+				$vis = $visita->countStats(); // show result from database . query-ing.
+			?>
+
+
+			<footer>
+				<div class="grupo">
+					<a href="<?= SITE_URL ?>" title="<?= BOTON_VERSITIO ?>" target="_blank">
+						<i class="fa fa-external-link" aria-hidden="true" title="<?= BOTON_VERSITIO ?>"></i>
+						<?= BOTON_VERSITIO ?>
+					</a>
+				</div>
+				<div class="grupo">
+					<span class="burbuja"><?= $vis ?></span>
+					<?= TEX_VISITANTES ?>
+					<span class="separador"></span>
+				</div>
+				<div class="grupo">
+					<span class="burbuja"><?= count($a) ?></span>
+					<?= TEX_ADMINISTRACION ?>
+					<span class="separador"></span>
+				</div>
+				<div class="grupo">
+					<?= TEX_TIEMPOCARGA ?>
+					<span class="burbuja" id="tiempoCarga"></span>
+					<span class="separador"></span>
+				</div>
+				<div class="grupo right">
+					<p><strong><?= SITE_APP ?></strong></p>
+					<span class="separador"></span>
+				</div>
+				<div class="grupo right">
+					<p><a href="http://aspectox.esy.es" target="_blank">AspectoX</a> © 2017</p>
+					<span class="separador"></span>
+				</div>
+				<div class="grupo right">
+					<p><a href="http://ocrend.com" target="_blank">Ocrend Software</a> © 2017</p>
+					<span class="separador"></span>
+				</div>
+			</footer>
+
+			<script src="<?php echo PATH_TEMPLATE ?>/js/jquery.numeric.js"></script>
+			<?php if (!isset($_SESSION[SESS_APP_ID])): ?>
+				<script src="<?php echo PATH_TEMPLATE ?>/js/login.js"></script>
+			<?php endif ?>
+			<script>
+				$('.numeric').numeric();
+
+				var inicio = new Date;
+				function tiempo_carga(){
+					var fin = new Date;
+					var segundos = (fin-inicio)/1000;
+					var salida = segundos +" seg.";
+					document.getElementById("tiempoCarga").innerHTML = salida;
+				}
+				onload=function() {tiempo_carga();}
+
+				jQuery.noConflict();
+			</script>
+		</div>
+	</body>
+</html>

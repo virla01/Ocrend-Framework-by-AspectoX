@@ -1,0 +1,35 @@
+<?php
+
+$mnu = new Menus;
+$menu = $mnu->get_menues('admin');
+
+
+
+function menu_html($data,$parent=-1) {
+
+	global $router;
+
+	$controller = $router->getController();
+
+
+	if (empty($_SESSION['GRUPO'])){
+		$userId = 1;
+	}else{
+		$userId = $_SESSION['GRUPO'];
+	}
+
+	$res='';
+	foreach($data as $e) {
+		if($e['sub'] == $parent || ($parent == -1 && $e['sub'] == 0 && $userId >= $e['grupo'])) {
+			$res.="<li class='nav-item " . ($controller == ($e['ruta'].'Controller') ? 'active':'') ."'><a href='" . $e['link'] . "' class='" . ($e['link'] == '#' ? 'link':'') ."'><i class='fa fa-" . $e['icono'] ."'></i>" . $e['titulo'] ."</a>";
+			$sub=menu_html($data,$e['id']);
+			if($sub) $res.='<ul class="submenu">'.$sub.'</ul>';
+			$res.='</li>';
+		}
+	}
+	return $res;
+}
+
+echo menu_html($menu);
+
+?>

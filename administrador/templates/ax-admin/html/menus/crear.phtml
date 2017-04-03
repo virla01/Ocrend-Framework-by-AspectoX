@@ -1,0 +1,151 @@
+		<?= $this->insert('html/includes/header') ?>
+
+		<?= $this->insert('html/includes/barra') ?>
+
+		<?= $this->insert('html/includes/menu') ?>
+
+		<link rel="stylesheet" href="<?php echo PATH_TEMPLATE ?>/css/tablas.css">
+
+		<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/rowreorder/1.1.2/js/dataTables.rowReorder.min.js"></script>
+		<script src="<?php echo PATH_TEMPLATE ?>/js/tablas.js"></script>
+
+
+		<div class="contenido-pagina clearfix" id="contenido-pagina">
+			<div class="contenido-pagina-wrapper">
+				<div class="contenido-pagina-inner">
+					<div id="header-pagina" class="clearfix">
+						<div class="header-pagina">
+							<h2><?= TITULO_MENU ?></h2>
+						</div>
+					</div>
+					<!-- Comienza contenido general del sitio -->
+					<div class="row">
+						<div class="movil-12 pc-12">
+							<div class="panel color-bg-info">
+								<div class="panel-header">
+									<h4 class="panel-title">
+										<i class="fa fa-newspaper-o"></i>
+										<?= TITULO_CREAR_MENU ?>
+									</h4>
+									<div class="panel-controls panel-controls-right">
+										<span class="collapse-link">
+											<i class="fa fa-chevron-up"></i>
+										</span>
+										<span class="close-link">
+											<i class="fa fa-times"></i>
+										</span>
+									</div>
+								</div>
+								<div class="panel-body">
+									<form action="menus/menus/crear" method="post" role="form">
+										<div class="botonera">
+											<div class="form-grupo">
+												<button type="submit" class="boton success"><?= BOTON_ENVIAR ?><i class="fa fa-caret-right"></i></button>
+												<a href="menus/menus/" class="boton danger"><?= BOTON_CANCELAR ?><i class="fa fa-ban"></i></a>
+											</div>
+										</div>
+										<div class="form-grupo">
+											<label class="movil-12 pc-3"><?= CAMPO_FORM_TITULO ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
+											<div class="movil-12 pc-9">
+												<input type="text" name="titulo" id="titulo" placeholder="<?= CAMPO_FORM_TITULO ?>" required>
+											</div>
+										</div>
+										<div class="form-grupo">
+											<label class="movil-12 pc-3"><?= CAMPO_FORM_LINK ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
+											<div class="movil-12 pc-9">
+												<input type="text" name="link" id="link" placeholder="<?= CAMPO_FORM_LINK ?>" required>
+											</div>
+										</div>
+										<div class="form-grupo">
+											<label class="movil-12 pc-3" title="<?= CAMPO_FORM_TITLE_RUTA ?>"><?= CAMPO_FORM_RUTA ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
+											<div class="movil-12 pc-9">
+												<input type="text" name="ruta" id="ruta" placeholder="<?= CAMPO_FORM_RUTA ?>" required>
+											</div>
+										</div>
+										<div class="form-grupo">
+											<label class="movil-12 pc-3" title="<?= CAMPO_FORM_TITLE_ICONO ?>"><?= CAMPO_FORM_ICONO ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
+											<div class="movil-12 pc-9">
+												<input type="text" name="icono" id="icono" placeholder="<?= CAMPO_FORM_ICONO ?>" required>
+											</div>
+										</div>
+										<div class="form-grupo">
+											<label class="movil-12 pc-3" title="<?= CAMPO_FORM_TITLE_SUBMENU ?>"><?= CAMPO_FORM_SUBMENU ?></label>
+											<div class="movil-12 pc-4">
+												<input type="text" name="sub" id="sub" placeholder="<?= CAMPO_FORM_PLACEHOLDER_SUBMENU ?>">
+											</div>
+										</div>
+										<div class="form-grupo">
+											<label for="posi" class="movil-12 pc-3" title="<?= CAMPO_FORM_TITLE_POSICION ?>"><?= CAMPO_FORM_POSICION ?></label>
+											<div class="movil-12 pc-4">
+												<select name="posi">
+													<?php
+													foreach($posicion as $posi){
+														echo "<option value='" . $posi['posicion'] . "'>" . $posi['posicion'] . "</option>";
+													}
+													echo "<option value='" . ($posi['posicion'] + 1) . "'>" . ($posi['posicion'] + 1) . "</option>";
+													 ?>
+												</select>
+											</div>
+										</div>
+										<div class="form-grupo">
+											<label for="form-grupo" class="movil-12 pc-3"><?= CAMPO_FORM_GRUPOUSER ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
+											<div class="movil-12 pc-4">
+												<select id="grupo" name="grupo">
+													<option value="1">Publico</option>
+													<option value="2">Registrado</option>
+													<option value="3">Autor</option>
+													<option value="4">Editor</option>
+													<option value="5">Administrator</option>
+													<option value="6">Super Users</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-grupo">
+											<label for="form-grupo" class="movil-12 pc-3"><?= CAMPO_FORM_VISTAMENU ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
+											<div class="movil-12 pc-4">
+												<select id="vista" name="vista">
+													<option value="site">Site</option>
+													<option value="admin">Admin</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-grupo">
+											<label for="estado" class="movil-12 pc-3"><?= CAMPO_FORM_ACTIVAR ?></label>
+											<div class="movil-12 pc-9">
+											<div class="botonSiNo">
+												<label class="on">
+													<input type="radio" name="estado" value="1">
+													<span><?= BOTON_SI ?></span>
+												</label>
+												<label class="off">
+													<input type="radio" name="estado" value="0" checked>
+													<span><?= BOTON_NO ?></span>
+												</label>
+											</div>
+											</div>
+										</div>
+										<div class="form-grupo">
+											<label for="descrip" class="movil-12 pc-3"><?= CAMPO_FORM_DESCRIPCION ?></label>
+											<div class="movil-12 pc-9">
+												<input type="text" name="descrip" id="descrip" placeholder="Descripción" value="">
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Finaliza contenido general del sitio -->
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- FINALIZA EL WRAPPER -->
+
+
+	<?= $this->insert('html/includes/include') ?>
+
+
+	<?= $this->insert('html/includes/footer') ?>
