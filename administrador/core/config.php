@@ -51,15 +51,15 @@ define('DATABASE', array(
   * @example "/" si para acceder al framework colocamos http://url.com en la URL, ó http://localhost
   * @example "/Ocrend-Framework/" si para acceder al framework colocamos http://url.com/Ocrend-Framework, ó http://localhost/Ocrend-Framework/
 */
-define('__ROOT__', '/Ocrend-Framework/administrador/');
+define('__ROOT__', '/Ocrend-Framework-by-AspectoX/administrador/');
 
 //------------------------------------------------
 
 # Constantes fundamentales
-define('URL', 'http://localhost/Ocrend-Framework/administrador/');
+define('URL', 'http://localhost/Ocrend-Framework-by-AspectoX/administrador/');
 define('APP', 'Ax-Admin 1.0');
 define('SITE_APP', 'Ocrend Framewor');
-define('SITE_URL', 'http://localhost/Ocrend-Framework');
+define('SITE_URL', 'http://localhost/Ocrend-Framework-by-AspectoX');
 define('SITE_LOGO', 'logo.png');
 define('SITE_SLOGAN', 'Slogan del sitio');
 # define el nombre del template Administración
