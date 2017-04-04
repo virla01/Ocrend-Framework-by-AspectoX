@@ -9,10 +9,10 @@ class logoutController extends Controllers {
 
 	public function __construct() {
 		parent::__construct();
-		if(DB_SESSION) {
+
+        if(DB_SESSION) {
 			(new Sessions)->check_life(true);
 		} else {
-			(new Sessions)->check_life(false);
 			unset($_SESSION[SESS_APP_ID]);
 			unset($_SESSION['USUARIO']);
 			unset($_SESSION['NOMBRE']);
@@ -23,7 +23,7 @@ class logoutController extends Controllers {
 			session_write_close();
 			session_unset();
 		}
-		Func::redir(URL . 'login/login/');
+		Func::redir();
 	}
 
 }

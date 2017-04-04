@@ -14,31 +14,53 @@
 									</div>
 								</div>
 								<div class="panel-body" style="height: 300px;position:relative;">
-										<div id="doughnutChart" class="chart"></div>
+										<div id="myChart" class="chart"></div>
 										<?php
 											$visita = new Visitas;
 											$sr = $visita->showResult();
-											foreach($sr as $vis){
-												$Id = $vis['id'];
-												$Ip = $vis['ip'];
-												$countryCode = $vis['countryCode'];
-												$countryName = $vis['countryName'];
-												$OS = $vis['useragent'];
-											}
+
 										?>
 								</div>
 							</div>
+							<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
 							<script>
-								$(function(){
-								  $("#doughnutChart").drawDoughnutChart([
-									{ title: "Tokyo",         value : 120,  color: "#2C3E50" },
-									{ title: "San Francisco", value:  80,   color: "#FC4349" },
-									{ title: "New York",      value:  70,   color: "#6DBCDB" },
-									{ title: "London",        value : 50,   color: "#F7E248" },
-									{ title: "Sydney",        value : 40,   color: "#D7DADB" },
-									{ title: "Berlin",        value : 20,   color: "#FFF" }
-								  ]);
+								<?php
+								foreach($sr as $vis){
+									$OS = $vis['useragent'];
+								?>
+								var ctx = document.getElementById("myChart");
+								var myChart = new Chart(ctx, {
+								    type: 'bar',
+								    data: {
+								        labels: ["Red", "Blue", "Yellow"],
+								        datasets: [{
+								            label: 'Visitas,',
+								            data: [<?= count($vis['navegador']) ?>,<?= count($vis['plataforma'])+1 ?>,<?= count($vis['countryName'])+5 ?>],
+								            backgroundColor: [
+								                'rgba(255, 99, 132, 0.2)',
+								                'rgba(54, 162, 235, 0.2)',
+								                'rgba(255, 206, 86, 0.2)'
+								            ],
+								            borderColor: [
+								                'rgba(255,99,132,1)',
+								                'rgba(54, 162, 235, 1)',
+								                'rgba(255, 206, 86, 1)'
+								            ],
+								            borderWidth: 1
+								        }]
+										<?php }; ?>
+								    },
+								    options: {
+								        scales: {
+								            yAxes: [{
+								                ticks: {
+								                    beginAtZero:true
+								                }
+								            }]
+								        }
+								    }
 								});
+
 								/*!
 								 * jquery.drawDoughnutChart.js
 								 * Version: 0.4.1(Beta)

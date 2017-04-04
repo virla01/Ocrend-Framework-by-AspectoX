@@ -102,7 +102,7 @@ define('FIREWALL', true);
 //------------------------------------------------
 
 # Activación del DEBUG, solo para desarrollo
-define('DEBUG', false);
+define('DEBUG', true);
 
 //------------------------------------------------
 

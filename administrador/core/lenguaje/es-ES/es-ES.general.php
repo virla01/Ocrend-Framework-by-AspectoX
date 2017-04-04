@@ -10,6 +10,7 @@
 
 
 // BOTONES GENERALES
+define("TITULO_INICIO","Inicio");
 define("BOTON_NUEVO","Nuevo");
 define("BOTON_BORRAR","Borrar");
 define("BOTON_ACTIVAR","Activar");

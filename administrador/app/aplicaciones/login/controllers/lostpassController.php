@@ -17,10 +17,10 @@ class lostpassController extends Controllers {
 				} else {
 					Func::redir();
 				}
-			break;
+				break;
 			default:
 				Func::redir();
-			break;
+				break;
 		}
 	}
 }

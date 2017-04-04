@@ -71,6 +71,7 @@ final class Login extends Models implements OCREND {
 		return array('success' => 1, 'message' => '<b>Conectado:</b> estamos redireccionando.');
 	}
 
+
 	public function __destruct() {
 		parent::__destruct();
 	}

@@ -12,9 +12,9 @@ final class Debug {
   const HEAD = '<style>
   #debug {
     margin-bottom: 18px;
-    margin-left: auto;
+    /*margin-left: auto;*/
     margin-right: auto;
-    width: 95%;
+    width: 82%;
     background: #f7f7f9;
     border: 1px solid #e1e1e8;
     padding: 8px;
@@ -27,6 +27,7 @@ final class Debug {
     word-wrap: break-word;
     color: #333;
     font-family: \'Menlo\',\'Monaco\',\'Consolas\',\'Courier New\',\'monospace\';
+    margin-left: 245px;
   }
   .variable {
     font-weight: bold!important;

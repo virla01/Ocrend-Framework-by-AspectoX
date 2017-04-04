@@ -21,7 +21,7 @@ function menu_html($data,$parent=-1) {
 	$res='';
 	foreach($data as $e) {
 		if($e['sub'] == $parent || ($parent == -1 && $e['sub'] == 0 && $userId >= $e['grupo'])) {
-			$res.="<li class='nav-item " . ($controller == ($e['ruta'].'Controller') ? 'active':'') ."'><a href='" . $e['link'] . "' class='" . ($e['link'] == '#' ? 'link':'') ."'><i class='fa fa-" . $e['icono'] ."'></i>" . $e['titulo'] ."</a>";
+			$res.="<li class='nav-item'><a href='" . $e['link'] . "' class=" . ($controller == ($e['ruta'].'Controller') ? 'active':'') . "><i class='fa fa-" . $e['icono'] ."'></i>" . $e['titulo'] ."</a>";
 			$sub=menu_html($data,$e['id']);
 			if($sub) $res.='<ul class="submenu">'.$sub.'</ul>';
 			$res.='</li>';

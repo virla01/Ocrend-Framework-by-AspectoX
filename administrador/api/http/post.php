@@ -23,10 +23,10 @@ $app->post('/example4',function($request, $response){
 */
 $app->post('/register',function($request, $response){
 
-  $reg = new Register;
-  $response->withJson($reg->SignUp($_POST));
+    $reg = new Register;
+    $response->withJson($reg->SignUp($_POST));
 
-  return $response;
+    return $response;
 });
 
 //------------------------------------------------
@@ -37,10 +37,10 @@ $app->post('/register',function($request, $response){
 */
 $app->post('/login',function($request, $response) {
 
-  $login = new Login;
-  $response->withJson($login->SignIn($_POST));
+	$login = new Login;
+	$response->withJson($login->SignIn($_POST));
 
-  return $response;
+	return $response;
 });
 
 //------------------------------------------------
@@ -56,3 +56,67 @@ $app->post('/lostpass',function($request, $response) {
 
 	return $response;
 });
+
+//------------------------------------------------
+
+/**
+  * Conjunto de botones de acciones en Usuarios
+*/
+
+$app->post('/deleteUser',function($request, $response) {
+
+  $delete = new Users;
+  $response->withJson($delete->borrarUser($_POST));
+
+  return $response;
+});
+
+$app->post('/desactivaUser',function($request, $response) {
+
+  $desactiva = new Users;
+  $response->withJson($desactiva->desactivaUser($_POST));
+
+  return $response;
+});
+
+$app->post('/activaUser',function($request, $response) {
+
+  $activa = new Users;
+  $response->withJson($activa->activaUser($_POST));
+
+  return $response;
+});
+
+
+
+//------------------------------------------------
+
+/**
+  * Conjunto de botones de acciones en Menú
+*/
+
+$app->post('/deleteMen',function($request, $response) {
+
+  $delete = new Menus;
+  $response->withJson($delete->borrarMen($_POST));
+
+  return $response;
+});
+
+$app->post('/desactivaMen',function($request, $response) {
+
+  $desactiva = new Menus;
+  $response->withJson($desactiva->desactivaMen($_POST));
+
+  return $response;
+});
+
+$app->post('/activaMen',function($request, $response) {
+
+  $activa = new Menus;
+  $response->withJson($activa->activaMen($_POST));
+
+  return $response;
+});
+
+//------------------------------------------------

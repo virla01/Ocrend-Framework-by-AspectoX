@@ -55,7 +55,7 @@ class Router {
 			if ($this->url[0]){
 				$this->controller = Strings::alphanumeric($this->url[0]) ? strtolower( $this->url[0] ) . 'Controller' : 'homeController';
 			}else{
-				$this->controller = Strings::alphanumeric($this->url[1]) ? strtolower( $this->url[1] ) . 'Controller' : 'homeController';
+				$this->controller = array_key_exists(1,$this->url) ? $this->url[1] : null;
 			}
 			$this->method = array_key_exists(2,$this->url) ? $this->url[2] : null;
 			$this->id = array_key_exists(3,$this->url) ? $this->url[3] : null;
