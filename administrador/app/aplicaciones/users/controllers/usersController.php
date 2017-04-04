@@ -9,19 +9,19 @@ class usersController extends Controllers {
 
     public function __construct() {
         parent::__construct(true);
-        
+
         $data = new Users;
-        
+
         switch($this->method){
             case 'crear':
-                
+
                 if($_POST){
                     $data->crear();
                 }else{
                     echo $this->template->render('html/users/crear');
                 }
                 break;
-                
+
             case 'editar':
                 if($this->isset_id){
                     if($_POST){
@@ -36,7 +36,7 @@ class usersController extends Controllers {
                     Func::redir(URL . 'users/');
                 }
                 break;
-                
+
             case 'perfil':
                 if($this->isset_id){
                     $users = $data->get_user();
@@ -44,10 +44,10 @@ class usersController extends Controllers {
                         'users' => $users
                     ));
                 } else {
-                    Func::redir();
+                    Func::redir(URL . 'users/');
                 }
                 break;
-                
+
             case 'eliminar':
                 if($this->isset_id){
                     $data->borrar();
@@ -55,7 +55,7 @@ class usersController extends Controllers {
                     Func::redir(URL . 'users/');
                 }
                 break;
-                
+
             default:
                 $users = $data->get_users();
                 echo $this->template->render('html/users/users', array(

@@ -28,6 +28,7 @@ final class Debug {
     color: #333;
     font-family: \'Menlo\',\'Monaco\',\'Consolas\',\'Courier New\',\'monospace\';
     margin-left: 245px;
+    margin-bottom: 45px;
   }
   .variable {
     font-weight: bold!important;

@@ -251,7 +251,7 @@ final class Visitas extends Models implements OCREND {
 	}
 
 	public function showResult(){
-		return $this->db->select('*','visitas','1=1','ORDER BY id DESC');
+		return $this->db->query("SELECT countid,countryName,navegador,plataforma, SUM(useragent) AS useragent FROM visitas GROUP BY countid ASC, countryName ASC, navegador ASC,plataforma ASC;");
 	}
 
 	public function countStats(){

@@ -38,7 +38,7 @@
 				<div class="contenido-pagina-inner">
 					<div id="header-pagina" class="clearfix">
 						<div class="header-pagina">
-							<h2>Usuarios</h2>
+							<h2><?= TITULO_USUARIOS ?></h2>
 						</div>
 					</div>
 					<!-- Comienza contenido general del sitio -->
@@ -49,7 +49,7 @@
 								<div class="panel-header">
 									<h4 class="panel-title">
 										<i class="fa fa-newspaper-o"></i>
-										Crear nuevo usuario
+										<?= TITULO_CREAR_USUARIOS ?>
 									</h4>
 									<div class="panel-controls panel-controls-right">
 										<span class="collapse-link">
@@ -64,66 +64,66 @@
 									<form action="users/crear" method="post" role="form" enctype="multipart/form-data">
 										<div class="botonera">
 											<div class="form-grupo">
-												<button type="submit" class="boton success">Enviar<i class="fa fa-caret-right"></i></button>
-												<a href="users" class="boton danger">Cancelar<i class="fa fa-ban"></i></a>
+												<button type="submit" class="boton success"><?= BOTON_ENVIAR ?><i class="fa fa-caret-right"></i></button>
+												<a href="users" class="boton danger"><?= BOTON_CANCELAR ?><i class="fa fa-ban"></i></a>
 											</div>
 										</div>
 										<div class="form-grupo">
-											<label for="nom" class="movil-12 pc-3">Nombre<span class="marcador-rojo"> *</span></label>
+											<label for="nom" class="movil-12 pc-3"><?= LABEL_NOMBRE_USUARIOS ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"> *</span></label>
 											<div class="movil-12 pc-9">
-												<input type="text" name="nom" id="nom" placeholder="Nombre" required>
+												<input type="text" name="nom" id="nom" placeholder="<?= LABEL_NOMBRE_USUARIOS ?>" required>
 											</div>
 										</div>
 										<div class="form-grupo">
-											<label for="ape" class="movil-12 pc-3">Apellido<span class="marcador-rojo"> *</span></label>
+											<label for="ape" class="movil-12 pc-3"><?= LABEL_APELLIDO_USUARIOS ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"> *</span></label>
 											<div class="movil-12 pc-9">
-												<input type="text" name="ape" id="ape" placeholder="Apellido" required>
+												<input type="text" name="ape" id="ape" placeholder="<?= LABEL_APELLIDO_USUARIOS ?>" required>
 											</div>
 										</div>
 										<div class="form-grupo">
-											<label for="fnaci" class="movil-12 pc-3">Fecha de nacimiento<span class="marcador-rojo"> *</span></label>
+											<label for="fnaci" class="movil-12 pc-3"><?= LABEL_FECHA_NACIDO_USUARIOS ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"> *</span></label>
 											<div class="movil-12 pc-9">
 												<input type="date" name="fnaci" value="2011-08-19" id="example-date-input">
 											</div>
 										</div>
 										<div class="form-grupo">
-											<label class="movil-12 pc-3">Sexo<span class="marcador-rojo"> *</span></label>
+											<label class="movil-12 pc-3"><?= LABEL_SEXO_USUARIOS ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"> *</span></label>
 											<div class="movil-12 pc-9">
 												<div class="botonSiNo">
 													<label class="on">
 														<input type="radio" name="sexo" value="m" checked>
-														<span>Masculino</span>
+														<span><?= LABEL_SEXO_MASCULINO_USUARIOS ?></span>
 													</label>
 													<label class="off">
 														<input type="radio" name="sexo" value="f">
-														<span>Femenino</span>
+														<span><?= LABEL_SEXO_FEMENINO_USUARIOS ?></span>
 													</label>
 												</div>
 											</div>
 										</div>
 										<div class="form-grupo">
-											<label for="user" class="movil-12 pc-3">Nombre usuario<span class="marcador-rojo"> *</span></label>
+											<label for="user" class="movil-12 pc-3"><?= LABEL_NOMBREUSUARIO_USUARIOS ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"> *</span></label>
 											<div class="movil-12 pc-9">
-												<input type="text" name="user" id="user" placeholder="Nombre usuario" required>
+												<input type="text" name="user" id="user" placeholder="<?= LABEL_NOMBREUSUARIO_USUARIOS ?>" required>
 											</div>
 										</div>
 										<div class="form-grupo">
-											<label for="mail" class="movil-12 pc-3">Email<span class="marcador-rojo"> *</span></label>
+											<label for="mail" class="movil-12 pc-3"><?= LABEL_EMAIL_USUARIOS ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"> *</span></label>
 											<div class="movil-12 pc-9">
-												<input type="email" name="mail" id="mail" placeholder="Email" required>
+												<input type="email" name="mail" id="mail" placeholder="<?= LABEL_EMAIL_USUARIOS ?>" required>
 											</div>
 										</div>
 										<div class="form-grupo">
-											<label for="pass" class="movil-12 pc-3">Clave<span class="marcador-rojo"> *</span></label>
+											<label for="pass" class="movil-12 pc-3"><?= LABEL_CLAVE_USUARIOS ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"> *</span></label>
 											<div class="movil-12 pc-9">
-												<input type="password" name="pass" id="pass" placeholder="Clave" required>
+												<input type="password" name="pass" id="pass" placeholder="<?= LABEL_CLAVE_USUARIOS ?>" required>
 											</div>
 										</div>
 										<div class="form-grupo">
-											<label for="zoneregion" class="movil-12 pc-3">Zona horaria<span class="marcador-rojo"> *</span></label>
+											<label for="zoneregion" class="movil-12 pc-3"><?= LABEL_ZONAHORARIA_USUARIOS ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"> *</span></label>
 											<div class="movil-12 pc-9">
 												<select id="zoneregion" name="zoneregion" class="custom-select">
-													<option value="0" selected="selected">- Usar la predeterminada -</option>
+													<option value="0" selected="selected"><?= TEXTO_SELECCIONAR_OPCION ?></option>
 													<?php
 														$regions = array(
 															'Africa' => DateTimeZone::AFRICA,
@@ -166,37 +166,37 @@
 
 
 										<div class="form-grupo">
-											<label class="movil-12 pc-3">Avatar usuario</label>
+											<label class="movil-12 pc-3"><?= LABEL_AVATAR_USUARIOS ?></label>
 											<div class="fileinput movil-12 pc-9">
-												<input  id="imagen" name="imagen" type="text" value="" class="file-input margin-bottom-normal" placeholder="No hay archivo seleccionado...">
-												<a href="javascript:open_popup('/a-diario/administracion/extras/filemanager/dialog.php?type=0&popup=1&field_id=imagen&relative_url=avatar/')" class="boton boton-file info" type="button">Seleccionar</a>
+												<input  id="imagen" name="imagen" type="text" value="" class="file-input margin-bottom-normal" placeholder="<?= TEXTO_NOHAYARCHIVO_SELECCIONADO ?>">
+												<a href="javascript:open_popup('/a-diario/administracion/extras/filemanager/dialog.php?type=0&popup=1&field_id=imagen&relative_url=avatar/')" class="boton boton-file info" type="button"><?= BOTON_SELECCIONAR ?></a>
 											</div>
 										</div>
 
 										<?php if ($_SESSION['GRUPO'] == 6) :?>
 											<div class="form-grupo">
-												<label class="movil-12 pc-3">Jerarquía<span class="marcador-rojo"> *</span></label>
+												<label class="movil-12 pc-3"><?= LABEL_GRUPO_USUARIOS ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"> *</span></label>
 												<div class="movil-12 pc-9">
 													<select id="grupo" name="grupo" class="custom-select">
-														<option value="1">Publico</option>
-														<option value="2">Registrado</option>
-														<option value="3">Autor</option>
-														<option value="4">Editor</option>
-														<option value="5">Administrator</option>
-														<option value="6">Super Users</option>
+														<option value="1"><?= LABEL_GRUPO1_USUARIOS ?></option>
+														<option value="2"><?= LABEL_GRUPO2_USUARIOS ?></option>
+														<option value="3"><?= LABEL_GRUPO3_USUARIOS ?></option>
+														<option value="4"><?= LABEL_GRUPO4_USUARIOS ?></option>
+														<option value="5"><?= LABEL_GRUPO5_USUARIOS ?></option>
+														<option value="6"><?= LABEL_GRUPO6_USUARIOS ?></option>
 													</select>
 												</div>
 											</div>
 
 											<div class="form-grupo">
-												<label class="movil-12 pc-3">Activar</label>
+												<label class="movil-12 pc-3"><?= LABEL_ACTIVAR_USUARIOS ?></label>
 												<div class="movil-12 pc-9">
 													<input type="checkbox" name="activar" value="0">
 												</div>
 											</div>
 
 											<div class="form-grupo">
-												<label class="movil-12 pc-3">Banear</label>
+												<label class="movil-12 pc-3"><?= LABEL_BANEAR_USUARIOS ?></label>
 												<div class="movil-12 pc-9">
 													<input type="checkbox" name="blquear" value="0">
 												</div>

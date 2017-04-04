@@ -18,15 +18,11 @@
 											echo "<ul>";
 											$visita = new Visitas;
 											$sr = $visita->showResult();
-											foreach($sr as $vis){
-												echo "<li> id: " . $vis['id'] . "<br>
-												Ip: " . $vis['ip'] . "<br>
-												Siglas del país: " . $vis['countryCode'] . "<br>
-												País; " . $vis['countryName'] . "<br>
-												OS: " . $vis['plataforma'] .  "<br>
-												Navegador: " . $vis['navegador'] . " / " . $vis['version'] . "</li>";
-											}
-											echo "</ul>";
+											$data = $sr->fetchAll();
+											echo "Usuarios: <strong>" . $data[0]['countid'] . "</strong><br>";
+											echo "Pais: <strong>" . $data[0]['countryName'] . "</strong><br>";
+											echo "Navegador: <strong>" . $data[0]['navegador'] . "</strong><br>";
+											echo "OS: <strong>" . $data[0]['plataforma'] . "</strong><br>";
 										?>
 								</div>
 							</div>

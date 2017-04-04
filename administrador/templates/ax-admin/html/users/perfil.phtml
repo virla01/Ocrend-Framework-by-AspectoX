@@ -10,7 +10,7 @@
 				<div class="contenido-pagina-inner">
 					<div id="header-pagina" class="clearfix">
 						<div class="header-pagina">
-							<h2>Perfiles</h2>
+							<h2><?= TITULO_PERFILES_USUARIOS ?></h2>
 						</div>
 					</div>
 					<!-- Comienza contenido general del sitio -->
@@ -21,7 +21,7 @@
 								<div class="panel-header">
 									<h4 class="panel-title">
 										<i class="fa fa-newspaper-o"></i>
-										 Perfil <?= $users['user']?>
+										 <?= TITULO_PERFIL_USUARIOS ?><?= $users['user']?>
 									</h4>
 									<div class="panel-controls panel-controls-right">
 										<span class="collapse-link">
@@ -33,54 +33,51 @@
 									</div>
 								</div>
 								<div class="panel-body">
-									<form action="users/editar/<?= $users['id']?>" method="post" role="form" enctype="multipart/form-data">
-										<div class="botonera">
-											<div class="form-grupo">
-												<button type="submit" class="boton success">Enviar<i class="fa fa-caret-right"></i></button>
-												<a href="./" class="boton danger">Cancelar<i class="fa fa-ban"></i></a>
-											</div>
+									<div class="botonera">
+										<div class="form-grupo">
+											<a href="./" class="boton danger"><?= BOTON_CANCELAR ?><i class="fa fa-ban"></i></a>
 										</div>
-										<div class="movil-12 pc-3 " align="center">
-											<img alt="<?= $users['user']?>" src="./avatar/<?= $users['avatar']?>" class="rounded-circle img-fluid img-user">
-										</div>
-										<div class="movil-12 pc-9">
-											<table class="table table-user-information">
-												<tbody>
-													<tr>
-														<td>Nombre:</td>
-														<td><?= $users['nombre']?></td>
-													</tr>
-													<tr>
-														<td>Apellido:</td>
-														<td><?= $users['apellido']?></td>
-													</tr>
-													<tr>
-														<td>Fecha de nacimiento:</td>
-														<td><?= $users['nacido']?></td>
-													</tr>
-													<tr>
-														<td>Sexo:</td>
-														<td>
-															<?php if ($users['sexo'] == 'm'){echo "Masculino";}?>
-															<?php if ($users['sexo'] == 'f'){echo "Femenino";}?>
-														</td>
-													</tr>
-													<tr>
-														<td>País y provincia:</td>
-														<td><?= $users['zoneregion']?></td>
-													</tr>
-													<tr>
-														<td>Email:</td>
-														<td><a href="mailto:<?= $users['email']?>"><?= $users['email']?></a></td>
-													</tr>
-													<tr>
-														<td>Fecha de registro:</td>
-														<td><?= $users['fechareg']?></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</form>
+									</div>
+									<div class="movil-12 pc-3 " align="center">
+										<img alt="<?= $users['user']?>" src="./avatar/<?= $users['avatar']?>" class="rounded-circle img-fluid img-user">
+									</div>
+									<div class="movil-12 pc-9">
+										<table class="table table-user-information">
+											<tbody>
+												<tr>
+													<td><?= LABEL_NOMBRE_USUARIOS ?>:</td>
+													<td><?= $users['nombre']?></td>
+												</tr>
+												<tr>
+													<td><?= LABEL_APELLIDO_USUARIOS ?>:</td>
+													<td><?= $users['apellido']?></td>
+												</tr>
+												<tr>
+													<td><?= LABEL_FECHA_NACIDO_USUARIOS ?>:</td>
+													<td><?= $users['nacido']?></td>
+												</tr>
+												<tr>
+													<td><?= LABEL_SEXO_USUARIOS ?>:</td>
+													<td>
+														<?php if ($users['sexo'] == 'm'){echo "Masculino";}?>
+														<?php if ($users['sexo'] == 'f'){echo "Femenino";}?>
+													</td>
+												</tr>
+												<tr>
+													<td><?= LABEL_ZONAHORARIA_USUARIOS ?>:</td>
+													<td><?= $users['zoneregion']?></td>
+												</tr>
+												<tr>
+													<td><?= LABEL_EMAIL_USUARIOS ?>:</td>
+													<td><a href="mailto:<?= $users['email']?>"><?= $users['email']?></a></td>
+												</tr>
+												<tr>
+													<td><?= LABEL_FECHA_REGISTRO_USUARIOS ?>:</td>
+													<td><?= $users['fechareg']?></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
 								</div>
 							</div>
 						</div>

@@ -20,11 +20,11 @@
 		 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 		<style>
-		.page-404 {
+		.page-401 {
 			text-align: center;
-			background: #f4b04f!important;
+			background: #b32d00!important;
 		}
-		.page-404 .header {
+		.page-401 .header {
 			background: #fff;
 			padding: 20px 0;
 			-webkit-box-shadow: 0 4px 0 rgba(0,0,0,.1);
@@ -33,7 +33,7 @@
 		.header img.logo{
 			width: 200px;
 		}
-		.page-404 .error-code{
+		.page-401 .error-code{
 			color: #fff;
 			font-size: 120px;
 			font-weight: 700;
@@ -41,17 +41,17 @@
 			margin-top: 60px;
 			text-shadow: 0 4px 0 rgba(0,0,0,.1);
 		}
-		.page-404 .error-text{
+		.page-401 .error-text{
 			color: #fff;
 			color: rgba(0,0,0,.5);
 			font-size: 20px;
 			font-weight: 600;
 			padding: 0 20px;
 		}
-		.page-404 .error-text .oops{
+		.page-401 .error-text .oops{
 			font-size: 50px;
 		}
-		.page-404 .error-text .hr{
+		.page-401 .error-text .hr{
 			background: #fff;
 			background: rgba(0,0,0,.2);
 			display: inline-block;
@@ -63,17 +63,16 @@
 
 		<title><?= APP ?></title>
 	</head>
-	<body class="page-404">
-		<?php global $router; ?>
+	<body class="page-401">
 		<div class="header">
 			<a href="./"><img src="<?php echo PATH_TEMPLATE ?>/images/logo.png" alt="" class="logo"></a>
 		</div>
-		<div class="error-code">404</div>
+		<div class="error-code">401</div>
 		<div class="error-text">
 			<span class="oops">OOPS!</span><br>
 			<span class="hr"></span>
 			<br>
-			Controlador <b><?= str_replace('Controller','',$router->getController()) ?></b> no encontrado.
+			<?= MENSAJE_ERROR_401 ?>
 		</div>
 	</body>
 </html>

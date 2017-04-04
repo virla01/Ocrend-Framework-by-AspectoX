@@ -13,8 +13,3 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.php [QSA,L]
-
-ErrorDocument 401 templates/plates/error/401.phtml
-ErrorDocument 403 templates/plates/error/403.phtml
-ErrorDocument 404 templates/plates/error/404.phtml
-ErrorDocument 500 templates/plates/error/500.phtml
