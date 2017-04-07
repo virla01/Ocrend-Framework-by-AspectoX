@@ -10,7 +10,7 @@
 				<div class="contenido-pagina-inner">
 					<div id="header-pagina" class="clearfix">
 						<div class="header-pagina">
-							<h2>Configuración</h2>
+							<h2><?= TITULO_CONFIGURA ?></h2>
 						</div>
 					</div>
 					<!-- Comienza contenido general del sitio -->
@@ -21,7 +21,7 @@
 								<div class="panel-header">
 									<h4 class="panel-title">
 										<i class="fa fa-newspaper-o"></i>
-										Configuración del sistema
+										<?= TITULO_CONFIGURA_SISTEMA ?>
 									</h4>
 									<div class="panel-controls panel-controls-right">
 										<span class="collapse-link">
@@ -36,33 +36,33 @@
 									<form action="configura/configura/editar" method="post" role="form" enctype="multipart/form-data">
 										<div class="botonera">
 											<div class="form-grupo">
-												<button type="submit" class="boton success">Enviar<i class="fa fa-caret-right"></i></button>
-												<a href="./" class="boton danger">Cancelar<i class="fa fa-ban"></i></a>
+												<button type="submit" class="boton success"><?= BOTON_ENVIAR ?><i class="fa fa-caret-right"></i></button>
+												<a href="./" class="boton danger"><?= BOTON_CANCELAR ?><i class="fa fa-ban"></i></a>
 											</div>
 										</div>
 										<div class="form-grupo">
-											<label for="nom"  class="movil-12 pc-3">Nombre del sitio<span class="marcador-rojo"> *</span></label>
+											<label for="nom"  class="movil-12 pc-3"><?= LABEL_CONFIGURA_NOM_SITE ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
 											<div class="movil-12 pc-9">
-												<input type="text" name="sitenom" id="sitenom" placeholder="Nombre del sitio" value="<?= $strConfig['siteName'] ?>">
+												<input type="text" name="sitenom" id="sitenom" placeholder="<?= LABEL_CONFIGURA_NOM_SITE ?>" value="<?= $strConfig['siteName'] ?>">
 											</div>
 										</div>
 										<div class="form-grupo">
-											<label for="eslogan" class="movil-12 pc-3">Eslogan</label>
+											<label for="eslogan" class="movil-12 pc-3"><?= LABEL_CONFIGURA_ESLOGAN ?></label>
 											<div class="movil-12 pc-9">
-												<input type="text" name="eslogan" id="eslogan" placeholder="Eslogan" value="<?= $strConfig['siteslogan'] ?>">
+												<input type="text" name="eslogan" id="eslogan" placeholder="<?= LABEL_CONFIGURA_ESLOGAN ?>" value="<?= $strConfig['siteslogan'] ?>">
 											</div>
 										</div>
 										<div class="form-grupo">
-											<label for="avatar" class="movil-12 pc-3">Logo</label>
+											<label for="avatar" class="movil-12 pc-3"><?= LABEL_CONFIGURA_LOGO ?></label>
 											<div class="movil-12 pc-3">
-												<input type="text" name="logo" value="<?= $strConfig['siteLogo'] ?>">
+												<input type="text" name="logo" placeholder="<?= LABEL_CONFIGURA_LOGO ?>" value="<?= $strConfig['siteLogo'] ?>">
 											</div>
 										</div>
 										<div class="form-grupo">
-											<label for="zoneregion" class="movil-12 pc-3">Zona horaria<span class="marcador-rojo"> *</span></label>
+											<label for="zoneregion" class="movil-12 pc-3"><?= LABEL_CONFIGURA_ZONEHORARIA ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
 											<div class="movil-12 pc-9">
 												<select id="zoneregion" name="zoneregion" class="custom-select">
-													<option value="<?php if ($strConfig['timezone'] == '0'){ echo '0';}else{echo $strConfig['timezone'];}?>" selected="selected"><?php if ($strConfig['timezone'] == '0'){ echo '- Usar la predeterminada -';}else{echo $strConfig['timezone'];}?></option>
+													<option value="<?php if ($strConfig['timezone'] == '0'){ echo '0';}else{echo $strConfig['timezone'];}?>" selected="selected"><?php if ($strConfig['timezone'] == '0'){ echo TEXTO_SELECCIONAR_OPCION ;}else{echo $strConfig['timezone'];}?></option>
 
 													<?php
 													$regions = array(
@@ -104,81 +104,81 @@
 											</div>
 										</div>
 										<div class="form-grupo">
-											<label for="url" class="movil-12 pc-3">Url<span class="marcador-rojo"> *</span></label>
+											<label for="url" class="movil-12 pc-3"><?= LABEL_CONFIGURA_URL ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
 											<div class="movil-12 pc-9">
 												<input type="text" name="url" id="url" placeholder="http://tupagina.com" value="<?= $strConfig['siteRoot'] ?>">
 											</div>
 										</div>
 										<div id="ud_tab">
 											<input type="radio" name="ud_tabs" id="tab1" checked>
-											<label for="tab1">Template</label>
+											<label for="tab1"><?= TAB_LABEL_TEMPLATE ?></label>
 
 											<input type="radio" name="ud_tabs" id="tab2">
-											<label for="tab2">Base de datos</label>
+											<label for="tab2"><?= TAB_LABEL_DB ?></label>
 
 											<input type="radio" name="ud_tabs" id="tab3">
-											<label for="tab3">Mail</label>
+											<label for="tab3"><?= TAB_LABEL_MAIL ?></label>
 
 											<input type="radio" name="ud_tabs" id="tab4">
-											<label for="tab4">Paypal</label>
+											<label for="tab4"><?= TAB_LABEL_PAYPAL ?></label>
 
 											<input type="radio" name="ud_tabs" id="tab5">
-											<label for="tab5">Extras</label>
+											<label for="tab5"><?= TAB_LABEL_EXTRAS ?></label>
 
 											<div id="ud_tab-content1" class="ud_content">
 												<div class="form-grupo">
-													<label for="temadmin" class="movil-12 pc-3">Nombre Template admin<span class="marcador-rojo"> *</span></label>
+													<label for="temadmin" class="movil-12 pc-3"><?= LABEL_CONFIGURA_TEMPLATE_ADMIN ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
 													<div class="movil-12 pc-9">
-														<input type="text" name="temadmin" id="temadmin" placeholder="Nombre Template admin" value="<?= $strConfig['templateAdmin'] ?>">
+														<input type="text" name="temadmin" id="temadmin" placeholder="<?= LABEL_CONFIGURA_TEMPLATE_ADMIN ?>" value="<?= $strConfig['templateAdmin'] ?>">
 													</div>
 												</div>
 												<div class="form-grupo">
-													<label for="tempsitio" class="movil-12 pc-3">Nombre Template sitio<span class="marcador-rojo"> *</span></label>
+													<label for="tempsitio" class="movil-12 pc-3"><?= LABEL_CONFIGURA_TEMPLATE_SITE ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
 													<div class="movil-12 pc-9">
-														<input type="text" name="tempsitio" id="tempsitio" placeholder="Nombre Template sitio" value="<?= $strConfig['templateSite'] ?>">
+														<input type="text" name="tempsitio" id="tempsitio" placeholder="<?= LABEL_CONFIGURA_TEMPLATE_SITE ?>" value="<?= $strConfig['templateSite'] ?>">
 													</div>
 												</div>
 											</div>
 
 											<div id="ud_tab-content2" class="ud_content">
 												<div class="form-grupo">
-													<label class="movil-12 pc-3">Host db<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_HOST_DB ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
 													<div class="movil-12 pc-9">
 														<input type="text" name="dbhost" id="dbhost" value="<?= $strConfig['dbhost'] ?>">
 													</div>
 												</div>
 												<div class="form-grupo">
-													<label class="movil-12 pc-3">Usuario<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_USUARIO_DB ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
 													<div class="movil-12 pc-9">
 														<input type="text" name="dbuser" id="dbuser" value="<?= $strConfig['dbuser'] ?>">
 													</div>
 												</div>
 												<div class="form-grupo">
-													<label class="movil-12 pc-3">Password<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_PASS_DB ?></label>
 													<div class="movil-12 pc-9">
 														<input type="password" name="dbpass" id="dbpass" value="<?= $strConfig['dbpass'] ?>">
 													</div>
 												</div>
 												<div class="form-grupo">
-													<label class="movil-12 pc-3">Nombre de la base de datos<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_NAME_DB ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
 													<div class="movil-12 pc-9">
 														<input type="text" name="dbnom" id="dbnom" value="<?= $strConfig['dbname'] ?>">
 													</div>
 												</div>
 												<div class="form-grupo">
-													<label class="movil-12 pc-3">Puerto<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_POT_DB ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
 													<div class="movil-12 pc-9">
 														<input type="text" name="dbport" id="dbport" value="<?= $strConfig['dbport'] ?>">
 													</div>
 												</div>
 												<div class="form-grupo">
-													<label class="movil-12 pc-3">Protocolo<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_PROTOCOLO ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
 													<div class="movil-12 pc-9">
 														<input type="text" name="dbproto" id="dbproto" value="<?= $strConfig['dbprotocol'] ?>">
 													</div>
 												</div>
 												<div class="form-grupo">
-													<label class="movil-12 pc-3">Motor base de datos<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_MOTOR_DB ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
 													<div class="movil-12 pc-9">
 														<select id="dbmotor" name="dbmotor" class="custom-select">
 															<option value="mysql" <?php if ($strConfig['dbmotor'] == 'mysql'){ echo "selected";} ?>>mysql</option>
@@ -195,25 +195,25 @@
 
 											<div id="ud_tab-content3" class="ud_content">
 												<div class="form-grupo">
-													<label class="movil-12 pc-3">Host Mail<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_HOST_MAIL ?></label>
 													<div class="movil-12 pc-9">
 														<input type="text" name="host" id="host" placeholder="smtp.tusitio.com" value="<?= $strConfig['phpmailHost'] ?>">
 													</div>
 												</div>
 												<div class="form-grupo">
-													<label class="movil-12 pc-3">Usuario Mail<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_USER_MAIL ?></label>
 													<div class="movil-12 pc-9">
 														<input type="text" name="usermail" id="usermail" placeholder="user@tusitio.com" value="<?= $strConfig['phpmailUser'] ?>">
 													</div>
 												</div>
 												<div class="form-grupo">
-													<label class="movil-12 pc-3">Pasword Mail<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_PASS_MAIL ?></label>
 													<div class="movil-12 pc-9">
 														<input type="password" name="passmail" id="passmail" value="<?= $strConfig['phpmailPass'] ?>">
 													</div>
 												</div>
 												<div class="form-grupo">
-													<label class="movil-12 pc-3">Puerto Mail<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_PORT_MAIL ?></label>
 													<div class="movil-12 pc-9">
 														<input type="text" name="puertomail" id="puertomail" placeholder="465" value="<?= $strConfig['phpmailPort'] ?>">
 													</div>
@@ -225,32 +225,32 @@
 													<?php
 													$paypal = preg_replace('[\n|\r|\n\r|\t|\0|\x0B]','',$strConfig['paypalMode']);
 													?>
-													<label class="movil-12 pc-3">Modo<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_PAYPAL_MODE ?></label>
 													<div class="movil-12 pc-9">
 														<div class="botonSiNo">
 															<label class="on">
 																<input type="radio" name="modo" value="sandbox"
 																<?php if ($paypal == 'sandbox'){echo "checked";}?>>
-																<span>Sandbox</span>
+																<span><?= LABEL_CONFIGURA_MODE_SANDBOX ?></span>
 															</label>
 															<label class="off">
 																<input type="radio" name="modo" value="live"
 																<?php if ($paypal == 'live'){echo "checked";}?>>
-																<span>Live</span>
+																<span><?= LABEL_CONFIGURA_MODE_LIVE ?></span>
 															</label>
 														</div>
 													</div>
 												</div>
 												<div class="form-grupo">
-													<label class="movil-12 pc-3">Id Cliente<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_PAYPAL_ID ?></label>
 													<div class="movil-12 pc-9">
-														<input type="text" name="clienteId" id="clienteId" placeholder="Id Cliente" value="<?= $strConfig['paypalId'] ?>">
+														<input type="text" name="clienteId" id="clienteId" placeholder="<?= LABEL_CONFIGURA_PAYPAL_ID ?>" value="<?= $strConfig['paypalId'] ?>">
 													</div>
 												</div>
 												<div class="form-grupo">
-													<label class="movil-12 pc-3">Clave secreta del Cliente<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_PAYPAL_CALVE ?></label>
 													<div class="movil-12 pc-9">
-														<input type="text" name="clienteSecret" id="clienteSecret" placeholder="Clave secreta del Cliente" value="<?= $strConfig['paypalSecret'] ?>">
+														<input type="text" name="clienteSecret" id="clienteSecret" placeholder="<?= LABEL_CONFIGURA_PAYPAL_CALVE ?>" value="<?= $strConfig['paypalSecret'] ?>">
 													</div>
 												</div>
 											</div>
@@ -260,18 +260,18 @@
 													<?php
 													$firewall = preg_replace('[\n|\r|\n\r|\t|\0|\x0B]','',$strConfig['firewall']);
 													?>
-													<label class="movil-12 pc-3">Visualizar Firewall<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_ACTIVA_FIREWALL ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
 													<div class="movil-12 pc-9">
 														<div class="botonSiNo">
 															<label class="on">
 																<input type="radio" name="fire" value="true"
 																<?php if ($firewall == 'true'){echo "checked";}?>>
-																<span>Si</span>
+																<span><?= BOTON_SI ?></span>
 															</label>
 															<label class="off">
 																<input type="radio" name="fire" value="false"
 																<?php if ($firewall == 'false'){echo "checked";}?>>
-																<span>No</span>
+																<span><?= BOTON_NO ?></span>
 															</label>
 														</div>
 													</div>
@@ -280,16 +280,16 @@
 													<?php
 													$debug = preg_replace('[\n|\r|\n\r|\t|\0|\x0B]','',$strConfig['debug']);
 													?>
-													<label class="movil-12 pc-3">Visualizar Debug<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_VISUALIZAR_DEBUG ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
 													<div class="movil-12 pc-9">
 														<div class="botonSiNo">
 															<label class="on">
 																<input type="radio" name="debug" value="true" <?php if ($debug == "true"){echo "checked";}?>>
-																<span>Si</span>
+																<span><?= BOTON_SI ?></span>
 															</label>
 															<label class="off">
 																<input type="radio" name="debug" value="false" <?php if ($debug == "false"){echo "checked";}?>>
-																<span>No</span>
+																<span><?= BOTON_NO ?></span>
 															</label>
 														</div>
 													</div>
@@ -298,16 +298,16 @@
 													<?php
 													$twig = preg_replace('[\n|\r|\n\r|\t|\0|\x0B]','',$strConfig['twig']);
 													?>
-													<label class="movil-12 pc-3">Template Twig<span class="marcador-rojo"> *</span></label>
+													<label class="movil-12 pc-3"><?= LABEL_CONFIGURA_TEMPLATE_TWIG ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"><i class="fa fa-certificate" aria-hidden="true"></i></span></label>
 													<div class="movil-12 pc-9">
 														<div class="botonSiNo">
 															<label class="on">
 																<input type="radio" name="twig" value="true" <?php if ($twig == "true"){echo "checked";}?>>
-																<span>Twig</span>
+																<span><?= LABEL_CONFIGURA_TWIG ?></span>
 															</label>
 															<label class="off">
 																<input type="radio" name="twig" value="false" <?php if ($twig == "false"){echo "checked";}?>>
-																<span>Plate</span>
+																<span><?= LABEL_CONFIGURA_PLATE ?></span>
 															</label>
 														</div>
 													</div>

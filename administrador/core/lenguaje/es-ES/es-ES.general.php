@@ -122,4 +122,41 @@ define("TITULO_LISTADO_NOMBREYAPELLIDO","Nombre y apellido");
 define("TITULO_MODULOS","Modulos");
 define("TITULO_LISTADO_MODULOS","Listado modulos");
 
+//SISTEMA CONFIGURACION
+define("TITULO_CONFIGURA","Configuración");
+define("TITULO_CONFIGURA_SISTEMA","Configuración del sistema");
+define("LABEL_CONFIGURA_NOM_SITE","Nombre del sitio");
+define("LABEL_CONFIGURA_ESLOGAN","Eslogan");
+define("LABEL_CONFIGURA_LOGO","Logo");
+define("LABEL_CONFIGURA_ZONEHORARIA","Zona horaria");
+define("LABEL_CONFIGURA_URL","Url");
+define("TAB_LABEL_TEMPLATE","Template");
+define("TAB_LABEL_DB","Base de datos");
+define("TAB_LABEL_MAIL","Mail");
+define("TAB_LABEL_PAYPAL","Paypal");
+define("TAB_LABEL_EXTRAS","Extras");
+define("LABEL_CONFIGURA_TEMPLATE_ADMIN","Nombre Template admin");
+define("LABEL_CONFIGURA_TEMPLATE_SITE","Nombre Template sitio");
+define("LABEL_CONFIGURA_HOST_DB","Host db");
+define("LABEL_CONFIGURA_USUARIO_DB","Usuario");
+define("LABEL_CONFIGURA_PASS_DB","Password");
+define("LABEL_CONFIGURA_NAME_DB","Nombre de la base de datos");
+define("LABEL_CONFIGURA_POT_DB","Puerto");
+define("LABEL_CONFIGURA_PROTOCOLO","Protocolo");
+define("LABEL_CONFIGURA_MOTOR_DB","Motor base de datos");
+define("LABEL_CONFIGURA_HOST_MAIL","Host Mail");
+define("LABEL_CONFIGURA_USER_MAIL","Usuario Mail");
+define("LABEL_CONFIGURA_PASS_MAIL","Pasword Mail");
+define("LABEL_CONFIGURA_PORT_MAIL","Puerto Mail");
+define("LABEL_CONFIGURA_PAYPAL_MODE","Modo");
+define("LABEL_CONFIGURA_MODE_SANDBOX","Sandbox");
+define("LABEL_CONFIGURA_MODE_LIVE","Live");
+define("LABEL_CONFIGURA_PAYPAL_ID","Id Cliente");
+define("LABEL_CONFIGURA_PAYPAL_CALVE","Clave secreta del Cliente");
+define("LABEL_CONFIGURA_ACTIVA_FIREWALL","Activar Firewall");
+define("LABEL_CONFIGURA_VISUALIZAR_DEBUG","Visualizar Debug");
+define("LABEL_CONFIGURA_TEMPLATE_TWIG","Template Twig");
+define("LABEL_CONFIGURA_TWIG","Twig");
+define("LABEL_CONFIGURA_PLATE","Plate");
+
 ?>
