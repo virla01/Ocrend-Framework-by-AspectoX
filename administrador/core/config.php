@@ -57,8 +57,8 @@ define('__ROOT__', '/Ocrend-Framework-by-AspectoX/administrador/');
 
 # Constantes fundamentales
 define('URL', 'http://localhost/Ocrend-Framework-by-AspectoX/administrador/');
-define('APP', 'Ax-Admin 1.0');
-define('SITE_APP', 'Ocrend Framewor');
+define('SITE_APP', 'Ax-Admin 1.0');
+define('APP', 'Ocrend Framework');
 define('SITE_URL', 'http://localhost/Ocrend-Framework-by-AspectoX');
 define('SITE_LOGO', 'logo.png');
 define('SITE_SLOGAN', 'Slogan del sitio');
@@ -102,7 +102,7 @@ define('FIREWALL', true);
 //------------------------------------------------
 
 # Activación del DEBUG, solo para desarrollo
-define('DEBUG', true);
+define('DEBUG', false);
 
 //------------------------------------------------
 

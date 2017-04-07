@@ -15,8 +15,10 @@ class configuraController extends Controllers {
 		switch($this->method){
 
 			case 'editar':
-				$data->EditarConfig();
-
+				if($_POST){
+					$data->EditarConfig();
+				}
+                
 				break;
 
 			default:

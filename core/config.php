@@ -60,7 +60,7 @@ define('URL', 'http://localhost/Ocrend-Framework-by-AspectoX/');
 define('APP', 'Ocrend Framework');
 
 # define el nombre del template
-define('TEMPLATE_NAME','plates');
+define('TEMPLATE_NAME_SITE', 'plates');
 
 define('PATH_TEMPLATE', URL . 'templates/'. TEMPLATE_NAME);
 

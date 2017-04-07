@@ -33,7 +33,7 @@
 									</div>
 								</div>
 								<div class="panel-body">
-									<form action="configura/editar" method="post" role="form" enctype="multipart/form-data">
+									<form action="configura/configura/editar" method="post" role="form" enctype="multipart/form-data">
 										<div class="botonera">
 											<div class="form-grupo">
 												<button type="submit" class="boton success">Enviar<i class="fa fa-caret-right"></i></button>
@@ -284,13 +284,11 @@
 													<div class="movil-12 pc-9">
 														<div class="botonSiNo">
 															<label class="on">
-																<input type="radio" name="debug" value="true"
-																<?php if ($debug == "true"){echo "checked";}?>>
+																<input type="radio" name="debug" value="true" <?php if ($debug == "true"){echo "checked";}?>>
 																<span>Si</span>
 															</label>
 															<label class="off">
-																<input type="radio" name="debug" value="false"
-																<?php if ($debug == "false"){echo "checked";}?>>
+																<input type="radio" name="debug" value="false" <?php if ($debug == "false"){echo "checked";}?>>
 																<span>No</span>
 															</label>
 														</div>
@@ -304,13 +302,11 @@
 													<div class="movil-12 pc-9">
 														<div class="botonSiNo">
 															<label class="on">
-																<input type="radio" name="twig" value="true"
-																<?php if ($twig == "true"){echo "checked";}?>>
+																<input type="radio" name="twig" value="true" <?php if ($twig == "true"){echo "checked";}?>>
 																<span>Twig</span>
 															</label>
 															<label class="off">
-																<input type="radio" name="twig" value="false"
-																<?php if ($twig == "false"){echo "checked";}?>>
+																<input type="radio" name="twig" value="false" <?php if ($twig == "false"){echo "checked";}?>>
 																<span>Plate</span>
 															</label>
 														</div>
