@@ -1,0 +1,131 @@
+<?= $this->insert('html/includes/header') ?>
+
+<?= $this->insert('html/includes/barra') ?>
+
+<?= $this->insert('html/includes/menu') ?>
+
+<?php
+
+if(!isset($_GET['shortby']))  $_GET['shortby'] = "daycount";
+if(!isset($_GET['toshort']))  $_GET['toshort'] = "desc";
+if(!isset($action)) $action = "";
+
+$data = new Trafico;
+
+$datos = $data->query("SELECT * FROM is_engine ORDER BY " . $_GET['shortby'] . " " . $_GET['toshort'] . " limit 20");
+
+$short_url = $data->mkUrl("?action=" . $action . "&", $_GET['shortby'], $_GET['toshort']);
+
+?>
+
+<div class="contenido-pagina clearfix" id="contenido-pagina">
+    <div class="contenido-pagina-wrapper">
+        <div class="contenido-pagina-inner">
+            <div id="header-pagina" class="clearfix">
+                <div class="header-pagina">
+                    <h2><?= TITULO_TRAFICO ?></h2>
+                </div>
+            </div>
+            <!-- Comienza contenido general del sitio -->
+            <div class="row">
+                <!-- Columna 01 -->
+                <div class="movil-12 pc-12">
+                    <div class="panel color-bg-info">
+                        <div class="panel-header">
+                            <h4 class="panel-title">
+                                <i class="fa fa-newspaper-o"></i>
+                                <?= TITULO_TRAFICO_MENU_RBUSQUEDA ?>
+                            </h4>
+                            <div class="panel-controls panel-controls-right">
+                                <span class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </span>
+                                <span class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="movil-3">
+                                <ul class="menu_trafico">
+                                    <li><h4><?= TITULO_TRAFICO ?></h4></li>
+                                    <li><a href="trafico/"><?= TITULO_INICIO ?></a></li>
+                                    <li><a href="trafico/trafico/xhora"><?= TITULO_TRAFICO_MENU_XHORA ?></a></li>
+                                    <li><a href="trafico/trafico/xdia"><?= TITULO_TRAFICO_MENU_XDIA ?></a></li>
+                                    <li><a href="trafico/trafico/xsemana"><?= TITULO_TRAFICO_MENU_XSEMANA ?></a></li>
+                                    <li><a href="trafico/trafico/xmes"><?= TITULO_TRAFICO_MENU_XMES ?></a></li>
+                                    <li><a href="trafico/trafico/xpagina" style="border-bottom:none"><?= TITULO_TRAFICO_MENU_XPAGINA ?></a></li>
+                                    <li><h4><?= TITULO_TRAFICO_REFERIDOS ?></h4></li>
+                                    <li><a href="trafico/trafico/xurl"><?= TITULO_TRAFICO_MENU_RURL ?></a></li>
+                                    <li><a href="trafico/trafico/xdominio"><?= TITULO_TRAFICO_MENU_RDOMINIO ?></a></li>
+                                    <li><a href="trafico/trafico/xmotor" class="active"><?= TITULO_TRAFICO_MENU_RBUSQUEDA ?></a></li>
+                                    <li><a href="trafico/trafico/xpalabra" style="border-bottom:none"><?= TITULO_TRAFICO_MENU_RPALABRA ?></a></li>
+                                    <li><h4><?= TITULO_TRAFICO_SISTEMA ?></h4></li>
+                                    <li><a href="trafico/trafico/xbrowser"><?= TITULO_TRAFICO_MENU_BROWSER ?></a></li>
+                                    <li><a href="trafico/trafico/xos"><?= TITULO_TRAFICO_MENU_OS ?></a></li>
+                                    <li><a href="trafico/trafico/xpantalla"><?= TITULO_TRAFICO_MENU_PANTALLA ?></a></li>
+                                    <li><a href="trafico/trafico/xhostname" style="border-bottom:none"><?= TITULO_TRAFICO_MENU_HOSTNAME ?></a></li>
+                                </ul>
+                            </div>
+                            <div class="movil-9">
+                                <table class="table-basic">
+                                    <tbody>
+                                        <caption><?= TITULO_TRAFICO_MOTORESBUSQUEDA ?></caption>
+                                    	<tr>
+                                    		<td align="center" colspan="4"><img src="printImage/printImage/engine" border="0"></td>
+                                    	</tr>
+                                        <tr>
+                                    		<td>
+                                    		<table class="table-basic">
+                                    			<tr bgcolor="#d9d9d9">
+                                    				<td width="32%"><b><?= LABEL_TRAFICO_MOTOR ?></b></td>
+                                    				<td width="17%"><b><a href="<?= $short_url['count'] ?>"><?= LABEL_TRAFICO_MOTOR_MESPROMEDIO ?></a>&nbsp;</b></td>
+                                    				<td width="17%"><b><a href="<?= $short_url['mthcount'] ?>"><?= LABEL_TRAFICO_DOMINIO_ESTEMES ?></a>&nbsp;</b></td>
+                                    				<td width="17%"><b><a href="<?= $short_url['count'] ?>"><?= LABEL_TRAFICO_DOMINIO_PROMEDIODIA ?></a>&nbsp;</b></td>
+                                    				<td width="17%"><b><a href="<?= $short_url['daycount'] ?>"><?= TEXTO_TRAFICO_HOY ?></a>&nbsp;</b></td>
+                                    			</tr>
+                                    			<?php
+                                    			if($datos){
+                                        			for($i=0; $engine = $data->getRows(); $i++){
+                                        				if($i % 2){
+                                        					$bg_color = "#E6E6E6";
+                                        				}else{
+                                        					$bg_color = "#FFFFFF";
+                                        				}
+                                    				$result = $data->getAvgForecast($engine['count'], $engine['mthcount'], $engine['daycount'], $engine['start_time']);
+                                    				echo "<tr bgcolor=\"" . $bg_color . "\"><td>" . $engine['name'] . "</td>";
+                                    				echo "<td>" . $result['mth_avg'] . "&nbsp;</td>";
+                                    				echo "<td>" . $engine['mthcount'] . " (" . $result['mth_forecast'] . ")&nbsp;</td>";
+                                    				echo "<td>" . sprintf("%.0f", $result['day_avg']) . "&nbsp;</td>";
+                                    				echo "<td>" . $engine['daycount'] . " (" . $result['day_forecast'] . ")&nbsp;</td></tr>";
+                                                    }
+                                                }else{
+                                                    echo "<tr><td COLSPAN='5'>" . TEXTO_SINRESULTADOS . "</td></tr>";
+                                                }
+                                    			?>
+                                    		</table>
+                                    		</td>
+                                    	</tr>
+                                    	<tr>
+                                    		<td><?= LABEL_TRAFICO_DOMINIO_MENSAJEFINAL ?></td>
+                                    	</tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Finaliza contenido general del sitio -->
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- FINALIZA EL WRAPPER -->
+
+
+<?= $this->insert('html/includes/include') ?>
+
+
+<?= $this->insert('html/includes/footer') ?>

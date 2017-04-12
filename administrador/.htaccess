@@ -9,8 +9,6 @@ Order allow,deny
 Deny from all
 </Files>
 
-ErrorDocument 403 403.phtml
-
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

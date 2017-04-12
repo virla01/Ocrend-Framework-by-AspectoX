@@ -41,27 +41,27 @@ class Router {
 		Helper::load('strings');
 		$this->url = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
-			if($this->dir == '/' and strlen($this->url) > strlen($this->dir)) {
-				$this->url[0] = '';
-			} else {
-				$this->url = explode($this->dir,$this->url);
-				$this->url = $this->url[1];
-			}
+        if($this->dir == '/' and strlen($this->url) > strlen($this->dir)) {
+            $this->url[0] = '';
+        } else {
+            $this->url = explode($this->dir,$this->url);
+            $this->url = $this->url[1];
+        }
 
 
-		if(!empty($this->url) and $this->url != $this->dir) {
-			$this->url = explode('/',$this->url);
-			$this->apli = array_key_exists(0,$this->url) ? $this->url[0] : null;
-			if ($this->url[0]){
-				$this->controller = Strings::alphanumeric($this->url[0]) ? strtolower( $this->url[0] ) . 'Controller' : 'homeController';
-			}else{
-				$this->controller = Strings::alphanumeric($this->url[1]) ? strtolower( $this->url[1] ) . 'Controller' : 'homeController';
-			}
-			$this->method = array_key_exists(2,$this->url) ? $this->url[2] : null;
-			$this->id = array_key_exists(3,$this->url) ? $this->url[3] : null;
-		} else {
-			$this->controller = 'homeController';
-		}
+    if(!empty($this->url) and $this->url != $this->dir) {
+        $this->url = explode('/',$this->url);
+        $this->apli = array_key_exists(0,$this->url) ? $this->url[0] : null;
+        if ($this->url[0]){
+            $this->controller = Strings::alphanumeric($this->url[0]) ? strtolower( $this->url[0] ) . 'Controller' : 'homeController';
+        }else{
+            $this->controller = array_key_exists(1,$this->url) ? $this->url[1] : null;
+        }
+        $this->method = array_key_exists(2,$this->url) ? $this->url[2] : null;
+        $this->id = array_key_exists(3,$this->url) ? $this->url[3] : null;
+    } else {
+        $this->controller = 'homeController';
+    }
 
 	}
 

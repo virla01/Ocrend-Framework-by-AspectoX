@@ -21,6 +21,7 @@ require('core/app_core.php');
 //------------------------------------------------
 
 # Detección del controlador actual
+
 $apli = $router->getApli();
 $Controller = $router->getController();
 

@@ -120,4 +120,25 @@ $_SESSION[MENSAJES]="";
 define('LENGUAJE', 'es-ES');
 
 define('ASPECTOX', true);
+
+/**
+* Configuración del trafico en el sitio
+*/
+$cfg['sitename'] = SITE_APP;
+// Lista todas las URL posibles aquí
+$cfg['siteurl'][] = SITE_URL;
+$cfg['siteurl'][] = SITE_URL;
+
+/**
+  * Define las opciones del contador de páginas
+  * @example Fulladd: url con variables _GET, como index.php? Action = make
+  * @example Filename: cuenta con nombre de archivo solamente, como index.php o article.php
+  * @example Título: título html (no se sugiere para el sitio web de alto rendimiento)
+  * @example DEFAULT: 'fulladd'
+*/
+$cfg['pagestats'] = "Filename";
+
+# Establecer el permiso para tus estadísticas
+// Cambia a FALSE si no quieres publicar tus estadísticas
+$cfg['public'] = True;
 ?>

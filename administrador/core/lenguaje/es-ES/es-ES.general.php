@@ -29,6 +29,8 @@ define("BOTON_SELECCIONARIMAGENES","Seleccionar imagenes");
 define("TEXTO_ARCHIVO_SYSTEMA","Archivos de sistema");
 define("TEXTO_SELECCIONAR_OPCION","- Seleccione una opción -");
 define("TEXTO_NOHAYARCHIVO_SELECCIONADO","No hay archivo seleccionado...");
+define("TEXTO_SINRESULTADOS","No hay resultados");
+
 
 /* CAMPOS FORMULARIOS */
 define("CAMPO_FORM_OBLIGATORIO","Campo Obligatorio");
@@ -159,4 +161,88 @@ define("LABEL_CONFIGURA_TEMPLATE_TWIG","Template Twig");
 define("LABEL_CONFIGURA_TWIG","Twig");
 define("LABEL_CONFIGURA_PLATE","Plate");
 
+// SISTEMA DE TRAFICO
+define("TITULO_TRAFICO","Tráfico");
+define("TITULO_TRAFICO_SUMARIO","Sumario");
+define("TITULO_TRAFICO_MENU_XHORA","Por hora");
+define("TITULO_TRAFICO_MENU_XDIA","Por día");
+define("TITULO_TRAFICO_MENU_XSEMANA","Por semana");
+define("TITULO_TRAFICO_MENU_XMES","Por mes");
+define("TITULO_TRAFICO_MENU_XPAGINA","Por página");
+define("TITULO_TRAFICO_REFERIDOS","Referidos");
+define("TITULO_TRAFICO_MENU_RURL","Por Url");
+define("TITULO_TRAFICO_MENU_RDOMINIO","Por Dominio");
+define("TITULO_TRAFICO_MENU_RBUSQUEDA","Motor de Busqueda");
+define("TITULO_TRAFICO_MENU_RPALABRA","Busqueda de palabras claves");
+define("TITULO_TRAFICO_SISTEMA","Sistema");
+define("TITULO_TRAFICO_MENU_BROWSER","Browser");
+define("TITULO_TRAFICO_MENU_OS","Sistema operativo");
+define("TITULO_TRAFICO_MENU_PANTALLA","Por ancho de pantalla");
+define("TITULO_TRAFICO_MENU_COLOR","Color");
+define("TITULO_TRAFICO_MENU_HOSTNAME","Hostname");
+define("LABEL_TRAFICO_TOTALHISTORICO","Total historico");
+define("LABEL_TRAFICO_TOTALDIAS","Días totales");
+define("LABEL_TRAFICO_TOTALHOY","Hoy");
+define("LABEL_TRAFICO_PROMEDIODIA","Promedio por día");
+define("LABEL_TRAFICO_ESTASEMANA","Esta semana");
+define("LABEL_TRAFICO_PROMEDIOSEMANA","Promedio por semana");
+define("LABEL_TRAFICO_ESTEMES","Este mes");
+define("LABEL_TRAFICO_PROMEDIOMES","Promedio por mes");
+define("LABEL_TRAFICO_VISITANTESENLINEA","Visitantes en línea");
+define("LABEL_TRAFICO_PROMEDIOHORA","Promedio por hora");
+define("LABEL_TRAFICO_DIAMASOCUPADO","Día más concurrido");
+define("LABEL_TRAFICO_FECHAMASOCUPADA","Fecha más concurrida");
+define("LABEL_TRAFICO_SEMANAMASOCUPADA","Semana más concurrida");
+define("LABEL_TRAFICO_MESMASOCUPADA","Mes más concurrido");
+define("LABEL_TRAFICO_VISITASPORDIA","Visitas por día");
+define("LABEL_TRAFICO_PRONOSTICOPARAHOY","Pronóstico para hoy");
+define("LABEL_TRAFICO_TEXTOPRONOSTICO","En promedio {1}% de las visitas diarias se realizan antes de {2}.<br>Según el número de visitantes de {3} de hoy hasta el momento, hoy tu sitio puede tener {4} Visitantes.");
+define("LABEL_TRAFICO_ULTIMOS10VISITANTES","Los 10 últimos visitantes");
+define("LABEL_ACCESODIRECTO","Acceso directo");
+define("LABEL_TRAFICO_REFERIDORES","Referidores");
+
+define("LABEL_TRAFICO_TITULO_XDIA","Páginas vistas por día");
+define("LABEL_TRAFICO_VISITA_XDIA","Visita por día");
+
+define("LABEL_TRAFICO_VISITA_XHORA","Cuadro de tráfico de hoy");
+define("TEXTO_TRAFICO_HOY","Hoy");
+define("TEXTO_TRAFICO_PROMEDIO","Promedio");
+define("TEXTO_TRAFICO_PROMEDIOXHOY","Pronóstico para la hora actual");
+define("TEXTO_TRAFICO_VISITASPORHORA", "Visitas por hora");
+define("LABEL_TRAFICO_VISITAXSEMANA","Visita por semana");
+define("LABEL_TRAFICO_DIAS","Dias");
+define("LABEL_TRAFICO_CUENTA","Total");
+define("DIA_0","Dom");
+define("DIA_1","Lun");
+define("DIA_2","Mar");
+define("DIA_3","Mie");
+define("DIA_4","Jue");
+define("DIA_5","Vie");
+define("DIA_6","Sab");
+define("LABEL_TRAFICO_SEMANA","Semana");
+define("LABEL_TRAFICO_PORCENTAJE","Porcentaje");
+
+define("TITULO_TRAFICO_VISITAS_XMES","Visitas por mes");
+define("LABEL_TRAFICO_MES","Mes");
+define("LABEL_TRAFICO_PAGINA","Página");
+define("TITULO_TRAFICO_VISITAS_XPAGINA","Visitas por página");
+
+define("TITULO_TRAFICO_DOMINIOS","Top 20 dominios de referencia");
+define("LABEL_TRAFICO_DOMINIO","Dominio");
+define("LABEL_TRAFICO_DOMINIO_PROMEDIOMES","Promedio por mes");
+define("LABEL_TRAFICO_DOMINIO_ESTEMES","Este mes");
+define("LABEL_TRAFICO_DOMINIO_PROMEDIODIA","Promedio del día");
+define("LABEL_TRAFICO_DOMINIO_MENSAJEFINAL","El número contiene en (), son los números de pronóstico.");
+
+define("TITULO_TRAFICO_MOTORESBUSQUEDA","Top 20 motores de búsqueda de referencia");
+define("LABEL_TRAFICO_MOTOR","Motor");
+define("LABEL_TRAFICO_MOTOR_MESPROMEDIO","Promedio mes");
+
+define("TITULO_TRAFICO_REFERENTEPALABRA","Top 20 referente de palabras claves");
+define("LABEL_TRAFICO_PALABRAS_CLAVES","Palabras claves");
+
+define("TITULO_TRAFICO_ESTADISTICANAVEGADOR","Estadísticas de navegadores");
+define("TITULO_TRAFICO_ESTADISTICAOS","Estadísticas de sistemas operativos");
+define("TITULO_TRAFICO_ESTADISTICAPANTALLA","Estadísticas de ancho de pantalla");
+define("TITULO_TRAFICO_ESTADISTICAHOST","Estadísticas por nombre de host");
 ?>

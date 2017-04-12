@@ -1,0 +1,232 @@
+<?= $this->insert('html/includes/header') ?>
+
+<?= $this->insert('html/includes/barra') ?>
+
+<?= $this->insert('html/includes/menu') ?>
+
+
+<div class="contenido-pagina clearfix" id="contenido-pagina">
+    <div class="contenido-pagina-wrapper">
+        <div class="contenido-pagina-inner">
+            <div id="header-pagina" class="clearfix">
+                <div class="header-pagina">
+                    <h2><?= TITULO_TRAFICO ?></h2>
+                </div>
+            </div>
+            <!-- Comienza contenido general del sitio -->
+            <div class="row">
+                <!-- Columna 01 -->
+                <div class="movil-12 pc-12">
+                    <div class="panel color-bg-info">
+                        <div class="panel-header">
+                            <h4 class="panel-title">
+                                <i class="fa fa-newspaper-o"></i>
+                                <?= TITULO_TRAFICO_SUMARIO ?>
+                            </h4>
+                            <div class="panel-controls panel-controls-right">
+                                <span class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </span>
+                                <span class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="movil-3">
+                                <ul class="menu_trafico">
+                                    <li><h4><?= TITULO_TRAFICO ?></h4></li>
+                                    <li><a href="trafico/" class="active"><?= TITULO_INICIO ?></a></li>
+                                    <li><a href="trafico/trafico/xhora"><?= TITULO_TRAFICO_MENU_XHORA ?></a></li>
+                                    <li><a href="trafico/trafico/xdia"><?= TITULO_TRAFICO_MENU_XDIA ?></a></li>
+                                    <li><a href="trafico/trafico/xsemana"><?= TITULO_TRAFICO_MENU_XSEMANA ?></a></li>
+                                    <li><a href="trafico/trafico/xmes"><?= TITULO_TRAFICO_MENU_XMES ?></a></li>
+                                    <li><a href="trafico/trafico/xpagina" style="border-bottom:none"><?= TITULO_TRAFICO_MENU_XPAGINA ?></a></li>
+                                    <li><h4><?= TITULO_TRAFICO_REFERIDOS ?></h4></li>
+                                    <li><a href="trafico/trafico/xurl"><?= TITULO_TRAFICO_MENU_RURL ?></a></li>
+                                    <li><a href="trafico/trafico/xdominio"><?= TITULO_TRAFICO_MENU_RDOMINIO ?></a></li>
+                                    <li><a href="trafico/trafico/xmotor"><?= TITULO_TRAFICO_MENU_RBUSQUEDA ?></a></li>
+                                    <li><a href="trafico/trafico/xpalabra" style="border-bottom:none"><?= TITULO_TRAFICO_MENU_RPALABRA ?></a></li>
+                                    <li><h4><?= TITULO_TRAFICO_SISTEMA ?></h4></li>
+                                    <li><a href="trafico/trafico/xbrowser"><?= TITULO_TRAFICO_MENU_BROWSER ?></a></li>
+                                    <li><a href="trafico/trafico/xos"><?= TITULO_TRAFICO_MENU_OS ?></a></li>
+                                    <li><a href="trafico/trafico/xpantalla"><?= TITULO_TRAFICO_MENU_PANTALLA ?></a></li>
+                                    <li><a href="trafico/trafico/xhostname" style="border-bottom:none"><?= TITULO_TRAFICO_MENU_HOSTNAME ?></a></li>
+                                </ul>
+                            </div>
+                            <div class="movil-9">
+                                <table class="table-basic">
+                                    <tbody>
+                                        <caption><?= TITULO_TRAFICO_SUMARIO ?></caption>
+                                        <tr>
+                                    	  <td><?= LABEL_TRAFICO_TOTALHISTORICO ?></td>
+                                    	  <td><?= $trafic['total'] ?></td>
+                                    	  <td><?= LABEL_TRAFICO_TOTALDIAS ?></td>
+                                    	  <td><?= $trafic['days'] ?></td>
+                                    	</tr>
+                                        <tr>
+                                    	  <td><?= LABEL_TRAFICO_TOTALHOY ?></td>
+                                    	  <td><?= $trafic['today']?></td>
+                                    	  <td><?= LABEL_TRAFICO_PROMEDIODIA ?></td>
+                                    	  <td><?php printf ("%.0f", $trafic['ava_day']);?></td>
+                                    	</tr>
+                                        <tr>
+                                    	  <td><?= LABEL_TRAFICO_ESTASEMANA ?></td>
+                                    	  <td><?= $trafic['this_week'] ?></td>
+                                    	  <td><?= LABEL_TRAFICO_PROMEDIOSEMANA ?></td>
+                                    	  <td><?php printf ("%.0f", $trafic['ava_week']); ?></td>
+                                    	</tr>
+                                        <tr>
+                                    	  <td><?= LABEL_TRAFICO_ESTEMES ?></td>
+                                    	  <td><?= $trafic['this_mth'] ?></td>
+                                    	  <td><?= LABEL_TRAFICO_PROMEDIOMES ?></td>
+                                    	  <td><?php printf ("%.0f", $trafic['ava_mth']); ?></td>
+                                    	</tr>
+                                        <tr>
+                                    	  <td><?= LABEL_TRAFICO_VISITANTESENLINEA ?></td>
+                                    	  <td><?= $trafic['online'] ?></td>
+                                    	  <td><?= LABEL_TRAFICO_PROMEDIOHORA ?></td>
+                                    	  <td><?php printf ("%.2f",$trafic['ava_hour']); ?></td>
+                                    	</tr>
+                                        <tr>
+                                    	  <td><?= LABEL_TRAFICO_DIAMASOCUPADO ?></td>
+                                    	  <td><?= $trafic['max_daycount'] ?></td>
+                                    	  <td><?= LABEL_TRAFICO_FECHAMASOCUPADA ?></td>
+                                    	  <td><?= $trafic['max_date'] ?></td>
+                                    	</tr>
+                                        <tr>
+                                    	  <td><?= LABEL_TRAFICO_SEMANAMASOCUPADA ?></td>
+                                    	  <td><?= $trafic['max_weekcount']?></td>
+                                    	  <td><?= LABEL_TRAFICO_SEMANAMASOCUPADA ?></td>
+                                          <?php if($trafic['max_week'] == '0------'):?>
+                                    	     <td><?= date("Y-m-d", $trafic['max_week']); ?></td>
+                                         <?php else: ?>
+                                            <td><?= "0" ?></td>
+                                          <?php endif ?>
+                                    	</tr>
+                                        <tr>
+                                    	  <td><?= LABEL_TRAFICO_MESMASOCUPADA ?></td>
+                                    	  <td><?= $trafic['max_mthcount'] ?></td>
+                                    	  <td><?= LABEL_TRAFICO_MESMASOCUPADA ?></td>
+                                    	  <td><?= $trafic['max_mth'] ?></td>
+                                    	</tr>
+                                        <tr>
+                                            <td COLSPAN="4"><h6><?= LABEL_TRAFICO_VISITASPORDIA ?></h6></td>
+                                        </tr>
+                                        <?php
+                                        $day_no = 0;
+                                        if (count($day_visitor) != 0){
+                                            while($day_visitor = count($day_visitor)){
+                                            	if($day_no % 2){
+                                            		$bgcolor = "#FFFFFF";
+                                            	}else{
+                                            		$bgcolor = "#E6E6E6";
+                                            	}
+                                            	$day_no++;
+                                        ?>
+                                        	<tr>
+                                        		<td width="7%" height="15" bgcolor="#E6E6E6">&nbsp;</td>
+                                        		<td bgcolor="<?=$bgcolor?>">&nbsp;<b><?=$day_visitor["date"]?></b></td>
+                                        		<td bgcolor="<?=$bgcolor?>" width="20%" align="right"><b><?=$day_visitor["daycount"]?></b>&nbsp;&nbsp;</td>
+                                        	</tr>
+                                        <?php
+                                            }
+                                     }else{
+                                         echo "<tr><td COLSPAN='4'>" . TEXTO_SINRESULTADOS . "</td></tr>";
+                                     }
+                                     ?>
+                                     <tr>
+                                         <td COLSPAN="4"><h6><?= LABEL_TRAFICO_PRONOSTICOPARAHOY ?></h6></td>
+                                     </tr>
+                                     <tr>
+                                         <?php
+                                         if(date("H") == "00"){
+                                         	$hour_info[0]['sum'] = 0;
+                                         }else{
+                                         	$hour_info = $forecast['hour_info'];
+                                         }
+
+                                         $hour_sum = $forecast['hour_sum'];
+                                         $per_hour_info = $forecast['per_hour_info'];
+
+                                         if($hour_sum[0]['sum'] > 0){
+                                         	$gone_mins = date("i") / 60;
+                                         	$hour_info[0]['sum'] += intval($per_hour_info[0]['count'] * $gone_mins);
+                                         	$today_hour_percent = $hour_info[0]['sum'] / $hour_sum[0]['sum'];
+                                         	$cur_percent = $today_hour_percent * 100;
+                                         	if($today_hour_percent > 0){
+                                         		$today_hits = $trafic['today'] / $today_hour_percent;
+                                         	}else{
+                                         		$today_hits = 0;
+                                         	}
+                                         }else{
+                                         	$cur_percent = 0;
+                                         	$today_hits = 0;
+                                         }
+
+                                         // count error rate with forecast visitor/s, it is 5% error rate
+                                         $error_rate = ($today_hits - $trafic['today']) * 0.05;
+                                         $text['forecast_text'] = LABEL_TRAFICO_TEXTOPRONOSTICO;
+
+                                         $text['forecast_text'] = str_replace("{1}", sprintf ("%.2f", $cur_percent), $text['forecast_text']);
+                                         $text['forecast_text'] = str_replace("{2}", date("H:i"), $text['forecast_text']);
+                                         $text['forecast_text'] = str_replace("{3}", $trafic['today'], $text['forecast_text']);
+                                         $text['forecast_text'] = str_replace("{4}", intval($today_hits), $text['forecast_text']);
+
+                                         echo "<td COLSPAN='4'>" . $text['forecast_text'] . " (+/- " . intval($error_rate) . ")</td>";
+                                         ?>
+                                     </tr>
+                                     <tr>
+                                         <td COLSPAN="4"><h6><?= LABEL_TRAFICO_ULTIMOS10VISITANTES ?></h6></td>
+                                     </tr>
+                                     <?php
+                                     $bg_i = 0;
+                                     if (count($l_visitor) != 0){
+                                         while($l_visitor = count($l_visitor)){
+                                         	if($bg_i % 2){
+                                         		$bg_color = "#DDDDDD";
+                                         	}else{
+                                         		$bg_color = "#FFFFFF";
+                                         	}
+                                         	$bg_i++;
+
+                                         	if($l_visitor['referer'] == ""){
+                                         		$l_visitor['referer'] = "<i>" . LABEL_ACCESODIRECTO . "</i>";
+                                         	}elseif(strlen($l_visitor['referer']) > 40){
+                                         		$l_visitor['referer'] = "<a href=\"".$l_visitor['referer']."\" target=\"_blank\">" . substr($l_visitor['referer'], 0, 37) . "...</a>";
+                                         	}else{
+                                         		$l_visitor['referer'] = "<a href=\"".$l_visitor['referer']."\" target=\"_blank\">" . $l_visitor['referer'] . "</a>";
+                                         	}
+                                     ?>
+                                     <tr bgcolor="<?=$bg_color?>">
+                                     	<td width="25">&nbsp;<?=$bg_i?></td>
+                                     	<td width="125">&nbsp;<?=date("d M Y&\\nb\sp; H:i", $l_visitor['time'])?></td>
+                                     	<td width="120">&nbsp;<?=$l_visitor['hostname']?></td>
+                                     	<td>&nbsp;<?=$l_visitor['referer']?></td>
+                                    </tr>
+                                     <?php
+                                        }
+                                    }else{
+                                        echo "<tr><td COLSPAN='4'>" . TEXTO_SINRESULTADOS . "</td></tr>";
+                                    }
+                                     ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Finaliza contenido general del sitio -->
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- FINALIZA EL WRAPPER -->
+
+
+<?= $this->insert('html/includes/include') ?>
+
+
+<?= $this->insert('html/includes/footer') ?>

@@ -7,10 +7,6 @@ defined('INDEX_DIR') OR exit('Ocrend software says .i.');
 
 final class Widget {
 
-
-
-
-
     //------------------------------------------------
     const ROUTE = IS_API ? '../widgets/' : 'widgets/';
 

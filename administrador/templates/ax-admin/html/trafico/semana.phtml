@@ -1,0 +1,135 @@
+<?= $this->insert('html/includes/header') ?>
+
+<?= $this->insert('html/includes/barra') ?>
+
+<?= $this->insert('html/includes/menu') ?>
+
+<?php
+$text['wd_0'] = DIA_0;
+$text['wd_1'] = DIA_1;
+$text['wd_2'] = DIA_2;
+$text['wd_3'] = DIA_3;
+$text['wd_4'] = DIA_4;
+$text['wd_5'] = DIA_5;
+$text['wd_6'] = DIA_6;
+
+$data = new Trafico;
+
+$datos = $data->getResult("SELECT * FROM is_week WHERE year='" . date("Y") . "' ORDER BY week DESC");
+$sum = $data->getResult("SELECT sum(count) AS sum FROM is_week WHERE year='" . date("Y") . "'");
+$max = $data->getResult("SELECT max(count) AS max FROM is_week WHERE year='" . date("Y") . "'");
+$report = $data->PrintStats($sum[0]["sum"], $max[0]["max"], $data, sizeof($data), 350);
+?>
+
+<div class="contenido-pagina clearfix" id="contenido-pagina">
+    <div class="contenido-pagina-wrapper">
+        <div class="contenido-pagina-inner">
+            <div id="header-pagina" class="clearfix">
+                <div class="header-pagina">
+                    <h2><?= TITULO_TRAFICO ?></h2>
+                </div>
+            </div>
+            <!-- Comienza contenido general del sitio -->
+            <div class="row">
+                <!-- Columna 01 -->
+                <div class="movil-12 pc-12">
+                    <div class="panel color-bg-info">
+                        <div class="panel-header">
+                            <h4 class="panel-title">
+                                <i class="fa fa-newspaper-o"></i>
+                                <?= TITULO_TRAFICO_MENU_XSEMANA ?>
+                            </h4>
+                            <div class="panel-controls panel-controls-right">
+                                <span class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </span>
+                                <span class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="movil-3">
+                                <ul class="menu_trafico">
+                                    <li><h4><?= TITULO_TRAFICO ?></h4></li>
+                                    <li><a href="trafico/"><?= TITULO_INICIO ?></a></li>
+                                    <li><a href="trafico/trafico/xhora"><?= TITULO_TRAFICO_MENU_XHORA ?></a></li>
+                                    <li><a href="trafico/trafico/xdia"><?= TITULO_TRAFICO_MENU_XDIA ?></a></li>
+                                    <li><a href="trafico/trafico/xsemana" class="active"><?= TITULO_TRAFICO_MENU_XSEMANA ?></a></li>
+                                    <li><a href="trafico/trafico/xmes"><?= TITULO_TRAFICO_MENU_XMES ?></a></li>
+                                    <li><a href="trafico/trafico/xpagina" style="border-bottom:none"><?= TITULO_TRAFICO_MENU_XPAGINA ?></a></li>
+                                    <li><h4><?= TITULO_TRAFICO_REFERIDOS ?></h4></li>
+                                    <li><a href="trafico/trafico/xurl"><?= TITULO_TRAFICO_MENU_RURL ?></a></li>
+                                    <li><a href="trafico/trafico/xdominio"><?= TITULO_TRAFICO_MENU_RDOMINIO ?></a></li>
+                                    <li><a href="trafico/trafico/xmotor"><?= TITULO_TRAFICO_MENU_RBUSQUEDA ?></a></li>
+                                    <li><a href="trafico/trafico/xpalabra" style="border-bottom:none"><?= TITULO_TRAFICO_MENU_RPALABRA ?></a></li>
+                                    <li><h4><?= TITULO_TRAFICO_SISTEMA ?></h4></li>
+                                    <li><a href="trafico/trafico/xbrowser"><?= TITULO_TRAFICO_MENU_BROWSER ?></a></li>
+                                    <li><a href="trafico/trafico/xos"><?= TITULO_TRAFICO_MENU_OS ?></a></li>
+                                    <li><a href="trafico/trafico/xpantalla"><?= TITULO_TRAFICO_MENU_PANTALLA ?></a></li>
+                                    <li><a href="trafico/trafico/xhostname" style="border-bottom:none"><?= TITULO_TRAFICO_MENU_HOSTNAME ?></a></li>
+                                </ul>
+                            </div>
+                            <div class="movil-9">
+                                <table class="table-basic">
+                                    <tbody>
+                                        <caption><?= LABEL_TRAFICO_VISITAXSEMANA ?></caption>
+                                    </tbody>
+                                    <tr bgcolor="#d9d9d9">
+                        				<td COLSPAN="2"><strong><?= LABEL_TRAFICO_DIAS ?></strong></td>
+                        				<td COLSPAN="2"><strong><?= LABEL_TRAFICO_CUENTA ?></strong></td>
+                        			</tr>
+                                    <?php
+                        			for($i=0; $i<sizeof($week_day); $i++){
+                        				if($i % 2){
+                        					$bg_color = "#E6E6E6";
+                        				}else{
+                        					$bg_color = "#FFFFFF";
+                        				}
+                                    ?>
+                        				<tr bgcolor="<?= $bg_color ?>">
+                        				<td COLSPAN="2"><?= $text["wd_".$i] ?></td>
+                        			    <td align="right" COLSPAN="2"><?= $week_day[$i]["count"] ?>&nbsp;</td></tr>
+                                    <?php
+                                    }
+                        			?>
+                                    <tr>
+                                        <td align="center" COLSPAN="4"><img src="weekDaysTraffic/" border="0"></td>
+                                    </tr>
+                                </table>
+                                <table class="table-basic">
+                                	<tr bgcolor="#d9d9d9">
+                                		<td width="15%"><b>&nbsp;<?= LABEL_TRAFICO_SEMANA ?></b></td>
+                                		<td><b>&nbsp;<?= LABEL_TRAFICO_PORCENTAJE ?></b></td>
+                                		<td width="10%" align="center"><b>&nbsp;<?= LABEL_TRAFICO_CUENTA ?></b></td>
+                                	</tr>
+                                <?php
+                                for($i=0; $i<sizeof($datos); $i++){
+                                ?>
+                                	<tr bgcolor="<?=$report[$i]["bg_color"]?>">
+                                		<td><?=date("d/m/Y", $datos[$i]["date"])?></td>
+                                		<td><img src="<?= PATH_TEMPLATE ?>/images/barsunrise.gif" width="<?=$report[$i]["bar"]?>" height="10"><img src="<?= PATH_TEMPLATE ?>/images/bargray.gif" width="<?=$report[$i]["bg_bar"]?>" height="10"> <?=$report[$i]["percent"]?> %</td>
+                                		<td align="center"><?=$datos[$i]["count"]?></td>
+                                	</tr>
+                                <?php
+                                }
+                                ?>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Finaliza contenido general del sitio -->
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- FINALIZA EL WRAPPER -->
+
+
+<?= $this->insert('html/includes/include') ?>
+
+
+<?= $this->insert('html/includes/footer') ?>

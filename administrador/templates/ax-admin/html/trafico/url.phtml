@@ -1,0 +1,99 @@
+<?= $this->insert('html/includes/header') ?>
+
+<?= $this->insert('html/includes/barra') ?>
+
+<?= $this->insert('html/includes/menu') ?>
+
+
+<div class="contenido-pagina clearfix" id="contenido-pagina">
+    <div class="contenido-pagina-wrapper">
+        <div class="contenido-pagina-inner">
+            <div id="header-pagina" class="clearfix">
+                <div class="header-pagina">
+                    <h2><?= TITULO_TRAFICO ?></h2>
+                </div>
+            </div>
+            <!-- Comienza contenido general del sitio -->
+            <div class="row">
+                <!-- Columna 01 -->
+                <div class="movil-12 pc-12">
+                    <div class="panel color-bg-info">
+                        <div class="panel-header">
+                            <h4 class="panel-title">
+                                <i class="fa fa-newspaper-o"></i>
+                                <?= TITULO_TRAFICO_MENU_RURL ?>
+                            </h4>
+                            <div class="panel-controls panel-controls-right">
+                                <span class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </span>
+                                <span class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="movil-3">
+                                <ul class="menu_trafico">
+                                    <li><h4><?= TITULO_TRAFICO ?></h4></li>
+                                    <li><a href="trafico/"><?= TITULO_INICIO ?></a></li>
+                                    <li><a href="trafico/trafico/xhora"><?= TITULO_TRAFICO_MENU_XHORA ?></a></li>
+                                    <li><a href="trafico/trafico/xdia"><?= TITULO_TRAFICO_MENU_XDIA ?></a></li>
+                                    <li><a href="trafico/trafico/xsemana"><?= TITULO_TRAFICO_MENU_XSEMANA ?></a></li>
+                                    <li><a href="trafico/trafico/xmes"><?= TITULO_TRAFICO_MENU_XMES ?></a></li>
+                                    <li><a href="trafico/trafico/xpagina" style="border-bottom:none"><?= TITULO_TRAFICO_MENU_XPAGINA ?></a></li>
+                                    <li><h4><?= TITULO_TRAFICO_REFERIDOS ?></h4></li>
+                                    <li><a href="trafico/trafico/xurl" class="active"><?= TITULO_TRAFICO_MENU_RURL ?></a></li>
+                                    <li><a href="trafico/trafico/xdominio"><?= TITULO_TRAFICO_MENU_RDOMINIO ?></a></li>
+                                    <li><a href="trafico/trafico/xmotor"><?= TITULO_TRAFICO_MENU_RBUSQUEDA ?></a></li>
+                                    <li><a href="trafico/trafico/xpalabra" style="border-bottom:none"><?= TITULO_TRAFICO_MENU_RPALABRA ?></a></li>
+                                    <li><h4><?= TITULO_TRAFICO_SISTEMA ?></h4></li>
+                                    <li><a href="trafico/trafico/xbrowser"><?= TITULO_TRAFICO_MENU_BROWSER ?></a></li>
+                                    <li><a href="trafico/trafico/xos"><?= TITULO_TRAFICO_MENU_OS ?></a></li>
+                                    <li><a href="trafico/trafico/xpantalla"><?= TITULO_TRAFICO_MENU_PANTALLA ?></a></li>
+                                    <li><a href="trafico/trafico/xhostname" style="border-bottom:none"><?= TITULO_TRAFICO_MENU_HOSTNAME ?></a></li>
+                                </ul>
+                            </div>
+                            <div class="movil-9">
+                                <table class="table-basic">
+                                    <tbody>
+                                        <caption><?= LABEL_TRAFICO_REFERIDORES ?></caption>
+                                        <?php
+                                        if($url['ref'] == 0){
+                                            for($i = 0; $i < sizeof($url['ref']); $i++){
+                                            	if(strlen($url['ref'][$i]["url"]) > 83){
+                                            		$url = substr($url['ref'][$i]["url"], 0, 80) . "...";
+                                            	}else{
+                                            		$url = $url['ref'][$i]["url"];
+                                            	}
+                                            ?>
+                                            	<tr bgcolor="<?= $url['report'][$i]["bg_color"] ?>">
+                                            		<td><a href="<?= str_replace("%%%%%", "&", $url['ref'][$i]["url"]) ?>" target="_blank"><?= $url ?></a></td>
+                                            		<td align="center"><?= $url['ref'][$i]["count"] ?></td>
+                                            	</tr>
+                                            <?php
+                                            }
+                                        }else{
+                                            echo "<tr><td COLSPAN='4'>" . TEXTO_SINRESULTADOS . "</td></tr>";
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Finaliza contenido general del sitio -->
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- FINALIZA EL WRAPPER -->
+
+
+<?= $this->insert('html/includes/include') ?>
+
+
+<?= $this->insert('html/includes/footer') ?>

@@ -40,7 +40,7 @@ abstract class Controllers {
 
 		# Restricción para usuarios logeados
 		if($LOGED and !isset($_SESSION[SESS_APP_ID])) {
-			Func::redir(URL . 'login/logout/');
+			Func::redir(URL . 'logout/');
 			exit;
 		}
 
@@ -75,7 +75,7 @@ abstract class Controllers {
 		# PLATESPHP ENGINE
 		else {
 			# Carga del template
-			$this->template = new League\Plates\Engine('templates/'. TEMPLATE_NAME,'phtml');
+			$this->template = new League\Plates\Engine('templates/'. TEMPLATE_NAME_SITE,'phtml');
 
 			/*
 	  # Insertar por defecto, en TODOS los templates un elemento o más

@@ -20,10 +20,17 @@ class logoutController extends Controllers {
 			unset($_SESSION['AVATAR']);
 			unset($_SESSION['GRUPO']);
 			unset($_SESSION['online']);
-			session_write_close();
-			session_unset();
+            $_SESSION['USUARIO'] = "";
+            $_SESSION['NOMBRE'] = "";
+            $_SESSION['APELLIDO'] = "";
+            $_SESSION['AVATAR'] = "";
+            $_SESSION['GRUPO'] = "";
+            $_SESSION['online'] = "";
+            session_write_close();
+            session_unset();
+			session_destroy();
 		}
-		Func::redir();
+		Func::redir(URL . 'login/');
 	}
 
 }

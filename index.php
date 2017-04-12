@@ -27,11 +27,12 @@ $Controller = $router->getController();
 //------------------------------------------------
 
 # Identificación del controlador en el sistema
-if(!is_readable('app/' . $apli . '/controllers/' . $Controller . '.php')) {
+
+if(!is_readable('app/aplicaciones/' . $apli . '/controllers/' . $Controller . '.php')) {
 	$Controller = 'errorController';
-	require('app/controllers/' . $Controller . '.php');
+	require('app/aplicaciones/controllers/' . $Controller . '.php');
 }else{
-	require('app/' . $apli . '/controllers/' . $Controller . '.php');
+	require('app/aplicaciones/' . $apli . '/controllers/' . $Controller . '.php');
 }
 
 

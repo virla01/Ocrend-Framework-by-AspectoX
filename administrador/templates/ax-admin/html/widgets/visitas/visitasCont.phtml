@@ -14,15 +14,125 @@
 									</div>
 								</div>
 								<div class="panel-body">
+									<div class="movil-4">
+										<h4>Navegador</h4>
+										<canvas id="myChart" width="400" height="400"></canvas>
+									</div>
+									<div class="movil-4">
+										<h4>Paises</h4>
+										<canvas id="myChartpais" width="400" height="400"></canvas>
+									</div>
+									<div class="movil-4">
+										<h4>Visitas</h4>
+										<canvas id="myChartvis" width="400" height="400"></canvas>
+									</div>
 										<?php
-											echo "<ul>";
-											$visita = new Visitas;
-											$sr = $visita->showResult();
-											$data = $sr->fetchAll();
-											echo "Usuarios: <strong>" . $data[0]['countid'] . "</strong><br>";
-											echo "Pais: <strong>" . $data[0]['countryName'] . "</strong><br>";
-											echo "Navegador: <strong>" . $data[0]['navegador'] . "</strong><br>";
-											echo "OS: <strong>" . $data[0]['plataforma'] . "</strong><br>";
+											//echo "<ul>";
+											//$visita = new Visitas;
+											//$sr = $visita->showResult();
+											//$data = $sr->fetchAll();
+											//echo "Usuarios: <strong>" . $data[0]['countid'] . "</strong><br>";
+											//echo "Pais: <strong>" . $data[0]['countryName'] . "</strong><br>";
+											//echo "Navegador: <strong>" . $data[0]['navegador'] . "</strong><br>";
+											//echo "OS: <strong>" . $data[0]['plataforma'] . "</strong><br>";
 										?>
 								</div>
 							</div>
+							<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+							<script>
+							var ctx = document.getElementById("myChart");
+							var myChart = new Chart(ctx, {
+							    type: 'doughnut',
+							    data: {
+								    labels: ["Chrome", "IE", "Safari", "Firefox", "Otros"],
+								    datasets: [
+								        {
+								            data: [22, 3, 16, 15, 2],
+								            backgroundColor: [
+												"#FF6384",
+								                "#36A2EB",
+								                "#FFCE56",
+												"#4BC0C0",
+												"#9966ff"
+								            ],
+								            hoverBackgroundColor: [
+												'rgba(255,99,132,1)',
+								                'rgba(54, 162, 235, 1)',
+								                'rgba(255, 206, 86, 1)',
+								                'rgba(75, 192, 192, 1)',
+								                'rgba(153, 102, 255, 1)'
+								            ]
+								        }]
+								},
+								options: {
+							        animation:{
+							            animateScale:true
+							        }
+							    }
+							});
+							var ctx = document.getElementById("myChartpais");
+							var myChartpais = new Chart(ctx, {
+							    type: 'pie',
+							    data: {
+								    labels: ["EEUU", "España", "Argentina", "Brazil", "Otros"],
+								    datasets: [
+								        {
+								            data: [22, 3, 16, 15, 2],
+								            backgroundColor: [
+												"#FF6384",
+								                "#36A2EB",
+								                "#FFCE56",
+												"#4BC0C0",
+												"#9966ff"
+								            ],
+								            hoverBackgroundColor: [
+												'rgba(255,99,132,1)',
+								                'rgba(54, 162, 235, 1)',
+								                'rgba(255, 206, 86, 1)',
+								                'rgba(75, 192, 192, 1)',
+								                'rgba(153, 102, 255, 1)'
+								            ]
+								        }]
+								},
+								options: {
+							        animation:{
+							            animateScale:true
+							        }
+							    }
+							});
+							var ctx = document.getElementById("myChartvis");
+							var myChartvis = new Chart(ctx, {
+							    type: 'bar',
+							    data: {
+								    labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio"],
+								    datasets: [
+										{
+								            label: "Mensual",
+								            backgroundColor: [
+								                'rgba(255, 99, 132, 0.2)',
+								                'rgba(54, 162, 235, 0.2)',
+								                'rgba(255, 206, 86, 0.2)',
+								                'rgba(75, 192, 192, 0.2)',
+								                'rgba(153, 102, 255, 0.2)',
+								                'rgba(255, 159, 64, 0.2)'
+								            ],
+								            borderColor: [
+								                'rgba(255,99,132,1)',
+								                'rgba(54, 162, 235, 1)',
+								                'rgba(255, 206, 86, 1)',
+								                'rgba(75, 192, 192, 1)',
+								                'rgba(153, 102, 255, 1)',
+								                'rgba(255, 159, 64, 1)'
+								            ],
+								            borderWidth: 1,
+								            data: [65, 59, 80, 81, 56, 55, 40],
+								        }
+								    ]
+								},
+								options: {
+							        animation:{
+							            animateScale:true
+							        }
+							    }
+							});
+							</script>

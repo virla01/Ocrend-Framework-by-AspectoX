@@ -700,10 +700,6 @@ input[type=file]#files {
 }
 
 
-
-
-
-
 #error_output{
 	color: red;
 }
@@ -735,9 +731,40 @@ td center a{
 	left: 25%;
 	z-index: 11;
 	display: none;
-
 	height: 30px;
 }
+
+/* TRAFICO */
+ul.menu_trafico{
+	background: #d9d9d9;
+	margin: 0;
+	padding: 15px;
+	border-radius: 6px;
+}
+.menu_trafico li a{
+	display: block;
+	padding: 15px 10px;
+	color: #3D444B;
+	text-decoration: none;
+	border-bottom: 1px solid #737373;
+}
+.menu_trafico li a.active{
+    background: rgba(255, 255, 255, 0.7);
+	color: #3D444B;
+}
+.menu_trafico li a:hover,.menu_trafico li a.active:hover{
+    background-color: rgba(0, 0, 0, 0.7);;
+	color: #ffffff;
+}
+.menu_trafico li h4{
+    font-size: 18px;
+	margin: 0;
+	padding: 15px 0 15px 10px;
+	color: #fff;
+	background: #2980b9;
+	border-bottom: 1px solid #737373;
+}
+
 
 @media only screen and (max-width: 900px) {
 	.sidebar,

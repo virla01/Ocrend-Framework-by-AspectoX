@@ -62,7 +62,7 @@ define('APP', 'Ocrend Framework');
 # define el nombre del template
 define('TEMPLATE_NAME_SITE', 'plates');
 
-define('PATH_TEMPLATE', URL . 'templates/'. TEMPLATE_NAME);
+define('PATH_TEMPLATE', URL . 'templates/'. TEMPLATE_NAME_SITE);
 
 //------------------------------------------------
 
@@ -100,7 +100,7 @@ define('FIREWALL', true);
 //------------------------------------------------
 
 # Activación del DEBUG, solo para desarrollo
-define('DEBUG', false);
+define('DEBUG', true);
 
 //------------------------------------------------
 
@@ -112,4 +112,25 @@ define('USE_TWIG_TEMPLATE_ENGINE', false);
 # Versión actual del framework
 define('VERSION', '1.2');
 
+
+/**
+* Configuración del trafico en el sitio
+*/
+$cfg['sitename'] = APP;
+// Lista todas las URL posibles aquí
+$cfg['siteurl'][] = URL;
+$cfg['siteurl'][] = URL;
+
+/**
+  * Define las opciones del contador de páginas
+  * @example Fulladd: url con variables _GET, como index.php? Action = make
+  * @example Filename: cuenta con nombre de archivo solamente, como index.php o article.php
+  * @example Título: título html (no se sugiere para el sitio web de alto rendimiento)
+  * @example DEFAULT: 'fulladd'
+*/
+$cfg['pagestats'] = "Filename";
+
+# Establecer el permiso para tus estadísticas
+// Cambia a FALSE si no quieres publicar tus estadísticas
+$cfg['public'] = True;
 ?>

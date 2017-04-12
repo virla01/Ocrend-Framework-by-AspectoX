@@ -1,0 +1,102 @@
+<?= $this->insert('html/includes/header') ?>
+
+<?= $this->insert('html/includes/barra') ?>
+
+<?= $this->insert('html/includes/menu') ?>
+
+<?php
+$data = new Trafico;
+
+$page = $data->getResult("SELECT * FROM is_page ORDER BY count DESC LIMIT 50");
+$sum = $data->getResult("SELECT sum(count) AS sum FROM is_page");
+$max = $data->getResult("SELECT max(count) AS max FROM is_page");
+$report = $data->PrintStats($sum[0]["sum"], $max[0]["max"], $page, sizeof($page), 30);
+?>
+
+<div class="contenido-pagina clearfix" id="contenido-pagina">
+    <div class="contenido-pagina-wrapper">
+        <div class="contenido-pagina-inner">
+            <div id="header-pagina" class="clearfix">
+                <div class="header-pagina">
+                    <h2><?= TITULO_TRAFICO ?></h2>
+                </div>
+            </div>
+            <!-- Comienza contenido general del sitio -->
+            <div class="row">
+                <!-- Columna 01 -->
+                <div class="movil-12 pc-12">
+                    <div class="panel color-bg-info">
+                        <div class="panel-header">
+                            <h4 class="panel-title">
+                                <i class="fa fa-newspaper-o"></i>
+                                <?= TITULO_TRAFICO_MENU_XPAGINA ?>
+                            </h4>
+                            <div class="panel-controls panel-controls-right">
+                                <span class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </span>
+                                <span class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="movil-3">
+                                <ul class="menu_trafico">
+                                    <li><h4><?= TITULO_TRAFICO ?></h4></li>
+                                    <li><a href="trafico/"><?= TITULO_INICIO ?></a></li>
+                                    <li><a href="trafico/trafico/xhora"><?= TITULO_TRAFICO_MENU_XHORA ?></a></li>
+                                    <li><a href="trafico/trafico/xdia"><?= TITULO_TRAFICO_MENU_XDIA ?></a></li>
+                                    <li><a href="trafico/trafico/xsemana"><?= TITULO_TRAFICO_MENU_XSEMANA ?></a></li>
+                                    <li><a href="trafico/trafico/xmes"><?= TITULO_TRAFICO_MENU_XMES ?></a></li>
+                                    <li><a href="trafico/trafico/xpagina" style="border-bottom:none" class="active"><?= TITULO_TRAFICO_MENU_XPAGINA ?></a></li>
+                                    <li><h4><?= TITULO_TRAFICO_REFERIDOS ?></h4></li>
+                                    <li><a href="trafico/trafico/xurl"><?= TITULO_TRAFICO_MENU_RURL ?></a></li>
+                                    <li><a href="trafico/trafico/xdominio"><?= TITULO_TRAFICO_MENU_RDOMINIO ?></a></li>
+                                    <li><a href="trafico/trafico/xmotor"><?= TITULO_TRAFICO_MENU_RBUSQUEDA ?></a></li>
+                                    <li><a href="trafico/trafico/xpalabra" style="border-bottom:none"><?= TITULO_TRAFICO_MENU_RPALABRA ?></a></li>
+                                    <li><h4><?= TITULO_TRAFICO_SISTEMA ?></h4></li>
+                                    <li><a href="trafico/trafico/xbrowser"><?= TITULO_TRAFICO_MENU_BROWSER ?></a></li>
+                                    <li><a href="trafico/trafico/xos"><?= TITULO_TRAFICO_MENU_OS ?></a></li>
+                                    <li><a href="trafico/trafico/xpantalla"><?= TITULO_TRAFICO_MENU_PANTALLA ?></a></li>
+                                    <li><a href="trafico/trafico/xhostname" style="border-bottom:none"><?= TITULO_TRAFICO_MENU_HOSTNAME ?></a></li>
+                                </ul>
+                            </div>
+                            <div class="movil-9">
+                                <table class="table-basic">
+                                    <tbody>
+                                        <caption><?= TITULO_TRAFICO_VISITAS_XPAGINA ?></caption>
+                                        <tr bgcolor="#d9d9d9">
+                                    		<td><b><?= LABEL_TRAFICO_PAGINA ?></b></td>
+                                    		<td width="10%" align="center"><b><?= LABEL_TRAFICO_CUENTA ?></b></td>
+                                    	</tr>
+                                        <?php
+                                        for($i=0; $i<sizeof($page); $i++){
+                                        ?>
+                                        	<tr bgcolor="<?= $report[$i]["bg_color"] ?>">
+                                        		<td><?= $page[$i]["page"] ?></td>
+                                        		<td align="center"><?= $page[$i]["count"] ?></td>
+                                        	</tr>
+                                        <?php
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Finaliza contenido general del sitio -->
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- FINALIZA EL WRAPPER -->
+
+
+<?= $this->insert('html/includes/include') ?>
+
+
+<?= $this->insert('html/includes/footer') ?>
