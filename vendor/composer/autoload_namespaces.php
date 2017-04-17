@@ -9,7 +9,6 @@ return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'SecurityLib' => array($vendorDir . '/ircmaxell/security-lib/lib'),
     'RandomLib' => array($vendorDir . '/ircmaxell/random-lib/lib'),
-    'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Pimple' => array($vendorDir . '/pimple/pimple/src'),
     'PayPal' => array($vendorDir . '/paypal/rest-api-sdk-php/lib'),
 );

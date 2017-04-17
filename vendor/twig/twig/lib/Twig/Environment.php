@@ -16,10 +16,10 @@
  */
 class Twig_Environment
 {
-    const VERSION = '2.1.0';
-    const VERSION_ID = 20100;
+    const VERSION = '2.3.0';
+    const VERSION_ID = 20300;
     const MAJOR_VERSION = 2;
-    const MINOR_VERSION = 1;
+    const MINOR_VERSION = 3;
     const RELEASE_VERSION = 0;
     const EXTRA_VERSION = '';
 
@@ -342,7 +342,6 @@ class Twig_Environment
      */
     public function loadTemplate($name, $index = null)
     {
-        $name .= '.twig';
         $cls = $mainCls = $this->getTemplateClass($name);
         if (null !== $index) {
             $cls .= '_'.$index;
@@ -360,7 +359,8 @@ class Twig_Environment
             }
 
             if (!class_exists($cls, false)) {
-                $content = $this->compileSource($this->getLoader()->getSourceContext($name));
+                $source = $this->getLoader()->getSourceContext($name);
+                $content = $this->compileSource($source);
                 $this->cache->write($key, $content);
                 $this->cache->load($key);
 
@@ -372,10 +372,10 @@ class Twig_Environment
                      */
                     eval('?>'.$content);
                 }
-            }
 
-            if (!class_exists($cls, false)) {
-                throw new Twig_Error_Runtime(sprintf('Failed to load Twig template "%s", index "%s": cache is corrupted.', $name, $index), -1, $source);
+                if (!class_exists($cls, false)) {
+                    throw new Twig_Error_Runtime(sprintf('Failed to load Twig template "%s", index "%s": cache is corrupted.', $name, $index), -1, $source);
+                }
             }
         }
 

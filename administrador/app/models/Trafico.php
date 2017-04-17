@@ -14,7 +14,7 @@ final class Trafico extends Models implements OCREND {
 	public $dbName = "";
 	public $dbCon = "";
 	public $dbQuery = "";
-
+	public $dbResult = 0;
 	public $dbRow = "";
 
 
@@ -38,11 +38,9 @@ final class Trafico extends Models implements OCREND {
 		return $this->db->fetchColumn($this->dbResult);
 	}
 
-	public function getRows($query){
-		d($query);
-		die();
-		if($this->dbRow = $this->fetch(PDO::FETCH_ASSOC)){
-			return $this->dbRow;
+	public function rows($query){
+		if($this->db->rows($query) == 0){
+			return $this->db->rows($query);
 		}else{
 			return false;
 		}
@@ -266,8 +264,7 @@ final class Trafico extends Models implements OCREND {
 	#----------------------------------------------------------------
 	public function printImage($x, $y, $data, $total, $key, $week=0, $showtext=1){
 
-		$days = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-
+		$days = array(DIA_LARGO_0, DIA_LARGO_1, DIA_LARGO_2, DIA_LARGO_3, DIA_LARGO_4, DIA_LARGO_5, DIA_LARGO_6);
 
 		$image = imagecreatetruecolor($x, $y);
 		$white = imagecolorallocate($image, 255, 255, 255);
@@ -287,7 +284,6 @@ final class Trafico extends Models implements OCREND {
 		$col[7] = imagecolorallocate($image, 0, 204, 51);
 		$col[8] = imagecolorallocate($image, 255, 215, 66);
 		$col[9] = imagecolorallocate($image, 173, 16, 165);
-
 
 		// make the 3D effect
 		for ($i = 75; $i > 60; $i--) {
@@ -330,7 +326,7 @@ final class Trafico extends Models implements OCREND {
 			}
 		}else{
 			imagefilledarc($image, 105, 60, 200, 100, 0, 360, $col[6], IMG_ARC_PIE);
-			imagestring($image, 2, 63, 53, "No record today", $textcolor);
+			imagestring($image, 2, 63, 53, LABEL_TRAFICO_NOREGRISTROS, $textcolor);
 		}
 
 		imagepng($image);
@@ -342,7 +338,8 @@ final class Trafico extends Models implements OCREND {
 	#----------------------------------------------------------------
 	public function PrintStats($sum, $max, $visit, $period, $d_bar=380){
 		$total_bar = $d_bar + 10;
-		for($i=0; $i<$period; $i++){
+
+		for($i = 0; $i < $period; $i++){
 			if($max > 0){
 				$percent = $visit[$i]["count"] / $sum * 100;
 				$percent = sprintf("%.2f", $percent);
@@ -427,8 +424,10 @@ final class Trafico extends Models implements OCREND {
 
 	public function dayVisitor(){
 		$day_visitor = $this->db->query("SELECT * FROM is_daycount ORDER BY date DESC LIMIT 4");
+		$rows = $this->db->rows($day_visitor);
 		$day_visitor = $day_visitor->fetchAll();
 		return $day_visitor;
+
 	}
 
 	public function forecast(){
@@ -469,14 +468,14 @@ final class Trafico extends Models implements OCREND {
     }
 
 	public function dayInfo(){
-		$day_info = $this->db->query("SELECT date, daycount FROM is_daycount ORDER BY date DESC LIMIT 30");
+		$day_info = $this->db->query("SELECT date , daycount FROM is_daycount ORDER BY date DESC LIMIT 30");
+		$rows = $this->db->rows($day_info);
 		$day_info = $day_info->fetchAll();
-		$day_info_img = $this->db->query("SELECT DISTINCT daycount AS count, date FROM is_daycount ORDER BY date DESC LIMIT 30");
-		$day_info_img = $day_info_img->fetchAll();
+
 		return [
-			'day_info' => $day_info,
-			'day_info_img' => $day_info_img
-		];
+            'day_info' => $day_info,
+			'rows' => $rows
+            ];
 	}
 
     public function visitHour(){

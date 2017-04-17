@@ -115,8 +115,11 @@
                                         </tr>
                                         <?php
                                         $day_no = 0;
-                                        if (count($day_visitor) != 0){
-                                            while($day_visitor = count($day_visitor)){
+                                        $daytotal = count($day_visitor);
+
+                                        if ($daytotal != 0){
+
+                                            while($day_visitor <= $daytotal){
                                             	if($day_no % 2){
                                             		$bgcolor = "#FFFFFF";
                                             	}else{
@@ -126,8 +129,8 @@
                                         ?>
                                         	<tr>
                                         		<td width="7%" height="15" bgcolor="#E6E6E6">&nbsp;</td>
-                                        		<td bgcolor="<?=$bgcolor?>">&nbsp;<b><?=$day_visitor["date"]?></b></td>
-                                        		<td bgcolor="<?=$bgcolor?>" width="20%" align="right"><b><?=$day_visitor["daycount"]?></b>&nbsp;&nbsp;</td>
+                                        		<td bgcolor="<?=$bgcolor?>">&nbsp;<b><?=$day_visitor['day_visitor']["date"]?></b></td>
+                                        		<td bgcolor="<?=$bgcolor?>" width="20%" align="right"><b><?=$day_visitor['day_visitor']["daycount"]?></b>&nbsp;&nbsp;</td>
                                         	</tr>
                                         <?php
                                             }
@@ -176,13 +179,19 @@
                                          echo "<td COLSPAN='4'>" . $text['forecast_text'] . " (+/- " . intval($error_rate) . ")</td>";
                                          ?>
                                      </tr>
+                                 </tbody>
+                             </table>
+                             <table class="table-basic">
+                                 <tbody>
                                      <tr>
                                          <td COLSPAN="4"><h6><?= LABEL_TRAFICO_ULTIMOS10VISITANTES ?></h6></td>
                                      </tr>
                                      <?php
                                      $bg_i = 0;
+                                     $totalVicitas = count($l_visitor);
+                                     $l = 0;
                                      if (count($l_visitor) != 0){
-                                         while($l_visitor = count($l_visitor)){
+                                         while($l <= $totalVicitas){
                                          	if($bg_i % 2){
                                          		$bg_color = "#DDDDDD";
                                          	}else{
@@ -190,21 +199,25 @@
                                          	}
                                          	$bg_i++;
 
-                                         	if($l_visitor['referer'] == ""){
-                                         		$l_visitor['referer'] = "<i>" . LABEL_ACCESODIRECTO . "</i>";
-                                         	}elseif(strlen($l_visitor['referer']) > 40){
-                                         		$l_visitor['referer'] = "<a href=\"".$l_visitor['referer']."\" target=\"_blank\">" . substr($l_visitor['referer'], 0, 37) . "...</a>";
+                                         	if($l_visitor[$l][4] == ""){
+                                         		$l_visitor[$l][4] = "<i>" . LABEL_ACCESODIRECTO . "</i>";
+                                         	}elseif(strlen($l_visitor[$l][4]) > 40){
+                                         		$l_visitor[$l][4] = "<a href=\"" . $l_visitor[$l][4] . "\" target=\"_blank\">" . substr($l_visitor[$l][4], 0, 37) . "...</a>";
                                          	}else{
-                                         		$l_visitor['referer'] = "<a href=\"".$l_visitor['referer']."\" target=\"_blank\">" . $l_visitor['referer'] . "</a>";
+                                         		$l_visitor[$l][4] = "<a href=\"" . $l_visitor[$l][4] . "\" target=\"_blank\">" . $l_visitor[$l][4] . "</a>";
                                          	}
                                      ?>
-                                     <tr bgcolor="<?=$bg_color?>">
-                                     	<td width="25">&nbsp;<?=$bg_i?></td>
-                                     	<td width="125">&nbsp;<?=date("d M Y&\\nb\sp; H:i", $l_visitor['time'])?></td>
-                                     	<td width="120">&nbsp;<?=$l_visitor['hostname']?></td>
-                                     	<td>&nbsp;<?=$l_visitor['referer']?></td>
-                                    </tr>
+                                         <tr bgcolor="<?= $bg_color ?>">
+                                         	<td width="25">&nbsp;<?= $bg_i ?></td>
+                                         	<td width="200">&nbsp;<?= date("d M Y&\\nb\sp; H:i", $l_visitor[$l][5]) ?></td>
+                                         	<td width="200">&nbsp;<?= $l_visitor[$l][1] ?></td>
+                                         	<td>&nbsp;<?= $l_visitor[$l][4] ?></td>
+                                        </tr>
                                      <?php
+                                            $l++;
+                                            if ($l == $totalVicitas){
+                                                break;
+                                            }
                                         }
                                     }else{
                                         echo "<tr><td COLSPAN='4'>" . TEXTO_SINRESULTADOS . "</td></tr>";

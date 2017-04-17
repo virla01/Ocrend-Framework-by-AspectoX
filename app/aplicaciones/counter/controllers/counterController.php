@@ -11,8 +11,8 @@ class counterController extends Controllers {
 		parent::__construct();
 
 		$data = new Counter;
-		$data->getCounter();
-		exit;
+		$data->getCounter($_GET['sw'],$_GET['sc'],$_GET['referer'],$_GET['page']);
+		echo $this->template->render('cuenta/index');
 	}
 
 }

@@ -21,10 +21,11 @@ class traficoController extends Controllers {
                     'sum' => $sum
                 ));
                 break;
+
             case 'xdia':
-                $item = $data->dayInfo();
+                $day_info = $data->dayInfo();
                 echo $this->template->render('html/trafico/dia', array(
-                    'item' => $item
+                    'dayinfo' => $day_info
                 ));
                 break;
             case 'xsemana':
@@ -34,7 +35,6 @@ class traficoController extends Controllers {
                 ));
                 break;
             case 'xmes':
-                //$week_day = $data->weekday();
                 echo $this->template->render('html/trafico/mes');
                 break;
             case 'xpais':

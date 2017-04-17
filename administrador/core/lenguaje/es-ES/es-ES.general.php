@@ -212,6 +212,8 @@ define("TEXTO_TRAFICO_VISITASPORHORA", "Visitas por hora");
 define("LABEL_TRAFICO_VISITAXSEMANA","Visita por semana");
 define("LABEL_TRAFICO_DIAS","Dias");
 define("LABEL_TRAFICO_CUENTA","Total");
+define("LABEL_TRAFICO_HORA","Horas");
+define("LABEL_TRAFICO_HITS","Hits");
 define("DIA_0","Dom");
 define("DIA_1","Lun");
 define("DIA_2","Mar");
@@ -219,8 +221,16 @@ define("DIA_3","Mie");
 define("DIA_4","Jue");
 define("DIA_5","Vie");
 define("DIA_6","Sab");
+define("DIA_LARGO_0","Domingo");
+define("DIA_LARGO_1","Lunes");
+define("DIA_LARGO_2","Martes");
+define("DIA_LARGO_3","Mi&eacute;rcoles");
+define("DIA_LARGO_4","Jueves");
+define("DIA_LARGO_5","Viernes");
+define("DIA_LARGO_6","S&aacute;bado");
 define("LABEL_TRAFICO_SEMANA","Semana");
 define("LABEL_TRAFICO_PORCENTAJE","Porcentaje");
+define("LABEL_TRAFICO_NOREGRISTROS","No hay registro hoy");
 
 define("TITULO_TRAFICO_VISITAS_XMES","Visitas por mes");
 define("LABEL_TRAFICO_MES","Mes");
@@ -245,4 +255,6 @@ define("TITULO_TRAFICO_ESTADISTICANAVEGADOR","Estadísticas de navegadores");
 define("TITULO_TRAFICO_ESTADISTICAOS","Estadísticas de sistemas operativos");
 define("TITULO_TRAFICO_ESTADISTICAPANTALLA","Estadísticas de ancho de pantalla");
 define("TITULO_TRAFICO_ESTADISTICAHOST","Estadísticas por nombre de host");
+
+
 ?>

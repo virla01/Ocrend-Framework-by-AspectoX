@@ -17,30 +17,39 @@
 define('INDEX_DIR',true);
 require('core/app_core.php');
 
-
 //------------------------------------------------
 
 # Detección del controlador actual
-$apli = $router->getApli();
 $Controller = $router->getController();
+$apli = str_replace('Controller', '', $Controller);
+$aplicacion = "";
 
 //------------------------------------------------
 
 # Identificación del controlador en el sistema
-
-if(!is_readable('app/aplicaciones/' . $apli . '/controllers/' . $Controller . '.php')) {
-	$Controller = 'errorController';
-	require('app/aplicaciones/controllers/' . $Controller . '.php');
-}else{
-	require('app/aplicaciones/' . $apli . '/controllers/' . $Controller . '.php');
+if(is_readable('app/aplicaciones/' . $apli . '/controllers/' . $Controller . '.php')) {
+  $aplicacion = 'app/aplicaciones/' . $apli . '/controllers/' . $Controller . '.php';
 }
 
+$msg = $apli . ' | ' . $aplicacion;
+echo $msg;
+$msg = str_replace('"', '\\"', $msg);
+echo "<script>console.log(\"$msg\")</script>";
 
-# Carga del controlador seleccionado
+if(!$aplicacion){
+  if(!is_readable('app/aplicaciones/controllers/' . $Controller . '.php')) {
+    $Controller = 'errorController';
+  }
+  require('app/aplicaciones/controllers/' . $Controller . '.php');
+}else{
+  require($aplicacion);
+}
+
 new $Controller;
 
 //------------------------------------------------
 
 # Modo debug
 !DEBUG ?: new Debug($startime);
+
 ?>

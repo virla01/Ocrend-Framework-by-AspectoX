@@ -143,11 +143,11 @@ final class Twig_ExtensionSet
         $class = get_class($extension);
 
         if ($this->initialized) {
-            throw new LogicException(sprintf('No se puede cargar la extensión "%s" en algún punto del programa ya ha sido inicializada para esta página.', $class));
+            throw new LogicException(sprintf('Unable to register extension "%s" as extensions have already been initialized.', $class));
         }
 
         if (isset($this->extensions[$class])) {
-            throw new LogicException(sprintf('No se puede cargar la extensión "%s" en algún punto del programa ya ha sido inicializada para esta página.', $class));
+            throw new LogicException(sprintf('Unable to register extension "%s" as it is already registered.', $class));
         }
 
         $this->extensions[$class] = $extension;
@@ -156,7 +156,7 @@ final class Twig_ExtensionSet
     public function addFunction(Twig_Function $function)
     {
         if ($this->initialized) {
-            throw new LogicException(sprintf('No se puede cargar la función "%s", esta función ya ha sido inicializada.', $function->getName()));
+            throw new LogicException(sprintf('Unable to add function "%s" as extensions have already been initialized.', $function->getName()));
         }
 
         $this->staging->addFunction($function);

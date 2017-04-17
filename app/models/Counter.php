@@ -12,7 +12,9 @@ final class Counter extends Models implements OCREND {
 	}
 
 
-	public function getCounter(){
+
+	public function getCounter($sw,$sc,$ref,$pag){
+		$cfg['pagestats'] = "Filename";
 		// including search engine URL
 		$searchEngine = Array(
 			"Google" => "google",
@@ -96,8 +98,8 @@ final class Counter extends Models implements OCREND {
             "Chrome" => "Chrome",
 			"Firefox" => "Firefox",
 			"Safari" => "Safari",
-			"Opera" => "Opera"
-            "Edge" => "EDGE",
+			"Opera" => "Opera",
+            "Edge" => "EDGE"
 		);
 
 		$userScreen = Array(
@@ -118,11 +120,11 @@ final class Counter extends Models implements OCREND {
 			"32 bit" => "32"
 		);
 
-		// clear ' on all $_GET variables
-		$_GET['sw'] = trim(str_replace("'", "", $_GET['sw']));
-		$_GET['sc'] = trim(str_replace("'", "", $_GET['sc']));
-		$_GET['referer'] = trim(str_replace("'", "", $_GET['referer']));
-		$_GET['page'] = trim(str_replace("'", "", $_GET['page']));
+		// clear ' on all $_GET variables $sw,$sc,$ref,$pag
+		$sw = trim(str_replace("'", "", $sw));
+		$sc = trim(str_replace("'", "", $sc));
+		$ref = trim(str_replace("'", "", $ref));
+		$pag = trim(str_replace("'", "", $pag));
 
 		/* update online counter */
 		if(!isset($_COOKIE['is_hash'])){
@@ -141,24 +143,24 @@ final class Counter extends Models implements OCREND {
 
 		/* update page counter here */
 		if($cfg['pagestats'] == "fulladd"){
-			$page = parse_url($_GET['page']);
+			$page = parse_url($pag);
 			$page_info = $page['path'];
 			if($page['query'] != "")  $page_info .= "?" . $page['query'];
 		}elseif($cfg['pagestats'] == "filename"){
-			$page = parse_url($_GET['page']);
+			$page = parse_url($pag);
 			if($page['path'] == ""){
 				$page_info = "/";
 			}else{
 				$page_info = $page['path'];
 			}
 		}elseif($cfg['pagestats'] == "title"){
-			$html_content = file_get_contents($_GET['page']);
+			$html_content = file_get_contents($pag);
 			preg_match("/<title>(.*)<\/title>/i", $html_content, $match);
 			$page_info = $match[1];
 		}else{
-			$page = parse_url($_GET['page']);
+			$page = parse_url($pag);
 			$page_info = $page['path'];
-			if($page['query'] != "")  $page_info .= "?" . $page['query'];
+			//if($page['query'] != "")  $page_info .= "?" . $page['query'];
 		}
 
 		if(count($this->db->query("SELECT count FROM is_page WHERE page='" . $page['path'] . "'")) > 0){
@@ -172,7 +174,7 @@ final class Counter extends Models implements OCREND {
 		$check_ip = $check_ip->fetchAll();
 
 		if(isset($_COOKIE['is_visitor']) || $check_ip){
-			exit();
+			//exit();
 		}
 
 		// remember visitor's ip address and using cookie remember him/her 12 hours
@@ -181,7 +183,9 @@ final class Counter extends Models implements OCREND {
 
 		/* update counter data: day visitors, pageviews and total visit */
 		$date = date("Y-m-d");
-		if(count($this->db->query("SELECT daycount FROM is_daycount WHERE date='" . $date . "'") > 0)){
+		$daycount = $this->db->query("SELECT daycount FROM is_daycount WHERE date='" . $date . "'");
+		$daycount = $daycount->fetch(PDO::FETCH_ASSOC);
+		if($daycount > 0){
 			$this->db->query("UPDATE is_daycount SET daycount=daycount+'1' WHERE date='" . date("Y-m-d") . "'");
 		}else{
 			$this->db->query("INSERT INTO is_daycount values('" . $date . "', '1')");
@@ -209,8 +213,9 @@ final class Counter extends Models implements OCREND {
 		$year = date("Y");
 		$mth = date("m");
 		$day = date("d");
-
-		if(count($this->db->query("SELECT count FROM is_mth WHERE mth='" . $mth . "' and year='" . $year . "'") > 0)){
+		$ismth = $this->db->query("SELECT count FROM is_mth WHERE mth='" . $mth . "' and year='" . $year . "'");
+		$ismth = $ismth->fetch(PDO::FETCH_ASSOC);
+		if($ismth > 0){
 			$this->db->query("UPDATE is_mth SET count = count+1 WHERE mth='" . $mth . "' and year='" . $year . "'");
 			$this->db->query("UPDATE is_mth_days SET count = count+1 WHERE day='" . $day . "'");
 		}else{
@@ -224,7 +229,9 @@ final class Counter extends Models implements OCREND {
 		}
 
 		/* update week information */
-		if(count($this->db->query("SELECT count FROM is_week WHERE week='" . date("W") . "' and year='" . $year . "'") > 0)){
+		$isweek = $this->db->query("SELECT count FROM is_week WHERE week='" . date("W") . "' and year='" . $year . "'");
+		$isweek = $isweek->fetch(PDO::FETCH_ASSOC);
+		if($isweek > 0){
 			$this->db->query("UPDATE is_week SET count = count+1 WHERE week='" . date("W") . "' and year='" . $year . "'");
 		}else{
 			$this->db->query("INSERT INTO is_week values('" . date("W") . "', '" . $year . "', '" . time() . "', '1')");
@@ -233,16 +240,17 @@ final class Counter extends Models implements OCREND {
 		$this->db->query("UPDATE is_week_days SET count = count+1 WHERE day='" . date("w") . "'");
 
 		/* update referer data: referer url, search engine and keyword */
-		$_GET['referer'] = str_replace("[i-Stats]", "&", addslashes($_GET['referer']));
-		if(isRef($_GET['referer'], $cfg['siteurl']) && strstr($_GET['referer'], ".")){
-			if(count($this->db->query("SELECT count FROM is_referer WHERE url='" . $_GET['referer'] . "'") > 0)){
-				$this->db->query("UPDATE is_referer SET count = count+'1' WHERE url='" . $_GET['referer'] . "'");
+		$data = new Trafico;
+		$ref = str_replace("[i-Stats]", "&", addslashes($ref));
+		if( $data->isRef($ref, URL) && strstr($ref, ".")){
+			if(count($this->db->query("SELECT count FROM is_referer WHERE url='" . $ref . "'") > 0)){
+				$this->db->query("UPDATE is_referer SET count = count+'1' WHERE url='" . $ref . "'");
 			}else{
-				$this->db->query("INSERT INTO is_referer values('" . $_GET['referer'] . "', '1')");
+				$this->db->query("INSERT INTO is_referer values('" . $ref . "', '1')");
 			}
 
 			/* start search engine and keyword section */
-			$ref_data = getHostInfo($_GET['referer']);
+			$ref_data = getHostInfo($ref);
 
 			if($engine_key = isEngine($ref_data['host'], $searchEngine)){
 				// update search engine counter
@@ -273,19 +281,19 @@ final class Counter extends Models implements OCREND {
 
 		/* update OS, browser, screen sizse and color resolution */
 		// update os
-		$os_key = getAgent($_SERVER['HTTP_USER_AGENT'], $userOS, "Other");
+		$os_key = $data->getAgent($_SERVER['HTTP_USER_AGENT'], $userOS, "Other");
 		$this->db->query("UPDATE is_os SET count = count+1 WHERE os ='" . $os_key . "'");
 
 		// update browser
-		$browser_key = getAgent($_SERVER['HTTP_USER_AGENT'], $userBrowser, "Other");
+		$browser_key = $data->getAgent($_SERVER['HTTP_USER_AGENT'], $userBrowser, "Other");
 		$this->db->query("UPDATE is_browser SET count = count+1 WHERE browser ='" . $browser_key . "'");
 
 		// update screen
-		$screen_key = getAgent($_GET['sw'], $userScreen, "Unknow");
+		$screen_key = $data->getAgent($sw, $userScreen, "Unknow");
 		$this->db->query("UPDATE is_screen SET count = count+1 WHERE width = '" . $screen_key . "'");
 
 		// update color
-		$color_key = getAgent($_GET['sc'], $userColor, "Unknow");
+		$color_key = $data->getAgent($sc, $userColor, "Unknow");
 		$this->db->query("UPDATE is_color SET count = count+1 WHERE color ='" . $color_key . "'");
 
 		/* update hour counter */
@@ -301,25 +309,42 @@ final class Counter extends Models implements OCREND {
 		}else{
 			$hostname = explode(".", $hostname);
 			$host_size = sizeof($hostname);
+
 			if($host_size > 3){
 				$hostname = $hostname[$host_size-3] . "." . $hostname[$host_size-2] . "." . $hostname[$host_size-1];
-			}else{
+			}elseif ($host_size > 2){
 				$hostname = $hostname[$host_size-2] . "." . $hostname[$host_size-1];
+			}else{
+				$hostname = $hostname[$host_size-1];
 			}
 		}
 
-		if(count($this->db->query("SELECT hostname FROM is_hostname WHERE hostname ='" . $hostname . "'") > 0)){
+		$ishostname = $this->db->query("SELECT hostname FROM is_hostname WHERE hostname ='" . $hostname . "'");
+		$ishostname = $ishostname->fetch(PDO::FETCH_ASSOC);
+		if($ishostname > 0){
 			$this->db->query("UPDATE is_hostname SET count = count+1 WHERE hostname ='" . $hostname . "'");
 		}else{
 			$this->db->query("INSERT INTO is_hostname values('" . $hostname . "', '1')");
 		}
 
-		/* update last 10 visitors */
-		$this->db->query("INSERT INTO is_last_visitor values('" . $_SERVER['HTTP_USER_AGENT'] . "', '" . $hostname . "', '" . $country_code . "', '" . $country_name . "', '" . $_GET['referer'] . "', '" . time() . "')");
+		$country = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$_SERVER['REMOTE_ADDR']));
+
+		if (is_null($country['geoplugin_countryCode'])){
+			$country_code = 0;
+		}else{
+			$country_code = $country[7];
+		}
+		if (is_null($country['geoplugin_countryName'])){
+			$country_name = "No reconocido";
+		}else{
+			$country_name = $country[8];
+		}
+
+		$this->db->query("INSERT INTO is_last_visitor values('" . $_SERVER['HTTP_USER_AGENT'] . "', '" . $hostname . "', '" . $country_code . "', '" . $country_name . "', '" . $ref . "', '" . time() . "')");
 
 		// delete old data from is_last_visitor table
-		$this->db->query("SELECT @del_time:='time' FROM is_last_visitor ORDER BY time DESC LIMIT 9, 1;
-			DELETE FROM is_last_visitor WHERE time < @del_time;");
+		//$this->db->query("SELECT del_time:='time' FROM is_last_visitor ORDER BY time DESC LIMIT 9, 1;
+			//DELETE FROM is_last_visitor WHERE time < del_time;");
 	}
 
 	public function __destruct() {

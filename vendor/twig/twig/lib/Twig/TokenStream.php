@@ -49,7 +49,7 @@ final class Twig_TokenStream
     public function next()
     {
         if (!isset($this->tokens[++$this->current])) {
-            throw new Twig_Error_Syntax('Final inesperado de la plantilla.', $this->tokens[$this->current - 1]->getLine(), $this->source);
+            throw new Twig_Error_Syntax('Unexpected end of template.', $this->tokens[$this->current - 1]->getLine(), $this->source);
         }
 
         return $this->tokens[$this->current - 1];
@@ -77,10 +77,10 @@ final class Twig_TokenStream
         $token = $this->tokens[$this->current];
         if (!$token->test($type, $value)) {
             $line = $token->getLine();
-            throw new Twig_Error_Syntax(sprintf('%sToken inesperado "%s" del valor "%s" ("%s" esperado%s).',
+            throw new Twig_Error_Syntax(sprintf('%sUnexpected token "%s" of value "%s" ("%s" expected%s).',
                 $message ? $message.'. ' : '',
                 Twig_Token::typeToEnglish($token->getType()), $token->getValue(),
-                Twig_Token::typeToEnglish($type), $value ? sprintf(' con valor "%s"', $value) : ''),
+                Twig_Token::typeToEnglish($type), $value ? sprintf(' with value "%s"', $value) : ''),
                 $line,
                 $this->source
             );
@@ -100,7 +100,7 @@ final class Twig_TokenStream
     public function look($number = 1)
     {
         if (!isset($this->tokens[$this->current + $number])) {
-            throw new Twig_Error_Syntax('Final inesperado de la plantilla.', $this->tokens[$this->current + $number - 1]->getLine(), $this->source);
+            throw new Twig_Error_Syntax('Unexpected end of template.', $this->tokens[$this->current + $number - 1]->getLine(), $this->source);
         }
 
         return $this->tokens[$this->current + $number];

@@ -18,7 +18,7 @@ $data = new Trafico;
 $datos = $data->getResult("SELECT * FROM is_week WHERE year='" . date("Y") . "' ORDER BY week DESC");
 $sum = $data->getResult("SELECT sum(count) AS sum FROM is_week WHERE year='" . date("Y") . "'");
 $max = $data->getResult("SELECT max(count) AS max FROM is_week WHERE year='" . date("Y") . "'");
-$report = $data->PrintStats($sum[0]["sum"], $max[0]["max"], $data, sizeof($data), 350);
+$report = $data->PrintStats($sum[0]["sum"], $max[0]["max"], $datos, sizeof($datos), 350);
 ?>
 
 <div class="contenido-pagina clearfix" id="contenido-pagina">
@@ -74,28 +74,28 @@ $report = $data->PrintStats($sum[0]["sum"], $max[0]["max"], $data, sizeof($data)
                                 <table class="table-basic">
                                     <tbody>
                                         <caption><?= LABEL_TRAFICO_VISITAXSEMANA ?></caption>
+                                        <tr>
+                                            <td align="center" COLSPAN="4"><img src="graficos/graficos/graficoxsemana" border="0"></td>
+                                        </tr>
+                                        <tr bgcolor="#d9d9d9">
+                            				<td COLSPAN="2"><strong><?= LABEL_TRAFICO_DIAS ?></strong></td>
+                            				<td COLSPAN="2"><strong><?= LABEL_TRAFICO_CUENTA ?></strong></td>
+                            			</tr>
+                                        <?php
+                            			for($i=0; $i<sizeof($week_day); $i++){
+                            				if($i % 2){
+                            					$bg_color = "#E6E6E6";
+                            				}else{
+                            					$bg_color = "#FFFFFF";
+                            				}
+                                        ?>
+                            				<tr bgcolor="<?= $bg_color ?>">
+                            				<td COLSPAN="2"><?= $text["wd_".$i] ?></td>
+                            			    <td align="right" COLSPAN="2"><?= $week_day[$i]["count"] ?>&nbsp;</td></tr>
+                                        <?php
+                                        }
+                            			?>
                                     </tbody>
-                                    <tr bgcolor="#d9d9d9">
-                        				<td COLSPAN="2"><strong><?= LABEL_TRAFICO_DIAS ?></strong></td>
-                        				<td COLSPAN="2"><strong><?= LABEL_TRAFICO_CUENTA ?></strong></td>
-                        			</tr>
-                                    <?php
-                        			for($i=0; $i<sizeof($week_day); $i++){
-                        				if($i % 2){
-                        					$bg_color = "#E6E6E6";
-                        				}else{
-                        					$bg_color = "#FFFFFF";
-                        				}
-                                    ?>
-                        				<tr bgcolor="<?= $bg_color ?>">
-                        				<td COLSPAN="2"><?= $text["wd_".$i] ?></td>
-                        			    <td align="right" COLSPAN="2"><?= $week_day[$i]["count"] ?>&nbsp;</td></tr>
-                                    <?php
-                                    }
-                        			?>
-                                    <tr>
-                                        <td align="center" COLSPAN="4"><img src="weekDaysTraffic/" border="0"></td>
-                                    </tr>
                                 </table>
                                 <table class="table-basic">
                                 	<tr bgcolor="#d9d9d9">

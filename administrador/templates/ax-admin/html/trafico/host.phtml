@@ -75,7 +75,7 @@ $report = $data->PrintStats($sum[0]["sum"], $max[0]["max"], $hostname, sizeof($h
                                             ?>
                                         	<tr bgcolor="<?= $report[$i]["bg_color"] ?>">
                                         		<td><?= $hostname[$i]["hostname"] ?></td>
-                                        		<td><img src="<?= PATH_TEMPLATE ?>images/barsunrise.gif" width="<?= $report[$i]["bar"] ?>" height="10"><img src="<?= PATH_TEMPLATE ?>/images/bargray.gif" width="<?= $report[$i]["bg_bar"] ?>" height="10"> <?= $report[$i]["percent"] ?> %</td>
+                                        		<td><img src="<?= PATH_TEMPLATE ?>/images/barsunrise.gif" width="<?= $report[$i]["bar"] ?>" height="10"><img src="<?= PATH_TEMPLATE ?>/images/bargray.gif" width="<?= $report[$i]["bg_bar"] ?>" height="10"> <?= $report[$i]["percent"] ?> %</td>
                                         		<td align="center"><?= $hostname[$i]["count"] ?></td>
                                         	</tr>
                                             <?php

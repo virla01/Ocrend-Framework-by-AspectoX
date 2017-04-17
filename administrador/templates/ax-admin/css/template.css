@@ -736,10 +736,11 @@ td center a{
 
 /* TRAFICO */
 ul.menu_trafico{
-	background: #d9d9d9;
+	/*background: #d9d9d9;*/
 	margin: 0;
-	padding: 15px;
+	padding: 15px 15px 15px 0;
 	border-radius: 6px;
+	border-right: 4px solid #536379;
 }
 .menu_trafico li a{
 	display: block;
@@ -749,11 +750,11 @@ ul.menu_trafico{
 	border-bottom: 1px solid #737373;
 }
 .menu_trafico li a.active{
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(41, 128, 185, 0.5);
 	color: #3D444B;
 }
 .menu_trafico li a:hover,.menu_trafico li a.active:hover{
-    background-color: rgba(0, 0, 0, 0.7);;
+    background-color: rgba(0, 0, 0, 0.3);;
 	color: #ffffff;
 }
 .menu_trafico li h4{
