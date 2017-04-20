@@ -1,4 +1,9 @@
-# Ocrend-Framework
+# Ocrend-Framework by AspectoX
+
+usuario = admin
+password = 123456
+
+Solo para administración
 
 ![Hecho en PHP 7](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![Licencia MIT](https://img.shields.io/badge/php-7-blue.svg)
