@@ -1,0 +1,70 @@
+	<?= $this->insert('html/includes/header') ?>
+		<link rel="stylesheet" href="<?= PATH_TEMPLATE ?>/css/owl.carousel.css">
+		<link rel="stylesheet" href="<?= PATH_TEMPLATE ?>/css/owl.theme.default.css">
+
+		<!-- javascript -->
+		<script src="<?= PATH_TEMPLATE ?>/js/jquery.min.js"></script>
+		<script src="<?= PATH_TEMPLATE ?>/js/owl.carousel.js"></script>
+
+			<?= $this->insert('html/includes/menu') ?>
+
+			<div class="contenedor-full margin-bottom-extragrande">
+				<!-- Columna 01 -->
+				<div class="movil-9 relative">
+					<div class="row">
+						<div class="owl-carousel owl-theme owl-loaded owl-drag">
+							<div class="item">
+								<h2>Tenemos una buena idea para vos y tu negocio</h2>
+								<img src="<?= PATH_TEMPLATE ?>/fotos/01.jpg" alt="">
+							</div>
+							<div class="item">
+								<h2>Es la era digital y podemos meterte en ella.</h2>
+								<img src="<?= PATH_TEMPLATE ?>/fotos/02.jpg" alt="">
+							</div>
+							<div class="item">
+								<h2>Estar dentro del mundo digital te habre puertas inpensables.</h2>
+								<img src="<?= PATH_TEMPLATE ?>/fotos/03.jpg" alt="">
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+				<!-- Fin Columna 01 -->
+
+				<!-- Columna 02 -->
+				<div class="movil-3 col-conlinea">
+					<div class="row">
+						<div class="">
+							<h3 class="titulo">Prueba</h3>
+						</div>
+					</div>
+				</div>
+				<!-- Fin Columna 02 -->
+			</div>
+
+			<script>
+				$(document).ready(function() {
+					var owl = $('.owl-carousel');
+					owl.owlCarousel({
+						center: true,
+						items: 1,
+						margin: 20,
+						loop: true,
+						nav: true,
+						autoplay: true,
+						autoplayTimeout: 5000,
+						autoplayHoverPause: true,
+						autoHeightClass: 'owl-height'
+					});
+					$('.play').on('click', function() {
+						owl.trigger('play.owl.autoplay', [1000])
+					})
+					$('.stop').on('click', function() {
+						owl.trigger('stop.owl.autoplay')
+					})
+				});
+			</script>
+		<?= $this->insert('html/includes/footer') ?>
+
+<?= $this->insert('html/includes/cierre') ?>

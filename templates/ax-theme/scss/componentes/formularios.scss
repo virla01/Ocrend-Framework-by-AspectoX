@@ -1,0 +1,753 @@
+form{
+	width: 100%;
+}
+
+.form-grupo{
+	margin-bottom: 15px;
+	position: relative;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex: 0 1 100%;
+	-ms-flex: 0 1 100%;
+	flex: 0 1 100%;
+}
+
+.form-grupo label, .row label {
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: $color-negro;
+}
+
+/*.form-grupo>.movil-0,
+.form-grupo>.movil-1,
+.form-grupo>.movil-2,
+.form-grupo>.movil-3,
+.form-grupo>.movil-4,
+.form-grupo>.movil-5,
+.form-grupo>.movil-6,
+.form-grupo>.movil-7,
+.form-grupo>.movil-8,
+.form-grupo>.movil-9,
+.form-grupo>.movil-10,
+.form-grupo>.movil-11,
+.form-grupo>.movil-12,
+.form-grupo>.stablet-0,
+.form-grupo>.stablet-1,
+.form-grupo>.stablet-2,
+.form-grupo>.stablet-3,
+.form-grupo>.stablet-4,
+.form-grupo>.stablet-5,
+.form-grupo>.stablet-6,
+.form-grupo>.stablet-7,
+.form-grupo>.stablet-8,
+.form-grupo>.stablet-9,
+.form-grupo>.stablet-10,
+.form-grupo>.stablet-11,
+.form-grupo>.stablet-12,
+.form-grupo>.tablet-0,
+.form-grupo>.tablet-1,
+.form-grupo>.tablet-2,
+.form-grupo>.tablet-3,
+.form-grupo>.tablet-4,
+.form-grupo>.tablet-5,
+.form-grupo>.tablet-6,
+.form-grupo>.tablet-7,
+.form-grupo>.tablet-8,
+.form-grupo>.tablet-9,
+.form-grupo>.tablet-10,
+.form-grupo>.tablet-11,
+.form-grupo>.tablet-12,
+.form-grupo>.pc-0,
+.form-grupo>.pc-1,
+.form-grupo>.pc-2,
+.form-grupo>.pc-3,
+.form-grupo>.pc-4,
+.form-grupo>.pc-5,
+.form-grupo>.pc-6,
+.form-grupo>.pc-7,
+.form-grupo>.pc-8,
+.form-grupo>.pc-9,
+.form-grupo>.pc-10,
+.form-grupo>.pc-11,
+.form-grupo>.pc-12,
+.form-grupo>.hd-0,
+.form-grupo>.hd-1,
+.form-grupo>.hd-2,
+.form-grupo>.hd-3,
+.form-grupo>.hd-4,
+.form-grupo>.hd-5,
+.form-grupo>.hd-6,
+.form-grupo>.hd-7,
+.form-grupo>.hd-8,
+.form-grupo>.hd-9,
+.form-grupo>.hd-10,
+.form-grupo>.hd-11,
+.form-grupo>.hd-12,
+.form-grupo>.hdfull-0,
+.form-grupo>.hdfull-1,
+.form-grupo>.hdfull-2,
+.form-grupo>.hdfull-3,
+.form-grupo>.hdfull-4,
+.form-grupo>.hdfull-5,
+.form-grupo>.hdfull-6,
+.form-grupo>.hdfull-7,
+.form-grupo>.hdfull-8,
+.form-grupo>.hdfull-9,
+.form-grupo>.hdfull-10,
+.form-grupo>.hdfull-11,
+.form-grupo>.hdfull-12{
+	padding-left: 0px;
+	padding-right: 0px;
+}*/
+
+::-webkit-input-placeholder { color: $color-placeholder; font-weight: normal;}
+:-moz-placeholder { color: $color-placeholder; font-weight: normal;}
+::-moz-placeholder { color: $color-placeholder; font-weight: normal;}
+:-ms-input-placeholder { color: $color-placeholder; font-weight: normal;}
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=date],
+input[type=month],
+input[type=time],
+input[type=datetime],
+input[type=datetime-local],
+input[type=week],
+input[type=number],
+input[type=search],
+input[type=tel],
+input[type=color],
+select,
+textarea{
+	display: inline-block;
+	height: 38px;
+	font-family: inherit;
+	font-size: $font-size-base;
+	line-height: $line-height-base;
+	color: $color-texto-gris;
+	background-color: $color-blanco;
+	background-image: none;
+	border: 1px solid $color-lineas;
+	border-radius: 4px;
+	padding: 10px 12px;
+	width: 100%;
+	vertical-align: middle;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=date]:focus,
+input[type=month]:focus,
+input[type=time]:focus,
+input[type=datetime]:focus,
+input[type=datetime-local]:focus,
+input[type=week]:focus,
+input[type=number]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=color]:focus,
+select:focus,
+textarea:focus,
+ul.tag:focus{
+	outline: 1px solid $color-borde-activo-foco !important;
+	border-radius: 4px;
+}
+
+input[type=text][disabled],
+input[type=password][disabled],
+input[type=email][disabled],
+input[type=url][disabled],
+input[type=date][disabled],
+input[type=month][disabled],
+input[type=time][disabled],
+input[type=datetime][disabled],
+input[type=datetime-local][disabled],
+input[type=week][disabled],
+input[type=number][disabled],
+input[type=search][disabled],
+input[type=tel][disabled],
+input[type=color][disabled],
+select[disabled],
+textarea[disabled] {
+	cursor: not-allowed;
+	background-color: rgba(236, 238, 239, 0.5);
+	color: $color-gris-4;
+	cursor: not-allowed;
+}
+
+input[type="checkbox"]:disabled{
+	color: $color-gris-2;
+	background: rgba(236, 238, 239, 0.5);
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+input[type="radio"]:disabled:after{
+	color: $color-gris-2;
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+
+select[multiple]{
+	height: auto;
+}
+
+textarea{
+	height: 100px;
+}
+
+.grupo-input{
+	position: relative;
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+
+.grupo-input>label.grupo-input-label{
+	padding: 5px 15px;
+	border: 1px solid $color-lineas;
+	border-bottom: none;
+	border-radius: 4px 4px 0 0;
+	background: rgba(236, 238, 239, 0.5);
+	width: 100%;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	float: left;
+}
+
+.grupo-input>input[type=text],
+.grupo-input>input[type=password],
+.grupo-input>input[type=email],
+.grupo-input>input[type=url],
+.grupo-input>input[type=date],
+.grupo-input>input[type=month],
+.grupo-input>input[type=time],
+.grupo-input>input[type=datetime],
+.grupo-input>input[type=datetime-local],
+.grupo-input>input[type=week],
+.grupo-input>input[type=number],
+.grupo-input>input[type=search],
+.grupo-input>input[type=tel],
+.grupo-input>input[type=color]{
+	width: 100%;
+	float: left;
+	border-radius: 0 0 4px 4px;
+}
+
+
+.grupo-input>i.grupo-input-icon{
+	padding: 8px 15px;
+	border: 1px solid $color-lineas;
+	border-right: none;
+	border-radius: 4px 0 0 4px;
+	background: rgba(236, 238, 239, 0.5);
+	width: 50px;
+	text-align: center;
+	float: left;
+	height: 38px;
+}
+
+.grupo-input>input[type=text].input-icon,
+.grupo-input>input[type=password].input-icon,
+.grupo-input>input[type=email].input-icon,
+.grupo-input>input[type=url].input-icon,
+.grupo-input>input[type=date].input-icon,
+.grupo-input>input[type=month].input-icon,
+.grupo-input>input[type=time].input-icon,
+.grupo-input>input[type=datetime].input-icon,
+.grupo-input>input[type=datetime-local].input-icon,
+.grupo-input>input[type=week].input-icon,
+.grupo-input>input[type=number].input-icon,
+.grupo-input>input[type=search].input-icon,
+.grupo-input>input[type=tel].input-icon,
+.grupo-input>input[type=color].input-icon{
+	width: 78%;
+	float: left;
+	border-radius: 0 4px 4px 0;
+}
+
+
+/* Extras componentes formularios
+--------------------------------------*/
+
+div {
+	&.input-decorado {
+		position: relative;
+		width: 100%;
+		margin-bottom: 15px;
+	}
+	&.input-decorado-derecho {
+		position: relative;
+		width: 100%;
+		margin-bottom: 15px;
+	}
+}
+span {
+	&.input-decorado {
+		color: $color-gris-2;
+		position: absolute;
+		border-right: 1px solid $color-lineas;
+		padding-right: 15px;
+		top: 10px;
+		left: 10px;
+	}
+	&.input-decorado-derecho {
+		color: $color-gris-2;
+		position: absolute;
+		border-left: 1px solid $color-lineas;
+		padding-left: 15px;
+		top: 10px;
+		right: 10px;
+	}
+}
+.input-decorado input {
+	width: 100%;
+	padding-left: 50px;
+}
+.input-decorado-derecho input {
+	width: 100%;
+	padding-right: 50px;
+}
+
+
+
+
+
+/* radiobuttom
+---------------------------------------*/
+input[type="radio"], input[type="checkbox"]{
+	position: relative;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: transparent;
+	width: 20px !important;
+	height: 20px;
+	border-radius: 4px;
+	padding: 2px;
+	margin: 0 5px;
+	cursor: pointer;
+}
+/* radio */
+input[type="radio"]:after{
+	font-family:'FontAwesome';
+	font-size: 25px;
+	line-height: $line-height-base;
+	content: "\f10c";
+	color: $color-gris-2;
+}
+
+input[type="radio"]:unchecked:after{
+	font-family:'FontAwesome';
+	content: "\f10c";
+	color: $color-gris-2;
+}
+input[type="radio"]:checked:after{
+	font-family:'FontAwesome';
+	font-size: 25px;
+	line-height: $line-height-base;
+	content: "\f10c";
+	color: $color-01;
+}
+
+input[type="radio"]:checked:before{
+	position: absolute;
+	font-family:'FontAwesome';
+	content:"\f111";
+	font-size: 12px;
+	line-height: 38px;
+	color: $color-01;
+	left: 7.5px;
+}
+
+
+
+/* checkbox*/
+input[type="checkbox"]{
+	background-color: $color-blanco;
+	border: 4px solid $color-gris-2;
+}
+input[type="checkbox"]:checked{
+	background-color: $color-blanco;
+	border-color: $color-01;
+}
+input[type="checkbox"]:checked:before{
+	position: absolute;
+	font-family:'FontAwesome';
+	content:"\f00c";
+	font-size: 22px;
+	line-height: 5px;
+	-webkit-text-fill-color: $color-01;
+	-webkit-text-stroke: 1px $color-blanco;
+	color: $color-01;
+	font-weight: normal;
+	left: 0;
+}
+
+
+
+/* Complemento redio buttom modificados
+   Estilo botonSiNo
+
+
+	Ejemplo:
+	<div class="botonSiNo">
+		<label class="on">
+			<input type="radio" name="toggle">
+			<span>Masculino</span>
+		</label>
+		<label class="off">
+			<input type="radio" name="toggle">
+			<span>Femenino</span>
+		</label>
+	</div>
+-----------------------------------------*/
+.botonSiNo {
+	overflow: auto;
+	float: left;
+	label {
+		float: left;
+		color: $color-negro;
+		&.on {
+			span:first-of-type {
+				border-radius: 4px 0 0 4px;
+			}
+			input[type=radio]:checked + span {
+				background: $color-boton-success;
+				color: $color-blanco;
+				border-top: 1px solid $color-boton-borde-success;
+				border-bottom: 1px solid $color-boton-borde-success;
+				border-left: 1px solid $color-boton-borde-success;
+				padding: 5px 10px;
+			}
+		}
+		&.off {
+			span:last-of-type {
+				border-radius: 0 4px 4px 0;
+			}
+			input[type=radio]:checked + span {
+				background: $color-boton-danger;
+				color: $color-blanco;
+				border-top: 1px solid $color-boton-borde-danger;
+				border-bottom: 1px solid $color-boton-borde-danger;
+				border-right: 1px solid $color-boton-borde-danger;
+				padding: 5px 10px;
+			}
+		}
+		span {
+			background-color: $color-gris-1;
+			border: 1px solid $color-gris-2;
+			text-align: center;
+			padding: 5px 10px;
+			display: block;
+		}
+		input[type=radio] {
+			display: none;
+		}
+	}
+	input[type=radio]:checked + span {
+		background-color: $color-gris-1;
+		border: 1px solid $color-gris-2;
+		color: $color-negro;
+	}
+	input[type=radio]:disabled + span,{
+		background: $color-gris-1;
+		border: 1px solid $color-gris-2;
+		color: $color-gris-2;
+		cursor: not-allowed;
+	}
+}
+
+
+
+
+/*  Complemento Checkbox buttom modificados
+	Estilo Switch
+
+	Ejemplo
+
+	<label class="switch">
+	  <input type="checkbox" checked>
+	  <div class="slider round"></div>
+	</label>
+
+--------------------------------------------------*/
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: $color-blanco;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: $color-boton-success;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px $color-boton-success;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+label.switch.disabled,.slide{
+	opacity: 0.5;
+	cursor: not-allowed !important;
+}
+.slide.disabled{
+	cursor: not-allowed;
+}
+
+
+
+/* ETIQUETAS TAGS
+-------------------------------------------------*/
+label.label-form-tags{
+	margin-top: 20px;
+}
+
+ul.tag{
+	display: inline-block;
+	font-family: inherit;
+	font-size: 12px;
+	line-height: $line-height-base;
+	color: $color-gris-4;
+	background-color: $color-blanco;
+	background-image: none;
+	border: 1px solid $color-gris-2;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 4px;
+	padding: 6px 12px;
+	width: 100%;
+	vertical-align: middle;
+	height: 45px;
+}
+ul.tag li {
+	display: block;
+	float: left;
+	margin: 2px 5px 2px 0;
+}
+
+ul.tag>li.tagit-choice{
+	display: block;
+	float: left;
+	margin: 2px 5px 2px 0;
+	padding: .2em 18px .2em .5em;
+	border-radius: 4px;
+	border: 1px solid $color-boton-borde-info;
+	background: none;
+	background-color: $color-boton-info;
+	font-weight: normal;
+	position: relative;
+}
+ul.tag li.tagit-choice .tagit-label:not(a) {
+	color: $color-boton-texto-info;
+}
+ul.tag li.tagit-choice .tagit-close {
+	right: .4em;
+	text-decoration: none;
+	cursor: pointer;
+	position: absolute;
+	right: .1em;
+	top: 50%;
+	margin-top: -8px;
+	line-height: 17px;
+	background: none;
+	padding: 0;
+	width: 10px;
+	display: block;
+}
+ul.tag li.tagit-choice .tagit-close:hover {
+	background: none;
+	padding: 0;
+	width: 10px;
+}
+ul.tag li.tagit-choice .tagit-close .text-icon {
+	display: inline;
+	font-size: $font-size-base;
+	line-height: $line-height-base;
+	color: $color-boton-texto-info;
+}
+ul.tag>li>input[type="text"]{
+	border: none;
+	width: inherit;
+	height: 26px;
+	font-size: $font-size-base;
+}
+
+
+/* FILE INPUT
+-------------------------------------------------*/
+.fileinput{
+	position: relative;
+	display: block;
+}
+
+.file-input{
+	display: block!important;
+	width: 100%!important;
+	height: 42px!important;
+	padding: 6px 12px!important;
+	color: $color-placeholder!important;
+	vertical-align: middle!important;
+	background-color: #fff!important;
+	border: 1px solid $color-lineas!important;
+	border-radius: 4px!important;
+	position: relative;
+	cursor: pointer;
+	overflow: hidden;
+	-webkit-transition: border-color ease-in-out .15s;
+	transition: border-color ease-in-out .15s;
+	line-height: 28px;
+	position: relative;
+}
+
+.file-filename{
+	color: $color-placeholder;
+	font-style: italic;
+	font-size: 14px;
+}
+
+.boton-file {
+	display: block;
+	position: absolute;
+	right: 8px;
+	top: -3px;
+	background: #fff;
+	white-space: nowrap;
+}
+.boton-file a.boton{
+	display: inline-block;
+	padding: 6px 12px;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+	user-select: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	width: auto;
+	margin-right: 5px;
+	height: 32px;
+	line-height: 18px;
+}
+
+.file-input>input[type="file"] {
+	visibility: hidden;
+	position: absolute;
+	display: block;
+	left: -10000px;
+}
+
+
+
+/* Modificaciones media
+-------------------------------------------------*/
+@media only screen and (min-width: 600px){
+	.grupo-input>label.grupo-input-label{
+		padding: 5px 15px;
+		border: 1px solid $color-lineas;
+		border-right: none;
+		border-radius: 4px 0 0 4px;
+		background: rgba(236, 238, 239, 0.5);
+		width: 20%;
+		height: 38px;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		float: left;
+	}
+
+	.grupo-input>input[type=text],
+	.grupo-input>input[type=password],
+	.grupo-input>input[type=email],
+	.grupo-input>input[type=url],
+	.grupo-input>input[type=date],
+	.grupo-input>input[type=month],
+	.grupo-input>input[type=time],
+	.grupo-input>input[type=datetime],
+	.grupo-input>input[type=datetime-local],
+	.grupo-input>input[type=week],
+	.grupo-input>input[type=number],
+	.grupo-input>input[type=search],
+	.grupo-input>input[type=tel],
+	.grupo-input>input[type=color]{
+		width: 80%;
+		float: left;
+		border-radius: 0 4px 4px 0;
+	}
+
+	.grupo-input>input[type=text].input-icon,
+	.grupo-input>input[type=password].input-icon,
+	.grupo-input>input[type=email].input-icon,
+	.grupo-input>input[type=url].input-icon,
+	.grupo-input>input[type=date].input-icon,
+	.grupo-input>input[type=month].input-icon,
+	.grupo-input>input[type=time].input-icon,
+	.grupo-input>input[type=datetime].input-icon,
+	.grupo-input>input[type=datetime-local].input-icon,
+	.grupo-input>input[type=week].input-icon,
+	.grupo-input>input[type=number].input-icon,
+	.grupo-input>input[type=search].input-icon,
+	.grupo-input>input[type=tel].input-icon,
+	.grupo-input>input[type=color].input-icon{
+		width: calc(100% - 50px);
+		float: left;
+		border-radius: 0 4px 4px 0;
+	}
+
+}

@@ -80,10 +80,10 @@
 											<div class="movil-12 pc-4">
 												<select name="posi">
 													<?php
-													foreach($posicion as $posi){
-														echo "<option value='" . $posi['posicion'] . "'>" . $posi['posicion'] . "</option>";
+													foreach($item as $u){
+														echo "<option value='" . $u['posicion'] . "'>" . $u['posicion'] . "</option>";
 													}
-													echo "<option value='" . ($posi['posicion'] + 1) . "'>" . ($posi['posicion'] + 1) . "</option>";
+													echo "<option value='" . ($u['posicion'] + 1) . "'>" . ($u['posicion'] + 1) . "</option>";
 													 ?>
 												</select>
 											</div>

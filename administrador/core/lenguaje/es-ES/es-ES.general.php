@@ -53,7 +53,7 @@ define("CAMPO_FORM_GRUPOUSER","Grupo de usuario");
 /* Títulos tablas */
 define("TITULO_LISTADO_ACCION","Acciones");
 define("TITULO_LISTADO_ID","Id");
-define("TITULO_LISTADO_TITULO","Título");
+define("TITULO_LISTADO_TITULO","Nombre");
 define("TITULO_LISTADO_VISTA","Vista");
 define("TITULO_LISTADO_LINK","Link");
 define("TITULO_LISTADO_POSICION","Posición");
@@ -61,8 +61,9 @@ define("TITULO_LISTADO_ESTADO","Estado");
 define("TITULO_LISTADO_OPCIONES","Opciones");
 define("TITULO_LISTADO_IMAGEN","Imagen");
 define("TITULO_LISTADO_FECHA","Fecha");
-define("TITULO_LISTADO_IMAIL","Imail");
-
+define("TITULO_LISTADO_IMAIL","Email");
+define("TITULO_LISTADO_CONTACTO","Contacto");
+define("TITULO_LISTADO_PAGINA","Páginas");
 
 //TITULOS SISTEMA
 define("TEX_ALERTAS","Alertas");
@@ -79,6 +80,13 @@ define("TEX_TIEMPOCARGA","Tiempo en cargar");
 define("TEX_ARTICULOS_MAS_VISITADOS","Artículos más visitados");
 define("TITULO_WIDGET_VISITAS","Visitas");
 
+//SISTEMA MENSAJES
+define("MENSAJES_API_NOSELECCION","No hay nada seleccionado.");
+define("MENSAJES_API_DATOSBORRADOSBIEN","Los datos se borraron correctamente.");
+define("MENSAJES_API_DATOSDESACTIVADOSBIEN","Los datos se borraron correctamente.");
+define("MENSAJES_CREADOBIEN","Bien!, se creo con exito.");
+define("MENSAJES_EDITOBIEN","Bien!, se edito con exito.");
+define("MENSAJES_ELIMINADOBIEN","Bien!, eliminado con exito.");
 
 //SISTEMA MENU
 define("TITULO_MENU","Menú");
@@ -256,5 +264,48 @@ define("TITULO_TRAFICO_ESTADISTICAOS","Estadísticas de sistemas operativos");
 define("TITULO_TRAFICO_ESTADISTICAPANTALLA","Estadísticas de ancho de pantalla");
 define("TITULO_TRAFICO_ESTADISTICAHOST","Estadísticas por nombre de host");
 
+
+// SISTEMA DE BANNERS
+define("TITULO_BANNERS","Banners");
+define("TITULO_CREAR_BANNERS","Crear nuevo banner");
+define("TITULO_LISTADO_BANNERS","Listado de banners");
+define("LABEL_NOMBRE_BANNERS","Nombre banner");
+define("LABEL_IMAGEN_BANNERS","Imagen del banner");
+define("LABEL_LINK_BANNERS","Link de redirección");
+define("LABEL_ANCHO_BANNERS","Ancho imagen");
+define("LABEL_ALTO_BANNERS","Alto imagen");
+define("LABEL_TEXTOALTERNATIVO_BANNERS","Texto alternativo");
+define("LABEL_TIPOACUERDO_BANNERS","Tipo de acuerdo");
+define("LABEL_ILIMITADO_BANNERS","Ilimitado");
+define("LABEL_ANUAL_BANNERS","Anual");
+define("LABEL_MENSUAL_BANNERS","Mensual");
+define("LABEL_TRIMESTRAL_BANNERS","Trimestral");
+define("LABEL_BIMESTRAL_BANNERS","Bimestral");
+define("LABEL_SEMANAL_BANNERS","Semanal");
+define("LABEL_DIARIO_BANNERS","Diario");
+define("LABEL_POSICION_BANNERS","Posición");
+define("LABEL_CLIENTE_BANNERS","Clientes");
+define("LABEL_INFORMEIMPRESION_BANNERS","Informe de impresión");
+define("LABEL_INFORMECLICK_BANNERS","Informe de clicks");
+define("LABEL_FECHAINICIO_BANNERS","Fecha inicio");
+define("LABEL_FECHAFIN_BANNERS","Fecha finalización");
+define("LABEL_FECHACREADO_BANNERS","Fecha de creación");
+define("LABEL_FECHAMODIFICADO_BANNERS","Fecha de modificación");
+
+// SISTEMA DE CLIENTES BANNERS
+define("TITULO_CLIENTES","Clientes");
+define("TITULO_LISTADO_CLIENTES","Listado de clientes");
+define("TITULO_CREAR_CLIENTES","Crear nuevo Cliente");
+define("LABEL_NOMBRE_CLIENTES","Nombre empresa");
+define("LABEL_CONTACTO_CLIENTES","Nombre del contacto");
+define("LABEL_MAIL_CLIENTES","Email del contacto");
+define("LABEL_TELE_CLIENTES","Teléfonos del contacto");
+
+// SISTEMA DE POSICION BANNERS
+define("TITULO_POSICIONES","Posición banners");
+define("TITULO_LISTADO_POSICIONES","Listado de pisiciones");
+define("TITULO_CREAR_POSICIONES","Crear nueva posición");
+define("LABEL_NOMBRE_POSICIONES","Nombre de la posicón");
+define("LABEL_PAGINAS_POSICIONES","Páginas en donde se verá");
 
 ?>

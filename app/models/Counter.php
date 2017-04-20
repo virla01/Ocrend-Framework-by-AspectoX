@@ -95,11 +95,11 @@ final class Counter extends Models implements OCREND {
 
 		$userBrowser = Array(
 			"Internet Explorer" => "MSIE",
-            "Chrome" => "Chrome",
+			"Chrome" => "Chrome",
 			"Firefox" => "Firefox",
 			"Safari" => "Safari",
 			"Opera" => "Opera",
-            "Edge" => "EDGE"
+			"Edge" => "EDGE"
 		);
 
 		$userScreen = Array(
@@ -108,9 +108,9 @@ final class Counter extends Models implements OCREND {
 			"1024 x 768" => "1024",
 			"1152 x 864" => "1152",
 			"1280 x 1024" => "1280",
-            "1280 x 720" => "1280",
-            "1768 x 992" => "1768",
-            "1920 x 1080" => "1920"
+			"1280 x 720" => "1280",
+			"1768 x 992" => "1768",
+			"1920 x 1080" => "1920"
 		);
 
 		$userColor = Array(
@@ -160,7 +160,7 @@ final class Counter extends Models implements OCREND {
 		}else{
 			$page = parse_url($pag);
 			$page_info = $page['path'];
-			//if($page['query'] != "")  $page_info .= "?" . $page['query'];
+			if($page['query'] != "")  $page_info .= "?" . $page['query'];
 		}
 
 		if(count($this->db->query("SELECT count FROM is_page WHERE page='" . $page['path'] . "'")) > 0){
@@ -174,7 +174,7 @@ final class Counter extends Models implements OCREND {
 		$check_ip = $check_ip->fetchAll();
 
 		if(isset($_COOKIE['is_visitor']) || $check_ip){
-			//exit();
+			//exit();//##################################################################
 		}
 
 		// remember visitor's ip address and using cookie remember him/her 12 hours
@@ -242,6 +242,7 @@ final class Counter extends Models implements OCREND {
 		/* update referer data: referer url, search engine and keyword */
 		$data = new Trafico;
 		$ref = str_replace("[i-Stats]", "&", addslashes($ref));
+
 		if( $data->isRef($ref, URL) && strstr($ref, ".")){
 			if(count($this->db->query("SELECT count FROM is_referer WHERE url='" . $ref . "'") > 0)){
 				$this->db->query("UPDATE is_referer SET count = count+'1' WHERE url='" . $ref . "'");
@@ -344,7 +345,7 @@ final class Counter extends Models implements OCREND {
 
 		// delete old data from is_last_visitor table
 		//$this->db->query("SELECT del_time:='time' FROM is_last_visitor ORDER BY time DESC LIMIT 9, 1;
-			//DELETE FROM is_last_visitor WHERE time < del_time;");
+		//DELETE FROM is_last_visitor WHERE time < del_time;");
 	}
 
 	public function __destruct() {

@@ -1,0 +1,34 @@
+/* banners */
+id
+nombre
+banner
+link
+ancho
+alto
+texto alternativo
+tipo de acuerdo
+pocicion
+cliente
+imptotal
+clicktotal
+informe de impreciones
+informe de clicks
+fecha inicio
+fecha de finalizacion
+fecha creacion
+fecha de modificacion
+publica
+parametros
+
+
+
+/* cliente */
+id
+nombre empresa
+nombre de contacto
+correo de contacto
+telefono del contacto
+publica
+
+
+0000-00-00 00:00:00

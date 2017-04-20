@@ -68,7 +68,7 @@
 
 	<?php
 		if (!isset($_SESSION[MENSAJES])){
-			echo $_SESSION[MENSAJES];
+			echo "<script>alertify.success('" . $_SESSION[MENSAJES] . "');</script>";
 		}
-
+		$_SESSION[MENSAJES]="";
 	?>

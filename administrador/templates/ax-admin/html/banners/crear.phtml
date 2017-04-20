@@ -1,0 +1,232 @@
+		<?= $this->insert('html/includes/header') ?>
+
+		<?= $this->insert('html/includes/barra') ?>
+
+		<?= $this->insert('html/includes/menu') ?>
+
+		<script src="<?= SITE_URL ?>/extras/tinymce/tinymce.min.js"></script>
+		<script type="text/javascript">
+			tinymce.init({
+				selector: '#texto',
+				theme: "modern",
+				theme: "modern",
+				height: 400,
+				plugins: [
+					 "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+					 "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking spellchecker",
+					 "table contextmenu directionality emoticons paste textcolor responsivefilemanager youtube codemirror"
+			   ],
+				relative_urls: false,
+				convert_urls: false,
+				browser_spellcheck : true,
+				//filemanager_crossdomain: true,
+				filemanager_title:"Explorador archivos media",
+				external_filemanager_path:"<?= SITE_URL ?>/extras/filemanager/",
+				external_plugins: { "filemanager" : "plugins/responsivefilemanager/plugin.min.js"},
+				codemirror: {
+					indentOnInit: true, // Whether or not to indent code on init.
+					path: 'CodeMirror'
+			   },
+			   image_advtab: true,
+			   toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+			   toolbar2: "| responsivefilemanager | image | media | link unlink anchor | print preview code | youtube | forecolor backcolor | pagebreak"
+
+			});
+		</script>
+
+		<div class="contenido-pagina clearfix" id="contenido-pagina">
+			<div class="contenido-pagina-wrapper">
+				<div class="contenido-pagina-inner">
+					<div id="header-pagina" class="clearfix">
+						<div class="header-pagina">
+							<h2><?= TITULO_BANNERS ?></h2>
+						</div>
+					</div>
+					<!-- Comienza contenido general del sitio -->
+					<div class="row">
+						<!-- Columna 01 -->
+						<div class="movil-12 pc-12">
+							<div class="panel color-bg-info">
+								<div class="panel-header">
+									<h4 class="panel-title">
+										<i class="fa fa-newspaper-o"></i>
+										<?= TITULO_CREAR_BANNERS ?>
+									</h4>
+									<div class="panel-controls panel-controls-right">
+										<span class="collapse-link">
+											<i class="fa fa-chevron-up"></i>
+										</span>
+										<span class="close-link">
+											<i class="fa fa-times"></i>
+										</span>
+									</div>
+								</div>
+								<div class="panel-body">
+									<form action="banners/banners/crear" method="post" role="form" enctype="multipart/form-data">
+										<div class="botonera">
+											<div class="form-grupo">
+												<button type="submit" class="boton success"><?= BOTON_ENVIAR ?><i class="fa fa-caret-right"></i></button>
+												<a href="banners" class="boton danger"><?= BOTON_CANCELAR ?><i class="fa fa-ban"></i></a>
+											</div>
+											<div class="form-grupo">
+												<label for="nom" class="movil-12 pc-3"><?= LABEL_NOMBRE_BANNERS ?><span class="marcador-rojo" title="<?= CAMPO_FORM_OBLIGATORIO ?>"> *</span></label>
+												<div class="movil-12 pc-9">
+													<input type="text" name="nom" id="nom" placeholder="<?= LABEL_NOMBRE_BANNERS ?>" required>
+												</div>
+											</div>
+											<div class="form-grupo">
+												<label class="movil-12 pc-3"><?= LABEL_IMAGEN_BANNERS ?></label>
+												<div class="fileinput movil-12 pc-9">
+													<input id="imagen" name="imagen" type="text" value="" class="file-input margin-bottom-normal" placeholder="<?= TEXTO_NOHAYARCHIVO_SELECCIONADO ?>">
+													<a href="javascript:open_popup('/a-diario/administracion/extras/filemanager/dialog.php?type=0&popup=1&field_id=imagen&relative_url=banner/')" class="boton boton-file info" type="button"><?= BOTON_SELECCIONAR ?></a>
+												</div>
+											</div>
+											<div class="form-grupo">
+												<label for="link" class="movil-12 pc-3"><?= LABEL_LINK_BANNERS ?></label>
+												<div class="movil-12 pc-9">
+													<input type="text" name="link" id="link" placeholder="<?= LABEL_LINK_BANNERS ?>" >
+												</div>
+											</div>
+											<div class="form-grupo">
+												<label for="ancho" class="movil-12 pc-3"><?= LABEL_ANCHO_BANNERS ?></label>
+												<div class="movil-12 pc-2">
+													<input type="text" name="ancho" id="ancho" placeholder="<?= LABEL_ANCHO_BANNERS ?>" >
+												</div>
+											</div>
+											<div class="form-grupo">
+												<label for="alto" class="movil-12 pc-3"><?= LABEL_ALTO_BANNERS ?></label>
+												<div class="movil-12 pc-2">
+													<input type="text" name="alto" id="alto" placeholder="<?= LABEL_ALTO_BANNERS ?>" >
+												</div>
+											</div>
+											<div class="form-grupo">
+												<label for="texalter" class="movil-12 pc-3"><?= LABEL_TEXTOALTERNATIVO_BANNERS ?></label>
+												<div class="movil-12 pc-9">
+													<input type="text" name="texalter" id="texalter" placeholder="<?= LABEL_TEXTOALTERNATIVO_BANNERS ?>" >
+												</div>
+											</div>
+											<div class="form-grupo">
+												<label class="movil-12 pc-3"><?= LABEL_TIPOACUERDO_BANNERS ?></label>
+												<div class="movil-12 pc-9">
+													<select id="tipoacuerdo" name="tipoacuerdo" class="custom-select">
+														<option value="0" selected="selected"><?= TEXTO_SELECCIONAR_OPCION ?></option>
+														<option value="1"><?= LABEL_ILIMITADO_BANNERS ?></option>
+														<option value="2"><?= LABEL_ANUAL_BANNERS ?></option>
+														<option value="3"><?= LABEL_MENSUAL_BANNERS ?></option>
+														<option value="4"><?= LABEL_TRIMESTRAL_BANNERS ?></option>
+														<option value="5"><?= LABEL_BIMESTRAL_BANNERS ?></option>
+														<option value="6"><?= LABEL_SEMANAL_BANNERS ?></option>
+														<option value="7"><?= LABEL_DIARIO_BANNERS ?></option>
+													</select>
+												</div>
+											</div>
+											<div class="form-grupo">
+												<label class="movil-12 pc-3"><?= LABEL_POSICION_BANNERS ?></label>
+												<div class="movil-12 pc-9">
+													<select id="posicion" name="posicion" class="custom-select">
+														<option value="0" selected="selected"><?= TEXTO_SELECCIONAR_OPCION ?></option>
+														<?php foreach($item2 as $u):?>
+															<option value="<?= $u['id'] ?>"><?= $u['nombre'] ?></option>
+														<?php endforeach?>
+													</select>
+												</div>
+											</div>
+											<div class="form-grupo">
+												<label class="movil-12 pc-3"><?= LABEL_CLIENTE_BANNERS ?></label>
+												<div class="movil-12 pc-9">
+													<select id="cliente" name="cliente" class="custom-select">
+														<option value="0" selected="selected"><?= TEXTO_SELECCIONAR_OPCION ?></option>
+														<?php foreach($item as $u):?>
+															<option value="<?= $u['id'] ?>"><?= $u['empresa'] ?></option>
+														<?php endforeach?>
+													</select>
+												</div>
+											</div>
+											<div class="form-grupo">
+												<label class="movil-12 pc-3"><?= LABEL_INFORMEIMPRESION_BANNERS ?></label>
+												<div class="movil-12 pc-9">
+													<div class="botonSiNo">
+														<label class="on">
+															<input type="radio" name="infototal" value="s">
+															<span><?= BOTON_SI ?></span>
+														</label>
+														<label class="off">
+															<input type="radio" name="infototal" value="n" checked>
+															<span><?= BOTON_NO ?></span>
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="form-grupo">
+												<label class="movil-12 pc-3"><?= LABEL_INFORMECLICK_BANNERS ?></label>
+												<div class="movil-12 pc-9">
+													<div class="botonSiNo">
+														<label class="on">
+															<input type="radio" name="infoclick" value="s">
+															<span><?= BOTON_SI ?></span>
+														</label>
+														<label class="off">
+															<input type="radio" name="infoclick" value="n" checked>
+															<span><?= BOTON_NO ?></span>
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="form-grupo">
+												<label for="fecha_creado" class="movil-12 pc-3"><?= LABEL_FECHACREADO_BANNERS ?></label>
+												<div class="movil-12 pc-9">
+													<input type="date" name="fecha_creado" id="fecha_creado" disabled>
+												</div>
+											</div>
+											<div class="form-grupo">
+												<label for="fecha_inicio" class="movil-12 pc-3"><?= LABEL_FECHAINICIO_BANNERS ?></label>
+												<div class="movil-12 pc-9">
+													<input type="date" name="fecha_inicio" id="fecha_inicio">
+												</div>
+											</div>
+											<div class="form-grupo">
+												<label for="fecha_final" class="movil-12 pc-3"><?= LABEL_FECHAFIN_BANNERS ?></label>
+												<div class="movil-12 pc-9">
+													<input type="date" name="fecha_final" id="fecha_final">
+												</div>
+											</div>
+											<div class="form-grupo">
+												<label for="fecha_modifica" class="movil-12 pc-3"><?= LABEL_FECHAMODIFICADO_BANNERS ?></label>
+												<div class="movil-12 pc-9">
+													<input type="date" name="fecha_modifica" id="fecha_modifica" disabled>
+												</div>
+											</div>
+											<div class="form-grupo">
+												<label for="publica" class="movil-12 pc-3"><?= CAMPO_FORM_ACTIVAR ?></label>
+												<div class="movil-12 pc-9">
+													<input type="checkbox" name="publica" value="0">
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Finaliza contenido general del sitio -->
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- FINALIZA EL WRAPPER -->
+
+	<script>
+		function open_popup(url){
+			var w = 880;
+			var h = 570;
+			var l = Math.floor((screen.width-w)/2);
+			var t = Math.floor((screen.height-h)/2);
+			var win = window.open(url, 'Explorador archivos multimedia', "scrollbars=1,width=" + w + ",height=" + h + ",top=" + t + ",left=" + l);
+		}
+	</script>
+
+	<?= $this->insert('html/includes/include') ?>
+
+
+	<?= $this->insert('html/includes/footer') ?>

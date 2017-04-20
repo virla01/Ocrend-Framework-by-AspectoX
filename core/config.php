@@ -57,10 +57,10 @@ define('__ROOT__', '/Ocrend-Framework-by-AspectoX/');
 
 # Constantes fundamentales
 define('URL', 'http://localhost/Ocrend-Framework-by-AspectoX/');
-define('APP', 'Ocrend Framework');
+define('APP', 'Ocrend Framework by AspectoX');
 
 # define el nombre del template
-define('TEMPLATE_NAME_SITE', 'plates');
+define('TEMPLATE_NAME_SITE', 'ax-theme');
 
 define('PATH_TEMPLATE', URL . 'templates/'. TEMPLATE_NAME_SITE);
 
@@ -100,7 +100,7 @@ define('FIREWALL', true);
 //------------------------------------------------
 
 # Activación del DEBUG, solo para desarrollo
-define('DEBUG', true);
+define('DEBUG', false);
 
 //------------------------------------------------
 

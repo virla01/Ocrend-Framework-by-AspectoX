@@ -23,10 +23,10 @@ $app->post('/example4',function($request, $response){
 */
 $app->post('/register',function($request, $response){
 
-  $reg = new Register;
-  $response->withJson($reg->SignUp($_POST));
+	$reg = new Register;
+	$response->withJson($reg->SignUp($_POST));
 
-  return $response;
+	return $response;
 });
 
 //------------------------------------------------
@@ -37,10 +37,10 @@ $app->post('/register',function($request, $response){
 */
 $app->post('/login',function($request, $response) {
 
-  $login = new Login;
-  $response->withJson($login->SignIn($_POST));
+	$login = new Login;
+	$response->withJson($login->SignIn($_POST));
 
-  return $response;
+	return $response;
 });
 
 //------------------------------------------------

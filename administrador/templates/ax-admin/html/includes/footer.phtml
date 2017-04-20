@@ -1,8 +1,8 @@
 			<?php
 				$art = new Users;
 				$a = $art->get_users_connect();
-				$visita = new Visitas;
-				$vis = $visita->countStats(); // show result from database . query-ing.
+				$data = new Trafico;
+				$trafic = $data->CountDays(); // show result from database . query-ing.
 			?>
 
 			<footer>
@@ -13,7 +13,7 @@
 					</a>
 				</div>
 				<div class="grupo">
-					<span class="burbuja"><?= $vis ?></span>
+					<span class="burbuja"><?= $trafic['today']?></span>
 					<?= TEX_VISITANTES ?>
 					<span class="separador"></span>
 				</div>

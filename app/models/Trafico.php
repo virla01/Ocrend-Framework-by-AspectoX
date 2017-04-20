@@ -451,19 +451,19 @@ final class Trafico extends Models implements OCREND {
 		return $l_visitor;
 	}
 
-    public function getUrl(){
-        $ref = $this->db->query("SELECT * FROM is_referer ORDER BY count DESC LIMIT 50");
+	public function getUrl(){
+		$ref = $this->db->query("SELECT * FROM is_referer ORDER BY count DESC LIMIT 50");
 		$ref = $ref->fetchAll();
-        $sum = $this->db->query("SELECT sum(count) AS sum FROM is_referer");
+		$sum = $this->db->query("SELECT sum(count) AS sum FROM is_referer");
 		$sum = $sum->fetchAll();
-        $max = $this->db->query("SELECT max(count) AS max FROM is_referer");
+		$max = $this->db->query("SELECT max(count) AS max FROM is_referer");
 		$max = $max->fetchAll();
-        $report = self::PrintStats($sum[0]["sum"], $max[0]["max"], $ref, sizeof($ref), 350);
+		$report = self::PrintStats($sum[0]["sum"], $max[0]["max"], $ref, sizeof($ref), 350);
 		return [
 			'ref' => $ref,
 			'report' => $report
 		];
-    }
+	}
 
 	public function dayInfo(){
 		$day_info = $this->db->query("SELECT date , daycount FROM is_daycount ORDER BY date DESC LIMIT 30");
@@ -471,17 +471,17 @@ final class Trafico extends Models implements OCREND {
 		//return $day_info;
 	}
 
-    public function visitHour(){
-        $hour = $this->db->query("SELECT * FROM is_hour ORDER BY hour");
-        $hour = $hour->fetchAll();
-        return $hour;
-    }
+	public function visitHour(){
+		$hour = $this->db->query("SELECT * FROM is_hour ORDER BY hour");
+		$hour = $hour->fetchAll();
+		return $hour;
+	}
 
-    public function sum_visitHour(){
-        $sum = $this->db->query("SELECT sum(count) AS sum FROM is_hour");
-        $sum = $sum->fetchAll();
-        return $sum;
-    }
+	public function sum_visitHour(){
+		$sum = $this->db->query("SELECT sum(count) AS sum FROM is_hour");
+		$sum = $sum->fetchAll();
+		return $sum;
+	}
 
 	public function weekday(){
 		$week_day = $this->db->query("SELECT * FROM is_week_days ORDER BY day");

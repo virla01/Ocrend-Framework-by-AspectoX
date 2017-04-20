@@ -17,20 +17,20 @@ define('ROOT_DIR', IS_API ? '../' : '');
 
 # Autoloader de elementos en el Kernel
 function __kernel_autoload(string $exec) {
-  $exec = ROOT_DIR . 'core/kernel/'. $exec .'.php';
-  if(is_readable($exec)) {
-    require($exec);
-  }
+	$exec = ROOT_DIR . 'core/kernel/'. $exec .'.php';
+	if(is_readable($exec)) {
+		require($exec);
+	}
 }
 
 //------------------------------------------------
 
 # Autoloader de modelos
 function __models_autoload(string $model) {
-  $model = ROOT_DIR . 'app/models/'. $model .'.php';
-  if(is_readable($model)) {
-    require_once($model);
-  }
+	$model = ROOT_DIR . 'app/models/'. $model .'.php';
+	if(is_readable($model)) {
+		require_once($model);
+	}
 }
 
 ?>

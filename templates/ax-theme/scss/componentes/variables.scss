@@ -1,0 +1,99 @@
+// VARIABLES
+// Colores
+$color-negro:			#3D444B !default;
+$color-blanco:			#fff !default;
+
+$color-lineas:			rgba(0,0,0,0.2) !default;
+$color-bg-panel:        rgba($color-lineas,0.5);
+$color-texto-gris:		#737373 !default;
+
+$color-01:				#298BCB !default;
+$color-02:				#F7AA47 !default;
+$color-03:				#C4C5C5 !default;
+$color-04:				#C2274A !default;
+
+$color-gris-1:			#f2f2f2 !default;
+$color-gris-2:			#d9d9d9 !default;
+$color-gris-3:			#b3b3b3 !default;
+$color-gris-4:			#737373 !default;
+$color-gris-5:			#4d4d4d !default;
+
+$brand-primary:         #337ab7 !default;
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+
+/* BOTONES */
+$color-boton-default                    :      $color-gris-2;
+$color-boton-borde-default              :      $color-gris-2;
+$color-boton-texto-default              :      $color-negro;
+$color-boton-default-hover              :      rgba($color-gris-4, 0.2);
+$color-boton-borde-default-hover        :      rgba($color-gris-4, 0.5);
+
+$color-boton-primary                    :      #337ab7 !default;
+$color-boton-borde-primary              :      #2e6da4 !default;
+$color-boton-texto_primary              :      $color-blanco !default;
+$color-boton-primary-hover              :      #286090 !default;
+$color-boton-borde-primary-hover        :      #204d74 !default;
+
+$color-boton-success                    :      #5cb85c !default;
+$color-boton-texto-success              :      $color-blanco !default;
+$color-boton-borde-success              :      #4cae4c !default;
+$color-boton-success-hover              :      #398439 !default;
+$color-boton-borde-success-hover        :      #255625 !default;
+
+$color-boton-info                    	:      #5bc0de !default;
+$color-boton-texto-info              	:      $color-blanco !default;
+$color-boton-borde-info              	:      #46b8da !default;
+$color-boton-info-hover              	:      #31b0d5 !default;
+$color-boton-borde-info-hover        	:      #269abc !default;
+
+$color-boton-warning                   	:      #f0ad4e !default;
+$color-boton-texto-warning             	:      $color-blanco !default;
+$color-boton-borde-warning             	:      #eea236 !default;
+$color-boton-warning-hover             	:      #ec971f !default;
+$color-boton-borde-warning-hover       	:      #d58512 !default;
+
+$color-boton-danger                     :      #d9534f !default;
+$color-boton-texto-danger               :      $color-blanco !default;
+$color-boton-borde-danger               :      #d43f3a !default;
+$color-boton-danger-hover               :      #c9302c !default;
+$color-boton-borde-danger-hover         :      #ac2925 !default;
+
+$color-borde-activo-foco                :      rgba(#298BCB,0.3) !default;
+$color-placeholder                      :      #c2c2c2;
+
+$body-bg:               #fff !default;
+$text-color:            $color-negro !default;
+
+//Links
+$link-color:            $brand-primary !default;
+$link-hover-color:      darken($link-color, 15%) !default;
+$link-hover-decoration: underline !default;
+
+
+//Typography
+$font-family:			'Lato', sans-serif !default;
+$font-family-monospace:	Menlo, Monaco, Consolas, "Courier New", monospace !default;
+
+
+$font-size-base:        16px !default;
+
+$font-size-h1:          2.25em !default; // 36px
+$font-size-h2:          1.875em !default; // 30px
+$font-size-h3:          1.5em !default; // 24px
+$font-size-h4:          1.25em !default; // 20px
+$font-size-h5:          1.125em !default; // 18px
+$font-size-h6:          0.875em !default; // 14px
+
+
+$line-height-base:      1.5 !default; // 20/14
+
+$line-height-computed:  floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+$espacio-normal      : 15px !default;
+$espacio-chico       : 10px !default;
+$espacio-grande      : 20px !default;
+$espacio-extragrande : 30px !default;
+

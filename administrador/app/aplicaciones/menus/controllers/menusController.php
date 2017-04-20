@@ -21,9 +21,9 @@ class menusController extends Controllers {
 				if($_POST){
 					$obj->crear();
 				}else{
-					$posicion = $obj->get_position_menues();
+					$item = $obj->get_position_menues();
 					echo $this->template->render('html/menus/crear', array(
-						'posicion' => $posicion
+						'item' => $item
 					));
 				}
 				break;
@@ -33,9 +33,9 @@ class menusController extends Controllers {
 				  if($_POST){
 					  $obj->editar();
 				  }else{
-					  $menus = $obj->get_menu();
+					  $item = $obj->get_menu();
 					  echo $this->template->render('html/menus/editar', array(
-						  'men' => array('me' => $menus)
+						  'men' => array('me' => $item)
 					  ));
 				  }
 				}else{
@@ -52,9 +52,9 @@ class menusController extends Controllers {
 				break;
 
 			default:
-				$menus = $obj->get_menues_lista();
+				$item = $obj->get_menues_lista();
 				echo $this->template->render('html/menus/menus', array(
-					'menus' => $menus
+					'item' => $item
 				));
 				break;
 		}

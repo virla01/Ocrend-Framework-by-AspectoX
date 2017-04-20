@@ -1,0 +1,27 @@
+		<footer>
+			<div class="movil-4"></div>
+			<div class="movil-4 center">
+				<span class="texto_footer">Framework</span>
+				<a href="http://framework.ocrend.com/" target="_blank"><img src="<?= PATH_TEMPLATE ?>/images/logo-ocrend.png" alt="AspectoX" class="logo-footer"></a>
+			</div>
+			<div class="movil-4 center">
+				<span class="copyright">Diseño y programación</span>
+				<a href="http://aspectox.esy.es" target="_blank"><img src="<?= PATH_TEMPLATE ?>/images/Logo-Isotipo-final.png" alt="AspectoX" class="logo-footer"></a>
+			</div>
+		</footer>
+
+		<script language="Javascript">
+			function replaceText(text){
+				while(text.lastIndexOf("&") > 0){
+					text = text.replace('&', '[i-Stats]');
+				}
+				return text;
+			}
+
+			var web_referrer = replaceText(document.referrer);
+			<!--
+			img = new Image(1,1);
+			img.src = "counter/?sw=" + screen.width + "&sc=" + screen.colorDepth + "&page=" + location.href + "&referer=" + web_referrer;
+			console.log(img.src);
+			//-->
+		</script>

@@ -5,8 +5,8 @@
 </FilesMatch>
 
 <Files .htaccess>
-Order allow,deny
-Deny from all
+	Order allow,deny
+	Deny from all
 </Files>
 
 RewriteEngine On

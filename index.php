@@ -21,6 +21,7 @@ require('core/app_core.php');
 
 # Detección del controlador actual
 $Controller = $router->getController();
+
 $apli = str_replace('Controller', '', $Controller);
 $aplicacion = "";
 
@@ -28,21 +29,16 @@ $aplicacion = "";
 
 # Identificación del controlador en el sistema
 if(is_readable('app/aplicaciones/' . $apli . '/controllers/' . $Controller . '.php')) {
-  $aplicacion = 'app/aplicaciones/' . $apli . '/controllers/' . $Controller . '.php';
+	$aplicacion = 'app/aplicaciones/' . $apli . '/controllers/' . $Controller . '.php';
 }
 
-$msg = $apli . ' | ' . $aplicacion;
-echo $msg;
-$msg = str_replace('"', '\\"', $msg);
-echo "<script>console.log(\"$msg\")</script>";
-
 if(!$aplicacion){
-  if(!is_readable('app/aplicaciones/controllers/' . $Controller . '.php')) {
-    $Controller = 'errorController';
-  }
-  require('app/aplicaciones/controllers/' . $Controller . '.php');
+	if(!is_readable('app/aplicaciones/controllers/' . $Controller . '.php')) {
+		$Controller = 'errorController';
+	}
+	require('app/aplicaciones/controllers/' . $Controller . '.php');
 }else{
-  require($aplicacion);
+	require($aplicacion);
 }
 
 new $Controller;

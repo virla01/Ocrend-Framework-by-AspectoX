@@ -92,8 +92,8 @@
 												</tr>
 											</thead>
 											<tbody>
-												<?php if (is_array($articulos)): ?>
-													<?php foreach($articulos as $u):?>
+												<?php if (is_array($item)): ?>
+													<?php foreach($item as $u):?>
 														<tr>
 															<td>
 																<input type="checkbox" name="articulo_id[]" value="<?= $u['id'] ?>">
@@ -109,7 +109,7 @@
 															</td>
 															<td>
 																<center>
-																	<?php if($u['publicar'] == 1):?>
+																	<?php if($u['publica'] == 1):?>
 																		<i class="fa fa-check-square-o" aria-hidden="true"></i>
 																	<?php else: ?>
 																		<i class="fa fa-square-o" aria-hidden="true"></i>
@@ -141,7 +141,7 @@
 	<!-- FINALIZA EL WRAPPER -->
 
 
-	<?= $this->insert('html/includes/inlcude') ?>
+	<?= $this->insert('html/includes/include') ?>
 
 
 	<?= $this->insert('html/includes/footer') ?>
