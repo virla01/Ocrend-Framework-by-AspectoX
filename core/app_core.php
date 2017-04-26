@@ -29,6 +29,7 @@ require('core/config.php');
 require('core/kernel/Ocrend.php');
 require('vendor/autoload.php');
 
+
 //------------------------------------------------
 
 # Test de velocidad de el Debug

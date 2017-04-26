@@ -1,23 +1,26 @@
 {
-    "name": "ocrend/ocrend-framework",
-    "type": "project",
-    "description": "Ocrend Framework",
-    "keywords": ["ocrend","framework","php","mvc"],
-    "homepage": "http://framework.ocrend.com",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Brayan Narvaez",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-      "league/plates": "^3.1",
-      "phpmailer/phpmailer": "^5.2",
-      "slim/slim": "^3.4",
-      "league/oauth2-google": "^1.0",
-        "paypal/rest-api-sdk-php": "*",
-        "raveren/kint": "^1.0",
-        "twig/twig": "^2.0"
-    }
+	"name": "ocrend/ocrend-framework",
+	"type": "project",
+	"description": "Ocrend Framework",
+	"keywords": ["ocrend","framework","php","mvc"],
+	"homepage": "http://framework.ocrend.com",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Brayan Narvaez",
+			"role": "Developer"
+		}
+	],
+	"require": {
+	  "league/plates": "^3.1",
+	  "phpmailer/phpmailer": "^5.2",
+	  "slim/slim": "^3.4",
+	  "league/oauth2-google": "^1.0",
+		"paypal/rest-api-sdk-php": "*",
+		"raveren/kint": "^1.0",
+		"twig/twig": "^2.0",
+		"facebook/graph-sdk": "^5.5",
+		"abraham/twitteroauth": "^0.7.2",
+		"google/apiclient": "^2.1"
+	}
 }

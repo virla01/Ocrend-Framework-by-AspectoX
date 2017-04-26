@@ -4273,6 +4273,10 @@ ul.tag > li > input[type="text"] {
   background: #E52D27;
   color: #fff; }
 
+.google_pus {
+  background: #d34836;
+  color: #fff; }
+
 .img-responsive {
   display: block;
   max-width: 100%;
@@ -4341,7 +4345,8 @@ ul.tag > li > input[type="text"] {
   padding: 0 15px; }
 
 .row {
-  width: 100%; }
+  width: 100%;
+  margin: 15px 0; }
 
 .clearfix:before, .clearfix:after,
 .contenedor:after, .contenedor:before,

@@ -1,0 +1,27 @@
+<?php
+use Abraham\TwitterOAuth\TwitterOAuth;
+
+if (!isset($_SESSION['access_token_twitter'])) {
+	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
+	$request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => OAUTH_CALLBACK));
+	$_SESSION['oauth_token'] = $request_token['oauth_token'];
+	$_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
+	$url = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
+	echo '<a href="' . $url . '" class="boton-social-grande twitter"><i class="fa fa-twitter" aria-hidden="true"></i> | Login en twitter</a>';
+} else {
+	$access_token = $_SESSION['access_token'];
+	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
+	$user = $connection->get("account/verify_credentials");
+
+	$twitter_user  = '<div class="twitter margin-bottom-normal">';
+	$twitter_user .= '<h5 class="twitter">Twitter</h5>';
+	$twitter_user .= '<img src="' . $user->profile_image_url . '" class="imagen_social">';
+	$twitter_user .= '<span>Name : ' . $user->name . '<span>';
+	$twitter_user .= '<br><br>';
+	$twitter_user .= '<a href="https://twitter.com/' . $user->screen_name .'" target="_blank" class="boton-social-grande twitter margin-top-normal"><i class="fa fa-twitter" aria-hidden="true"></i> | Página de twitter</a>';
+	$twitter_user .= '<a href="logout/" class="boton primary">Logout</a>';
+	$twitter_user .= '</div>';
+
+	echo $twitter_user;
+}
+?>

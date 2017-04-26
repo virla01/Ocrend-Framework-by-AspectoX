@@ -11,4 +11,6 @@ return array(
     'RandomLib' => array($vendorDir . '/ircmaxell/random-lib/lib'),
     'Pimple' => array($vendorDir . '/pimple/pimple/src'),
     'PayPal' => array($vendorDir . '/paypal/rest-api-sdk-php/lib'),
+    'Google_Service_' => array($vendorDir . '/google/apiclient-services/src'),
+    'Google_' => array($vendorDir . '/google/apiclient/src'),
 );

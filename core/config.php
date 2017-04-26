@@ -112,25 +112,30 @@ define('USE_TWIG_TEMPLATE_ENGINE', false);
 # Versión actual del framework
 define('VERSION', '1.2');
 
+//------------------------------------------------
 
-/**
-* Configuración del trafico en el sitio
-*/
+# Facebook SDK
+define('AUTH_ID','637091439826137');
+define('AUTH_SECRET','6b31d8b817829706f026e5a1eb2ecf33');
+define('REDIRECT_URL','http://localhost/Ocrend-Framework-by-AspectoX/');
+
+# Twitter SDK
+define('CONSUMER_KEY', 'c4IApZzuMY3fu7Yq7zF3qhVoO'); // add your app consumer key between single quotes
+define('CONSUMER_SECRET', 'jijvNxNkfEVWynDAQQ7CWrL9nJLZrs6YpthK1eZUBOb8SUeKNh'); // add your app consumer secret key between single quotes
+define('OAUTH_CALLBACK', 'http://127.0.0.1/Ocrend-Framework-by-AspectoX/process/'); // your app callback URL
+
+# Goolge SDK
+define('CLIENT_ID','1056394572010-b95674mgrprtikj8bacmh0mm8sjfcaet.apps.googleusercontent.com');
+define('CLIENT_SECRET','fFLKzr1p07Dy_IHXsfK2zOeF');
+define('URL_REDIRECT','http://localhost/Ocrend-Framework-by-AspectoX/');
+
+//------------------------------------------------
+
+# Configuración del trafico en el sitio
 $cfg['sitename'] = APP;
-// Lista todas las URL posibles aquí
 $cfg['siteurl'][] = URL;
 $cfg['siteurl'][] = URL;
-
-/**
-  * Define las opciones del contador de páginas
-  * @example Fulladd: url con variables _GET, como index.php? Action = make
-  * @example Filename: cuenta con nombre de archivo solamente, como index.php o article.php
-  * @example Título: título html (no se sugiere para el sitio web de alto rendimiento)
-  * @example DEFAULT: 'fulladd'
-*/
 $cfg['pagestats'] = "Filename";
-
-# Establecer el permiso para tus estadísticas
-// Cambia a FALSE si no quieres publicar tus estadísticas
 $cfg['public'] = True;
+
 ?>

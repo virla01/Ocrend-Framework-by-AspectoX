@@ -1,28 +1,35 @@
 				<div class="contenedor-full margin-bottom-extragrande">
 					<!-- Columna 01 -->
-					<div class="movil-9 relative">
-						<div class="row">
-							<img src="<?= PATH_TEMPLATE ?>/images/iso-ocrend.png" alt="Ocrend Framework" class="imagen-left">
-							<h3>Ocrend Framework</h3>
-							<p>Es un framework sencillo escrito en PHP 7 que utiliza la arquitectura MVC como base de su aplicación en el desarrollo web, adicionalmente pretende acelerar el proceso de desarrollo con unas cuantas herramientas. La curva de aprendizaje es bastante baja, el concepto del framework es ofrecer una arquitectura de sencillo manejo.</p>
-							<p>Podes descargar de aquí <a href="http://framework.ocrend.com/" target="_blank">Ocrend Framework</a></p>
-							<div class="lineasepara"></div>
-							<img src="<?= PATH_TEMPLATE ?>/images/iso-ax-admin.png" alt="" class="imagen-left">
-							<h3>Ax-Admin</h3>
-							<p><b>Administador del software Ocrend Framework</b></p>
-							<p>El administrador cuenta con muchas aplicaciones listas para ser utilizadas, y para la administración de su sitio web.</p>
-							<p>Una de las aplicaciones es un sistema de trafico de su sitio, el manejo de usuarios, la creación de elementos en el menú, entre otras cosas más.</p>
-							<p>Descargalo con el administrador incluido desde <a href="https://github.com/virla01/Ocrend-Framework-by-AspectoX" target="_blank">Github</a></p>
+					<div class="movil-12 pc-9 relative">
+						<div class="movil-12 pc-6">
+							<div class="row">
+								<img src="<?= PATH_TEMPLATE ?>/images/iso-ocrend.png" alt="Ocrend Framework" class="imagen-left">
+								<h3>Ocrend Framework</h3>
+								<p>Es un framework sencillo escrito en PHP 7 que utiliza la arquitectura MVC como base de su aplicación en el desarrollo web, adicionalmente pretende acelerar el proceso de desarrollo con unas cuantas herramientas. La curva de aprendizaje es bastante baja, el concepto del framework es ofrecer una arquitectura de sencillo manejo.</p>
+								<p>Podes descargar de aquí <a href="http://framework.ocrend.com/" target="_blank">Ocrend Framework</a></p>
+							</div>
+						</div>
+						<div class="movil-12 pc-6">
+							<div class="row">
+								<img src="<?= PATH_TEMPLATE ?>/images/iso-ax-admin.png" alt="" class="imagen-left">
+								<h3>Ax-Admin</h3>
+								<p><b>Administador del software Ocrend Framework</b></p>
+								<p>El administrador cuenta con muchas aplicaciones listas para ser utilizadas, y para la administración de su sitio web.</p>
+								<p>Una de las aplicaciones es un sistema de trafico de su sitio, el manejo de usuarios, la creación de elementos en el menú, entre otras cosas más.</p>
+								<p>Descargalo con el administrador incluido desde <a href="https://github.com/virla01/Ocrend-Framework-by-AspectoX" target="_blank">Github</a></p>
+							</div>
 						</div>
 					</div>
 					<!-- Fin Columna 01 -->
 
 					<!-- Columna 02 -->
-					<div class="movil-3 col-conlinea">
+					<div class="movil-12 pc-3 col-conlinea">
 						<div class="row">
-							<div class="">
-								<h3 class="titulo">Prueba</h3>
-							</div>
+							<?php
+							$this->insert('html/login/login_facebook');
+							$this->insert('html/login/login_twitter');
+							$this->insert('html/login/login_google');
+							?>
 						</div>
 					</div>
 					<!-- Fin Columna 02 -->

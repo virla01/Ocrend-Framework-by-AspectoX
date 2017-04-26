@@ -1,0 +1,66 @@
+<?php
+
+$client = new Google_Client();
+
+$guzzleClient = new \GuzzleHttp\Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => false, ), ));
+$client->setHttpClient($guzzleClient);
+
+$client->setClientId(CLIENT_ID);
+$client->setClientSecret(CLIENT_SECRET);
+$client->setRedirectUri(URL_REDIRECT);
+$client->addScope("email");
+$client->addScope("profile");
+
+$service = new Google_Service_Oauth2($client);
+
+if (isset($_GET['code'])) {
+	$client->authenticate($_GET['code']);
+	$_SESSION['access_token_google'] = $client->getAccessToken();
+	header('Location: ' . filter_var(URL_REDIRECT, FILTER_SANITIZE_URL));
+	exit;
+}
+
+if (isset($_SESSION['access_token_google']) && $_SESSION['access_token_google']) {
+  $client->setAccessToken($_SESSION['access_token_google']);
+} else {
+  $authUrl = $client->createAuthUrl();
+}
+
+if (isset($authUrl)){
+
+	echo '<a href="' . $authUrl . '" class="boton-social-grande google_pus"><i class="fa fa-google-plus" aria-hidden="true"></i> | Login en google+</a>';
+
+} else {
+
+	$user = $service->userinfo->get(); //get user info
+
+	$google_user = new Users();
+
+	//Insert or update user data to the database
+	$gpUserData = array(
+		'oauth_provider'=> 'google',
+		'oauth_uid'     => $user['id'],
+		'first_name'    => $user['given_name'],
+		'last_name'     => $user['family_name'],
+		'email'         => $user['email'],
+		'gender'        => $user['gender'],
+		'locale'        => $user['locale'],
+		'picture'       => $user['picture'],
+		'link'          => $user['link']
+	);
+	$userData = $google_user->checkUser($gpUserData);
+
+	//show user picture
+	$google_user  = '<div class="google_pus margin-bottom-normal">';
+	$google_user .= '<h5 class="google_pus">Google+</h5>';
+	$google_user .= '<img src="' . $user->picture . '" class="imagen_social">';
+	$google_user .= '<span>Name : ' . $user->name . '</span>';
+	$google_user .= '<span>Email : ' . $user->email . '</span>';
+	$google_user .= '<a href="' . $user->link . '" target="_blank" class="boton-social-grande google_pus margin-top-normal"><i class="fa fa-google-plus" aria-hidden="true"></i> | Google+ Page</a>';
+	$google_user .= '<a href="logout/" class="boton primary">Logout</a>';
+	$google_user .= '</div>';
+
+	echo $google_user;
+}
+
+?>
